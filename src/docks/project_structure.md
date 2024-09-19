@@ -1,3 +1,6 @@
+# Component schema
+[Component schema ](https://docs.google.com/spreadsheets/d/12BHH5FpAXDHBYHgAaheHsulIyUuop1CBw8tNG1xPyqY/edit?gid=441764757#gid=441764757)
+
 # Pages (front-website address, not the back-end controller endpoints):
 
     - homepage (/)
@@ -17,9 +20,10 @@
 
   - _1st line:_
     - logo = homepage link (sticked left)
-    - active station (when nothing active = null (nothing))
+    - active played station (when nothing active = null (nothing))
       - favicon
       - play/pause
+      - volume
       - name
     - profile link (unauthorized = "login/register") (sticked right)
       - icon-profile
@@ -29,9 +33,9 @@
       - Top stations:
         - Top clicks
         - Top votes
-      - Tag (generated values from \*.ts file): automatic filter setup every genre adding
       - Country (generated values from \*.ts file): automatic filter setup every genre adding
       - Language (generated values from \*.ts file): automatic filter setup every genre adding
+      - Tag (generated values from \*.ts file): automatic filter setup every genre adding
     - search input (sticked right)
 
 - **body**
