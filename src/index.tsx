@@ -21,9 +21,6 @@ root.render(
         {/* маршрут родитель в кот мы будем отображать остальные эл-ты */}
         <Route path='/' element={<Layout />} >
           <Route path='/login' element={<Login/>} />
-          <Route path='/' element={<ProtectedRoute outlet={ <HomePage />} /> }/>
-          <Route path='/star-wars-gallery' element={<ProtectedRoute outlet={<StarWarsGallery />} /> } />
-          <Route path='/shop/:id' element={<ProtectedRoute outlet={<ProductPage />} /> }/> {/* импортируем компонент, указываем в path параметр id через : */}
           <Route path='*' element={<div className='lesson-container'><h1>ERROR 404 ☠️</h1> <RickAstley /></div>} />
         </Route>
       </Routes>
