@@ -1,0 +1,76 @@
+.nav {
+    display: flex; /* Устанавливаем flex-контейнер */
+    flex-direction: row; /* Горизонтальное расположение */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding: 0; /* Убираем отступы */
+  }
+  
+  .navList {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+    display: flex; /* Используем flex для списка */
+  }
+  
+  .navItem {
+    margin-right: 20px; /* Отступ между кнопками */
+  }
+  
+  .navLink {
+    display: block; /* Делаем ссылку блочным элементом */
+    padding: 1px; /* Добавляем внутренние отступы для кнопок */
+    color: #ffffff; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-bottom: 2px solid transparent; /* Для эффекта при наведении */
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .navLink:hover {
+    color: #00ff00; /* Цвет текста при наведении */
+    border-bottom-color: #00ff00; /* Цвет подчеркивания при наведении */
+  }
+  
+  .topLine, .bottomLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .rightAligned {
+    margin-left: auto;
+  }
+
+  .searchInput {
+    background-color: transparent; /* Прозрачный фон */
+    border: 1px solid #ffffff; /* Белая рамка */
+    border-radius: 20px; /* Закругленные углы */
+    color: #ffffff; /* Белый текст */
+    padding: 4px, 10px; /* Отступы: верх право низ лево */
+    font-size: 12px;
+    width: 200px; /* Или другая желаемая ширина */
+   
+  }
+  
+  .searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый для плейсхолдера */
+  }
+  
+  .header {
+    background-color: #1e1f20;
+    color: white;
+    padding: 5px 2.5rem;
+    font-size: 15px;
+  }
+  
+  .separator {
+    height: 1px; /* Толщина полосы */
+    width: 100%;
+    background-color: #50cd32; /* Цвет полосы */
+  }
+  
+  .topLine, .bottomLine {
+    padding: 5px 0;
+  }
+ 
+
+  
