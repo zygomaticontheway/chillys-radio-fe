@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { links } from './links'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { logoutUser } from '../../features/auth/authSlice';
-import { cleanProducts } from '../../features/products/productsSlice';
+import { cleanProducts } from '../../features/stations/stationsSlice';
 
 export default function Header() {
 
@@ -40,7 +40,3 @@ export default function Header() {
       </header>
   )
 }
-
-//       function userAppSelector() {
-//   throw new Error('Function not implemented.')
-// }

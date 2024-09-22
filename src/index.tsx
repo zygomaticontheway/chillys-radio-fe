@@ -20,7 +20,7 @@ root.render(
       <Routes>
         {/* маршрут родитель в кот мы будем отображать остальные эл-ты */}
         <Route path='/' element={<Layout />} >
-          <Route path='/login' element={<Login/>} />
+          {/* <Route path='/login' element={<Login/>} /> */}
           <Route path='*' element={<div className='lesson-container'><h1>ERROR 404 ☠️</h1> <RickAstley /></div>} />
         </Route>
       </Routes>

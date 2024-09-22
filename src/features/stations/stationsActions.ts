@@ -5,15 +5,15 @@ import axios from 'axios';
 //описание асинхронного запроса
 //на каждый новый запрос мы создаем свой action с помощью функций из функции redux createAsyncThunk
 
-export const getProducts = createAsyncThunk(
+export const getStations = createAsyncThunk(
 
-    'getProducts', //первый параметр - строка с уникальным именем для action
+    'getStations', //первый параметр - строка с уникальным именем для action
 
     //второй параметр - асинхронная функция с запросом
-    async (_, thunkAPI) => { // в ситуации когда нужно достать только второй параметр, ставится в первом прочерк "_", первый параметр этой строки служит для динамически подставляемых переменных
+    async (_, thunkAPI) => { // в ситуации когда нужно достать только второй параметр, ставится в первом прочерк "_", первый параметр этой строки служит для динамически подставляемых переменных, например id
         try {
             //axios - библиотека надстройка над fetch, упрощающая логику запросов
-            const response = await axios.get('https://fakestoreapi.com/products');
+            const response = await axios.get('/api/stations');
             return response.data;
         } catch (error: any) {
             return thunkAPI.rejectWithValue(error.message);
