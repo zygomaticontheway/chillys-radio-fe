@@ -1,33 +1,33 @@
 .nav {
-    display: flex; /* Устанавливаем flex-контейнер */
-    flex-direction: row; /* Горизонтальное расположение */
-    align-items: center; /* Выравнивание по центру по вертикали */
-    padding: 0; /* Убираем отступы */
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
+    padding: 0; 
   }
   
   .navList {
-    list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем внутренние отступы */
-    margin: 0; /* Убираем внешние отступы */
-    display: flex; /* Используем flex для списка */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0;
+    display: flex; 
   }
   
   .navItem {
-    margin-right: 20px; /* Отступ между кнопками */
+    margin-right: 20px;
   }
   
   .navLink {
-    display: block; /* Делаем ссылку блочным элементом */
-    padding: 1px; /* Добавляем внутренние отступы для кнопок */
-    color: #ffffff; /* Цвет текста */
-    text-decoration: none; /* Убираем подчеркивание */
-    border-bottom: 2px solid transparent; /* Для эффекта при наведении */
+    display: block; 
+    padding: 1px; 
+    color: #ffffff; 
+    text-decoration: none; 
+    border-bottom: 2px solid transparent;
     transition: color 0.3s ease, border-color 0.3s ease;
   }
   
   .navLink:hover {
-    color: #00ff00; /* Цвет текста при наведении */
-    border-bottom-color: #00ff00; /* Цвет подчеркивания при наведении */
+    color: #00ff00; 
+    border-bottom-color: #00ff00; 
   }
   
   .topLine, .bottomLine {
@@ -41,18 +41,18 @@
   }
 
   .searchInput {
-    background-color: transparent; /* Прозрачный фон */
-    border: 1px solid #ffffff; /* Белая рамка */
-    border-radius: 20px; /* Закругленные углы */
-    color: #ffffff; /* Белый текст */
-    padding: 4px, 10px; /* Отступы: верх право низ лево */
+    background-color: transparent; 
+    border: 1px solid #ffffff; 
+    border-radius: 20px; 
+    color: #ffffff; 
+    padding: 4px, 10px;
     font-size: 12px;
-    width: 200px; /* Или другая желаемая ширина */
+    width: 200px; 
    
   }
   
   .searchInput::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый для плейсхолдера */
+    color: rgba(255, 255, 255, 0.7); 
   }
   
   .header {
@@ -63,9 +63,9 @@
   }
   
   .separator {
-    height: 1px; /* Толщина полосы */
+    height: 1px; 
     width: 100%;
-    background-color: #50cd32; /* Цвет полосы */
+    background-color: #50cd32;
   }
   
   .topLine, .bottomLine {

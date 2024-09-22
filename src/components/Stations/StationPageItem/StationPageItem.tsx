@@ -1,4 +1,4 @@
-// src/components/StationPageItem.tsx
+
 import React from 'react';
 
 import styles from './StationPageItem.module.css';

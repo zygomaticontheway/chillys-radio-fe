@@ -1,4 +1,4 @@
-// src/components/TagsLink.tsx
+
 import React from 'react';
 import styles from './TagsLink.module.css';
 

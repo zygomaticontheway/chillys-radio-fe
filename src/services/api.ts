@@ -119,7 +119,7 @@ export const getTags = async (): Promise<string[]> => {
     throw error;
   }
 };
-// Также добавим функцию для получения списка стран, если она вам понадобится
+
 export const getCountries = async (): Promise<string[]> => {
   try {
     const response = await axios.get<string[]>(`${API_URL}/countries`);
@@ -136,15 +136,15 @@ export const getTopStations = async (): Promise<Station[]> => {
       getStationsByTopVotes()
     ]);
 
-    // Объединяем результаты
+   
     const combinedTopStations = [...topClicks, ...topVotes];
 
-    // Удаляем дубликаты и сортируем по сумме кликов и голосов
+    
     const uniqueTopStations = Array.from(new Set(combinedTopStations.map(s => s.stationuuid)))
       .map(uuid => combinedTopStations.find(s => s.stationuuid === uuid)!)
       .sort((a, b) => (b.clickcount + b.votes) - (a.clickcount + a.votes));
 
-    // Возвращаем топ-30 станций
+  
     return uniqueTopStations.slice(0, 30);
   } catch (error) {
     return handleAxiosError(error);

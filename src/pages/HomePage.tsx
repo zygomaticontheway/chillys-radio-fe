@@ -6,8 +6,8 @@ import StationsContainer from '../components/Stations/StationsContainer/Stations
 const HomePage: React.FC = () => {
   return (
     <div className={styles.homePage}>
-      <h1>The Chillys Radio</h1>
-      <p>Listen to radio stations worldwide for free</p>
+      <h1 className={`${styles.fontBold} ${styles.textColor}`}>The Chillys Radio</h1>
+      <p className={styles.textColor}>Listen to radio stations worldwide for free</p>
       <StationsContainer />
     </div>
   );

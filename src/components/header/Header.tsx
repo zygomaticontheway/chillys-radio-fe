@@ -5,11 +5,11 @@ import styles from './Header.module.css';
 const Header: React.FC = () => {
   return (
     <header className={styles.header}>
-      {/* Первая строка */}
+  
       <div className={styles.topLine}>
-        <Link to="/" className={styles.logo}>The Chillys Radio</Link>
+        <Link to="/" className={styles.logo}>Homepage</Link>
         <div className={styles.activeStation}>
-          {/* Здесь будет компонент активной станции */}
+          
         </div>
         <div className={styles.rightAligned}>
           <Link to="/login" className={`${styles.navLink} ${styles.profileLink}`}>
@@ -19,10 +19,10 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Разделительная полоса */}
+     
       <div className={styles.separator}></div>
 
-      {/* Вторая строка */}
+      
       <div className={styles.bottomLine}>
         <nav className={styles.nav}>
           <ul className={styles.navList}>
