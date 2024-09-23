@@ -9,8 +9,9 @@ interface PlayPauseProps {
 
 const AudioPlayer: React.FC<PlayPauseProps> = ({ streamUrl }) => {
   const dispatch = useDispatch();
-  const isPlaying = useSelector((state: RootState) => state.audioPlayer.isPlaying);
+  const isPlaying = useSelector((state: RootState) => state.playPause.isPlaying);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const togglePlayPause = () => {
     if (audioRef.current) {
@@ -23,7 +24,25 @@ const AudioPlayer: React.FC<PlayPauseProps> = ({ streamUrl }) => {
       }
     }
   };
+  
+  useEffect(() => {
+    const audio = audioRef.current;
 
+    if (audio) {
+      const handleCanPlay = () => setIsLoading(false); // Когда аудио готово
+      const handleLoadStart = () => setIsLoading(true); // Начало загрузки
+
+      audio.addEventListener('canplay', handleCanPlay);
+      audio.addEventListener('loadstart', handleLoadStart);
+
+      // Очистка слушателей при размонтировании компонента
+      return () => {
+        audio.removeEventListener('canplay', handleCanPlay);
+        audio.removeEventListener('loadstart', handleLoadStart);
+      };
+    }
+  }, []);
+  
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
