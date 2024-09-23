@@ -1,4 +1,4 @@
-/* .robotForm{
+.robotForm{
     display: flex;
     flex-direction: column;
     flex-direction: column;
@@ -20,4 +20,4 @@
 
 .formErrors {
     color: red;
-} */
+}

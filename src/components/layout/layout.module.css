@@ -9,11 +9,31 @@
     padding: 2px;
     color: white;
   }
+
+  header > a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+}
+.header > a:hover{
+    color: white;
+    margin-right: 20px;
+    text-decoration: underline;
+}
   
-  .main {
-    flex: 1;
-    padding: 20px;
-  }
+.main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex: 1; /* чтобы main занимал все свободное пространство, если контента мало */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  /* border: 1px dashed grey; */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
   
   .footer {
     background-color: #282c34;
@@ -21,3 +41,8 @@
     color: white;
     text-align: center;
   }
+
+  .active {
+    text-decoration: underline;
+    font-weight: 600;
+}
