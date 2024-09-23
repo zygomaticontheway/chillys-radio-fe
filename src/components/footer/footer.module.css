@@ -1,0 +1,19 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /*100 относительных единиц, высчитывается относительно видимой области по высоте*/
+}
+
+.footer {
+    width: 100%;
+    background-color: lightgrey;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active {
+    text-decoration: underline;
+    font-weight: 600;
+}
