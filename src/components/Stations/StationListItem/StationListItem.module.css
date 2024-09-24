@@ -1,0 +1,42 @@
+.stationItem {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favicon {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.stationName {
+  margin: 0;
+  text-align: center;
+}
+
+.stationInfo {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  padding: 3px 8px;
+  margin: 2px;
+  border-radius: 12px;
+  font-size: 0.8em;
+}

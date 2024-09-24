@@ -1,0 +1,22 @@
+.homePage h1{
+    text-align: center;
+}
+    .homePage{
+    background-image: url('./src/docks/design_draft/photo_2024-09-20_23-15-41 (3).jpg');
+  background-size: 900px 400px;
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  
+  
+  }
+
+  .textColor {
+    color: #f6f9f6;
+  }
