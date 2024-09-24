@@ -5,9 +5,6 @@ import Layout from './components/layout/layout';
 import RickAstley from './components/rickAstley/RickAstley';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import Login from './components/login/Login';
-import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
-import StationList from './components/stations-contatiner/StationsContainer';
 import StationContainer from './components/stations-contatiner/StationsContainer';
 
 
