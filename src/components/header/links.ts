@@ -4,39 +4,19 @@ interface ILinks {
 }
 export const links: ILinks [] = [
     {
-        pathname: '/',
-        title: '🏡'
+        pathname: '#',
+        title: 'Top stations'
     },
     {
-        pathname: '/shop',
-        title: 'shop'
+        pathname: '#',
+        title: 'Country'
     },
     {
-        pathname: '/todolist',
-        title: 'todolist'
+        pathname: '#',
+        title: 'Language'
     },
     {
-        pathname: '/star-wars-gallery',
-        title: 'star wars'
-    },
-    {
-        pathname: '/gender-form',
-        title: 'gender form'
-    },
-    // {
-    //     pathname: '/robot-form',
-    //     title: 'robot form'
-    // },
-    // {
-    //     pathname: '/my-form',
-    //     title: 'my form'
-    // },
-    {
-        pathname: '/feedback',
-        title: 'feedback'
-    },
-    // {
-    //     pathname: '/counter',
-    //     title: 'counter'
-    // }
+        pathname: '#',
+        title: 'Tag'
+    }
 ]
