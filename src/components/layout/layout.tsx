@@ -11,12 +11,12 @@ import { getUserWithToken } from '../../features/auth/authActions';
 function Layout(){
     const dispatch = useAppDispatch()
 
-    useEffect(()=> {
-        const token = localStorage.getItem('user-token')
-        if (token !== null) {
-            dispatch(getUserWithToken(token))
-        }
-    }, [])
+    // useEffect(()=> {
+    //     const token = localStorage.getItem('user-token')
+    //     if (token !== null) {
+    //         dispatch(getUserWithToken(token))
+    //     }
+    // }, [])
 
     const location = useLocation()
     console.log(location.pathname);

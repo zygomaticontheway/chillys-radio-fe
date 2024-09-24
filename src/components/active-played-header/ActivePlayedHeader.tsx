@@ -4,6 +4,7 @@ import PlayPauseButton from "../play-pause-button/PlayPauseButton";
 import VolumeControl from "../volume-control/VolumeControl";
 import styles from "./activePlayedHeader.module.css"
 
+
 const ActivePlayedHeader = () => {
 
     const dispatch = useAppDispatch();
@@ -20,7 +21,7 @@ const ActivePlayedHeader = () => {
     };
 
     return (
-        <div className={styles.active-played-header}>
+        <div className="active-played-header">
             <img src={activeStation.favicon} alt={activeStation.name} className="station-icon" />
             <div className="play-pause-button"><PlayPauseButton streamUrl={activeStation.url_resolved} /></div>
             <div className="volume-button"><VolumeControl onVolumeChange={handleVolumeChange} /></div>

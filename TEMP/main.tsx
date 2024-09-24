@@ -1,12 +1,12 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
-import App from "../TEMP/App"
-import { store } from "./redux/store"
+import App from "./App"
+import { store } from "../src/redux/store"
 import "./index.css"
 import { HashRouter, Route, Routes } from "react-router-dom"
-import Layout from "./components/layout/layout"
-import StationContainer from "./components/stations-contatiner/StationsContainer"
+import Layout from "../src/components/layout/layout"
+import StationContainer from "../src/components/stations-contatiner/StationsContainer"
 
 const container = document.getElementById("root")
 
