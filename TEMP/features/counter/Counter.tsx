@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { useAppDispatch, useAppSelector } from "../../redux/hooks"
+
 import styles from "./Counter.module.css"
 import {
   decrement,
@@ -11,6 +11,7 @@ import {
   selectCount,
   selectStatus,
 } from "./counterSlice"
+import { useAppDispatch, useAppSelector } from "../../../src/redux/hooks"
 
 export const Counter = () => {
   const dispatch = useAppDispatch()

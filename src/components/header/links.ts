@@ -1,42 +1,42 @@
-interface ILinks {
-    pathname: string,
-    title: string
+
+
+
+interface Link {
+  path: string;
+  label: string;
 }
-export const links: ILinks [] = [
-    {
-        pathname: '/',
-        title: '🏡'
-    },
-    {
-        pathname: '/shop',
-        title: 'shop'
-    },
-    {
-        pathname: '/todolist',
-        title: 'todolist'
-    },
-    {
-        pathname: '/star-wars-gallery',
-        title: 'star wars'
-    },
-    {
-        pathname: '/gender-form',
-        title: 'gender form'
-    },
-    // {
-    //     pathname: '/robot-form',
-    //     title: 'robot form'
-    // },
-    // {
-    //     pathname: '/my-form',
-    //     title: 'my form'
-    // },
-    {
-        pathname: '/feedback',
-        title: 'feedback'
-    },
-    // {
-    //     pathname: '/counter',
-    //     title: 'counter'
-    // }
-]
+
+export const headerLinks: Link[] = [
+  {
+    path: '/top-stations',
+    label: 'Top Stations'
+  },
+  {
+    path: '/country',
+    label: 'Country'
+  },
+  {
+    path: '/language',
+    label: 'Language'
+  },
+  {
+    path: '/tags',
+    label: 'Tags'
+  }
+];
+
+export const userLinks: Link[] = [
+  {
+    path: '/login',
+    label: 'Login/Register'
+  },
+  {
+    path: '/logout',
+    label: 'Logout'
+  }
+];
+
+export const homeLink: Link = {
+  path: '/',
+  label: 'Homepage'
+};
