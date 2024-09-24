@@ -1,24 +1,7 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IStation, IStationResponse } from '../../types/interfaces';
+import { createSlice } from '@reduxjs/toolkit';
+import { IStationResponse } from '../../types/interfaces';
 import { getStations } from './stationsActions';
-import axios from 'axios';
-import { RootState } from '../../redux/store';
 
-export const searchStations = createAsyncThunk<
-  IStation[], // Тип возвращаемых данных
-  { name: string; page: number; size: number }, // Тип аргументов
-  { state: RootState; rejectValue: string } // Тип для ThunkAPI
->(
-  'stations/search',
-  async ({ name, page, size }, { rejectWithValue }) => {
-    try {
-      const response = await axios.get<IStationResponse>(`/api/stations/search?name=${name}&page=${page}&size=${size}`);
-      return response.data.stations; // Возвращаем только массив станций
-    } catch (error) {
-      return rejectWithValue('An error occurred while searching stations');
-    }
-  }
-);
 //! в redux мы работаем с 3 осн сущностями:
 // 1. Store - хранилище данных
 // 2. Slice - описание логики изменений данных
@@ -66,19 +49,6 @@ export const stationsSlice = createSlice({
                 state.stations = [] //чистим ошибочные данные
                 state.error = action.payload as string //кладем ошибку в данные
             })
-            .addCase(searchStations.pending, (state) => {
-                state.isLoading = true;
-                state.error = '';
-              })
-              .addCase(searchStations.fulfilled, (state, action: PayloadAction<IStation[]>) => {
-                state.isLoading = false;
-                state.stations = action.payload;
-              })
-              .addCase(searchStations.rejected, (state, action) => {
-                state.isLoading = false;
-                state.stations = [];
-                state.error = action.payload as string;
-              });
         
     },
 });
