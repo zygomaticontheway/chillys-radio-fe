@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import Layout from './components/layout/layout';
+import Layout from './components/layout/Layout';
 import RickAstley from './components/rickAstley/RickAstley';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-  {/* обертка router над всеми эл-ми */}
+    {/* обертка router над всеми эл-ми */}
     <HashRouter>
       {/* обертка для описания маршрутов */}
       <Routes>
