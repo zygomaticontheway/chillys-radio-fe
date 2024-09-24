@@ -1,19 +1,32 @@
-.page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /*100 относительных единиц, высчитывается относительно видимой области по высоте*/
-}
-
 .footer {
-    width: 100%;
-    background-color: lightgrey;
-    height: 50px;
+    background-color: #1e2127;
+    color: #ffffff;
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .footerList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 10px;
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.active {
+  }
+  
+  .footerItem {
+    margin: 0 10px;
+  }
+  
+  .footerLink {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .footerLink:hover {
     text-decoration: underline;
-    font-weight: 600;
-}
+    color: #00ff00;
+    border-bottom-color: #00ff00;
+    
+  }
