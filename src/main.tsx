@@ -4,6 +4,9 @@ import { Provider } from "react-redux"
 import App from "../TEMP/App"
 import { store } from "./redux/store"
 import "./index.css"
+import { HashRouter, Route, Routes } from "react-router-dom"
+import Layout from "./components/layout/layout"
+import StationContainer from "./components/stations-contatiner/StationsContainer"
 
 const container = document.getElementById("root")
 
@@ -11,10 +14,16 @@ if (container) {
   const root = createRoot(container)
 
   root.render(
+
     <React.StrictMode>
       <Provider store={store}>
-        <img src="src/docks/design_draft/homepage.png" alt="The Chillys Radio" />
-
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route path="/" element={<StationContainer stations={[]} isLoading={false} error={""}/>}/>
+            </Route>
+          </Routes>
+        </HashRouter>
       </Provider>
     </React.StrictMode>,
   )

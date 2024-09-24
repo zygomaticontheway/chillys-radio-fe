@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IStation, IStationResponse } from "../../types/interfaces";
 import { useDispatch } from "react-redux";
 import { setActiveStation } from "../../features/stations/setPlayingStationSlice";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
+import { getStations } from "../../features/stations/stationsActions";
 
 
   
-  const StationList: React.FC<IStationResponse> = ({ stations }) => {
+  const StationContainer: React.FC<IStationResponse> = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const {stations, isLoading, error}  = useAppSelector (state => state.stations)
+    
+    useEffect(() => {
+        dispatch(getStations());
+    }, [dispatch])
+
   
     const handleStationClick = (station: IStation) => {
       dispatch(setActiveStation(station));  // Устанавливаем активную радиостанцию
@@ -27,4 +35,4 @@ import { useNavigate } from "react-router-dom";
     );
   };
   
-  export default StationList;
+  export default StationContainer;
