@@ -4,7 +4,7 @@ import { setActiveStation } from "../../features/stations/setPlayingStationSlice
 import { useNavigate } from "react-router-dom"
 import StationsFilters from "./StationsFilters"
 import React, { useState } from "react"
-import StationListItem from "./StationListItem"
+import StationListItem from "../stationsListItem/StationListItem"
 
 const StationList: React.FC<IStationResponse> = ({ stations }) => {
   const dispatch = useDispatch()
