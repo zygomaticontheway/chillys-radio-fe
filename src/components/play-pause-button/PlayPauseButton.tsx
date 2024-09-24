@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { playAudio, pauseAudio } from '../../features/play-pause-button/playPauseSlice';
 import { RootState } from '../../redux/store'
+import styles from './playPauseButton.module.css' 
+import Loader from '../loader/Loader';
 
 interface PlayPauseProps {
   streamUrl: string;
 }
 
-const AudioPlayer: React.FC<PlayPauseProps> = ({ streamUrl }) => {
+const PlayPauseButton: React.FC<PlayPauseProps> = ({ streamUrl }) => {
   const dispatch = useDispatch();
   const isPlaying = useSelector((state: RootState) => state.playPause.isPlaying);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -56,11 +58,17 @@ const AudioPlayer: React.FC<PlayPauseProps> = ({ streamUrl }) => {
   return (
     <div>
       <audio ref={audioRef} src={streamUrl} />
-      <button onClick={togglePlayPause}>
-        {isPlaying ? 'Pause' : 'Play'}
+
+      {/* Если аудио загружается, показываем прелоудер, иначе — кнопку */}
+      <button onClick={togglePlayPause} disabled={isLoading}>
+        {isLoading ? (
+          <div className={styles.loader}><Loader/></div> // Прелоудер
+        ) : (
+          <span>{isPlaying ? 'Pause' : 'Play'}</span> // Стандартная кнопка
+        )}
       </button>
     </div>
   );
 };
 
-export default AudioPlayer;
+export default PlayPauseButton;
