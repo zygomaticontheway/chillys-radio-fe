@@ -3,13 +3,15 @@ import { setupListeners } from "@reduxjs/toolkit/query"
 import stationsSlice from "../features/stations/stationsSlice"
 import authSlice from "../features/auth/authSlice"
 import playPauseSlice from "../features/play-pause-button/playPauseSlice"
+import setPlayingStationSlice from "../features/stations/setPlayingStationSlice"
 
 
 export const store = configureStore({
   reducer: {
     stations: stationsSlice.reducer,
     user: authSlice.reducer,
-    playPause: playPauseSlice.reducer
+    playPause: playPauseSlice.reducer,
+    playingStation: setPlayingStationSlice.reducer
   },
 })
 
