@@ -4,11 +4,13 @@ import { setActiveStation } from "../../features/stations/setPlayingStationSlice
 import { useNavigate } from "react-router-dom"
 import StationsFilters from "./StationsFilters"
 import React, { useState } from "react"
+import StationListItem from "../stationsListItem/StationListItem"
 
 const StationList: React.FC<IStationResponse> = ({ stations }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [filteredStations, setFilteredStations] = useState(stations)
+
   const handleStationClick = (station: IStation) => {
     dispatch(setActiveStation(station)) // Устанавливаем активную радиостанцию
     navigate(`/station/${station.stationuuid}`) // Перенаправляем на страницу станции
