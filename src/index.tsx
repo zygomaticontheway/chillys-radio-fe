@@ -1,17 +1,15 @@
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import RickAstley from './components/rickAstley/RickAstley';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import Homepage from './components/homepage/Homepage';
 import Layout from './components/layout/Layout';
+import Homepage from './components/homepage/Homepage';
 
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+createRoot(document.getElementById('root')!).render(
+
   <Provider store={store}>
     {/* обертка router над всеми эл-ми */}
     <HashRouter>
@@ -21,7 +19,7 @@ root.render(
         <Route path='/' element={<Layout/>} >
           {/* <Route path='/login' element={<Login/>} /> */}
           <Route path='/' element={<Homepage/>}/>
-          <Route path='/stations:' element={<Homepage/>}/>
+          {/* <Route path='/stations:' element={<Homepage/>}/> */}
           <Route path='*' element={<div className='lesson-container'><h1>ERROR 404 ☠️</h1> <RickAstley /></div>} />
         </Route>
       </Routes>
