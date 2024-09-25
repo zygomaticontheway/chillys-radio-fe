@@ -1,46 +1,46 @@
 
 import styles from './header.module.css'
 import { Link, useLocation } from 'react-router-dom'
-import { links } from './links'
+import { headerLinks, userLinks, homeLink } from './links';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { logoutUser } from '../../features/auth/authSlice';
-import { cleanProducts } from '../../features/products/productsSlice';
+import { cleanStations } from '../../features/stations/stationsSlice';
+import ActivePlayedHeader from '../active-played-header/ActivePlayedHeader';
+import ProfileLinkHeader from './ProfileLinkHeader';
+import FiltersHeader from './FiltersHeader';
+import SearchFormHeader from './SearchFormHeader';
+import React from 'react';
 
-export default function Header() {
 
-
-  const { user } = useAppSelector(state => state.user);
-  const dispatch = useAppDispatch();
-  const location = useLocation()
-  // console.log(links);
-
-  const handleLogout = () => {
-    //чистим браузерное хранилище данных
-    localStorage.removeItem('user-token')
-
-    //чистим state, выносим 'мусор' данных за пользователем
-    dispatch(logoutUser())
-    dispatch(cleanProducts())
-  }
-
-  return (
-
-    <header className={styles.header}>
-      {user.username && <span>{user.username}</span>}
-        {user.username ? (
-          <>
-            {links.map((el, index) => (
-              <Link key={index} className={location.pathname === el.pathname ? styles.active : ''} to={el.pathname}>{el.title}</Link>
-            ))}
-            <Link onClick={handleLogout} to='/login'>logout</Link>
-          </>
-        ) : (
-          <Link to='/login'>Login</Link>
-        )}
-      </header>
-  )
-}
-
-//       function userAppSelector() {
-//   throw new Error('Function not implemented.')
-// }
+  
+    export default function Header() {
+      const { user } = useAppSelector(state => state.user);
+      const dispatch = useAppDispatch();
+      const location = useLocation();
+    
+      const handleLogout = () => {
+        localStorage.removeItem('user-token');
+        dispatch(logoutUser());
+        dispatch(cleanStations());
+      }
+    
+      return (
+        <header className={styles.header}>
+          <div className={styles.topLine}>
+            <Link to={homeLink.path} className={styles.logo}>{homeLink.label}</Link>
+            <div className={styles.activeStation}>
+              <ActivePlayedHeader />
+            </div>
+            <ProfileLinkHeader user={user} handleLogout={handleLogout} />
+          </div>
+    
+          <div className={styles.separator}></div>
+    
+          <div className={styles.bottomLine}>
+            <FiltersHeader headerLinks={headerLinks} />
+            <SearchFormHeader />
+          </div>
+        </header>
+      );
+    }
+  

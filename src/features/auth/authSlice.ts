@@ -31,7 +31,7 @@ const initialState: IUserState = {
   error: "",
 };
 
-export const authSlice = createSlice({
+const authSlice = createSlice({
   //указываем имя
   name: "authSlice",
 

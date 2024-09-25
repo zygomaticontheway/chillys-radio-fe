@@ -1,21 +1,16 @@
-.page {
+.layout {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /*100 относительных единиц, высчитывается относительно видимой области по высоте*/
-}
-.header {
-    width: 100%;
-    background-color: orange;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    /* padding: 30px; меняют размер контейнера */
-}
+    min-height: 100vh;
+  }
+  
+  .header {
+    background-color: #1e1f20;
+    padding: 2px;
+    color: white;
+  }
 
-
-header > a {
+  header > a {
     color: white;
     margin-right: 20px;
     text-decoration: none;
@@ -25,31 +20,29 @@ header > a {
     margin-right: 20px;
     text-decoration: underline;
 }
-
+  
 .main {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    flex: 1; /* чтобы main занимал все свободное пространство, если контента мало */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-    /* border: 1px dashed grey; */
-    padding-top: 20px;
-    padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex: 1; /* чтобы main занимал все свободное пространство, если контента мало */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  /* border: 1px dashed grey; */
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+  
+  .footer {
+    background-color: #282c34;
+    padding: 10px;
+    color: white;
+    text-align: center;
+  }
 
-.footer {
-    width: 100%;
-    background-color: lightgrey;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.active {
+  .active {
     text-decoration: underline;
     font-weight: 600;
 }
