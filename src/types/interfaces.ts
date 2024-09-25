@@ -1,22 +1,22 @@
 export interface IStation {
-    id: number;
+    id?: number;
     stationuuid: string;
     name: string;
-    url: string;
+    url?: string;
     url_resolved: string;
-    homepage: string;
+    homepage?: string;
     favicon: string;
     tags: string;
     country: string;
-    countrycode: string;
-    state: string;
+    countrycode?: string;
+    state?: string;
     language: string;
-    languagecodes: string;
+    languagecodes?: string;
     votes: number;
-    lastchangetime: string;
-    codec: string;
-    bitrate: number;
-    lastcheckok: number;
+    lastchangetime?: string;
+    codec?: string;
+    bitrate?: number;
+    lastcheckok?: number;
     clickcount: number;
 }
 
