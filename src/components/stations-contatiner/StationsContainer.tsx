@@ -1,20 +1,43 @@
-import { IStation, IStationResponse } from "../../types/interfaces"
-import { useDispatch } from "react-redux"
+import { IStation } from "../../types/interfaces"
+import { useSelector } from "react-redux"
 import { setActiveStation } from "../../features/stations/setPlayingStationSlice"
 import { useNavigate } from "react-router-dom"
 import StationsFilters from "./StationsFilters"
-import React, { useState } from "react"
-import StationListItem from "../stationsListItem/StationListItem"
+import React, { useEffect, useState } from "react"
+import { RootState, AppDispatch } from '../../redux/store';
+import { getStations } from "../../features/stations/stationsActions"
+import Loader from "../loader/Loader"
+import { useAppDispatch } from "../../redux/hooks"
 
-const StationList: React.FC<IStationResponse> = ({ stations }) => {
-  const dispatch = useDispatch()
+const StationContainer: React.FC = () => {
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [filteredStations, setFilteredStations] = useState(stations)
+
+  // Получаем данные из Redux
+  const stations = useSelector((state: RootState) => state.stations.stations);
+  const isLoading = useSelector((state: RootState) => state.stations.isLoading);
+  const error = useSelector((state: RootState) => state.stations.error);
+
+  // Локальный стейт для фильтрованных станций
+  const [filteredStations, setFilteredStations] = useState<IStation[]>(stations);
+
+  // Запрашиваем станции при монтировании компонента
+  useEffect(() => {
+    dispatch(getStations());
+  }, [dispatch]);
+
+  // Обновляем фильтрованные станции при изменении списка станций
+  useEffect(() => {
+    setFilteredStations(stations);
+  }, [stations]);
 
   const handleStationClick = (station: IStation) => {
     dispatch(setActiveStation(station)) // Устанавливаем активную радиостанцию
     navigate(`/station/${station.stationuuid}`) // Перенаправляем на страницу станции
   }
+
+  if (isLoading) return <div className="get-stations-loader"><Loader/></div>;
+  if (error) return <div className="error">Error: {error}</div>;
 
   return (
     <div className="station-list-container">
@@ -41,4 +64,4 @@ const StationList: React.FC<IStationResponse> = ({ stations }) => {
     </div>
   )
 }
-export default StationList
+export default StationContainer

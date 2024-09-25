@@ -14,7 +14,7 @@ export const getStations = createAsyncThunk(
         try {
             //axios - библиотека надстройка над fetch, упрощающая логику запросов
             const response = await axios.get('/api/stations');
-            return response.data;
+            return response.data.content;
         } catch (error: any) {
             return thunkAPI.rejectWithValue(error.message);
         }
