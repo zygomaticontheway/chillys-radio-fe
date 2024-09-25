@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { getUserWithToken } from '../../features/auth/authActions';
 
 
-function Layout(){
+export default function Layout(){
     const dispatch = useAppDispatch()
 
     useEffect(()=> {
@@ -30,6 +30,4 @@ function Layout(){
             <Footer/>
         </div>
     )
-}
-
-export default Layout;
+};
