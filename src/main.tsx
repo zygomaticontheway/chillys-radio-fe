@@ -4,7 +4,6 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./components/homepage/Homepage";
 import RickAstley from "./components/rickAstley/RickAstley";
 import { store } from "./redux/store";
-import React from "react";
 
 
 createRoot(document.getElementById('root')!).render(

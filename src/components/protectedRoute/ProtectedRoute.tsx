@@ -1,6 +1,5 @@
 import { Navigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
-import Loader from "../loader/Loader";
 
 interface IProps {
     //вместо outlet будут приходить компоненты, которые мы будем пробрасывать в эту обертку-фильтр

@@ -4,7 +4,7 @@ import { setActiveStation } from "../../features/stations/setPlayingStationSlice
 import { useNavigate } from "react-router-dom"
 import StationsFilters from "./StationsFilters"
 import React, { useEffect, useState } from "react"
-import { RootState, AppDispatch } from '../../redux/store';
+import { RootState } from '../../redux/store';
 import { getStations } from "../../features/stations/stationsActions"
 import Loader from "../loader/Loader"
 import { useAppDispatch } from "../../redux/hooks"
