@@ -1,7 +1,7 @@
 // src/redux/playPauseSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
 
-interface IAudioPlayerState {
+export interface IAudioPlayerState {
   isPlaying: boolean;
 }
 

@@ -6,6 +6,7 @@ import Footer from '../footer/Footer';
 import { useAppDispatch } from '../../redux/hooks';
 import { useEffect } from 'react';
 import { getUserWithToken } from '../../features/auth/authActions';
+import React from 'react';
 
 
 function Layout(){

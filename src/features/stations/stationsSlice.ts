@@ -36,7 +36,7 @@ const initialState: IStationResponse = {
 //срез данных которые мы группируем по общей для них теме (products, user, ...)
 // он создается с помощью функции createSlice ()
 // здесь описываем логику работы с данными с синхронных и асинхронных действий по данной "теме" (сущности)
-export const stationsSlice = createSlice({
+const stationsSlice = createSlice({
     name: 'stationsSlice', //уникальное имя
     initialState, //первоначальное значение, имя совпадает с переменной (выше) по этому просто ключ без значений
 

@@ -1,9 +1,9 @@
 import { Action, ThunkAction, configureStore } from "@reduxjs/toolkit"
-import { setupListeners } from "@reduxjs/toolkit/query"
 import stationsSlice from "../features/stations/stationsSlice"
 import authSlice from "../features/auth/authSlice"
 import playPauseSlice from "../features/play-pause-button/playPauseSlice"
 import setPlayingStationSlice from "../features/stations/setPlayingStationSlice"
+
 
 
 export const store = configureStore({

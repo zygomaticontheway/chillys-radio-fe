@@ -9,6 +9,7 @@ import ActivePlayedHeader from '../active-played-header/ActivePlayedHeader';
 import ProfileLinkHeader from './ProfileLinkHeader';
 import FiltersHeader from './FiltersHeader';
 import SearchFormHeader from './SearchFormHeader';
+import React from 'react';
 
 
   

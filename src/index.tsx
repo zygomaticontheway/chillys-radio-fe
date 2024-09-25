@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import Homepage from './components/homepage/Homepage';
 import Layout from './components/layout/Layout';
+import React from 'react';
 
 
 const root = ReactDOM.createRoot(

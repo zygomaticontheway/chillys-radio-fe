@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { IStation } from "../../types/interfaces"
 
-interface StationState {
+export interface StationState {
   activeStation: IStation | null
   isPlaying: boolean
 }
@@ -17,7 +17,7 @@ if (savedStation) {
   initialState.isPlaying = true
 }
 
-export const setPlayingStationSlice = createSlice({
+const setPlayingStationSlice = createSlice({
   name: "setPlayingStation",
   initialState,
   reducers: {
