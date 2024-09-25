@@ -3,7 +3,6 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import PlayPauseButton from "../play-pause-button/PlayPauseButton";
 import VolumeControl from "../volume-control/VolumeControl";
-import styles from "./activePlayedHeader.module.css"
 
 
 const ActivePlayedHeader = () => {
