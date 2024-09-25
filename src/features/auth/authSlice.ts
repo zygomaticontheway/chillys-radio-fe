@@ -63,7 +63,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = action.payload;
       })
-      .addCase(getUserWithToken.pending, (state, action) => {
+      .addCase(getUserWithToken.pending, (state) => {
         state.isLoading = true;
       });
   },

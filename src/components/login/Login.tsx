@@ -27,7 +27,7 @@ export default function Login() {
             dispatch(loginUser(values))
             .then(() => {
                 navigate('/')
-            //   resetForm();
+              resetForm();
             })
         }
     })

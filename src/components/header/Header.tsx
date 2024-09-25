@@ -1,7 +1,7 @@
 
 import styles from './header.module.css'
-import { Link, useLocation } from 'react-router-dom'
-import { headerLinks, userLinks, homeLink } from './links';
+import { Link } from 'react-router-dom'
+import { headerLinks, homeLink } from './links';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { logoutUser } from '../../features/auth/authSlice';
 import { cleanStations } from '../../features/stations/stationsSlice';
@@ -9,14 +9,12 @@ import ActivePlayedHeader from '../active-played-header/ActivePlayedHeader';
 import ProfileLinkHeader from './ProfileLinkHeader';
 import FiltersHeader from './FiltersHeader';
 import SearchFormHeader from './SearchFormHeader';
-import React from 'react';
 
 
   
     export default function Header() {
       const { user } = useAppSelector(state => state.user);
       const dispatch = useAppDispatch();
-      const location = useLocation();
     
       const handleLogout = () => {
         localStorage.removeItem('user-token');

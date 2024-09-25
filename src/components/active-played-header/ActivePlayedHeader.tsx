@@ -1,15 +1,11 @@
-
-import React from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import PlayPauseButton from "../play-pause-button/PlayPauseButton";
 import VolumeControl from "../volume-control/VolumeControl";
 
 
 const ActivePlayedHeader = () => {
 
-    const dispatch = useAppDispatch();
-
-    const { activeStation, isPlaying } = useAppSelector(state => state.playingStation)
+    const { activeStation } = useAppSelector(state => state.playingStation)
 
     if (!activeStation) return null;
 
