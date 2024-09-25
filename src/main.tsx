@@ -1,11 +1,10 @@
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import RickAstley from './components/rickAstley/RickAstley';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
-import Layout from './components/layout/Layout';
-import Homepage from './components/homepage/Homepage';
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Homepage from "./components/homepage/Homepage";
+import Layout from "./components/layout/Layout";
+import RickAstley from "./components/rickAstley/RickAstley";
+import { store } from "./redux/store";
 
 
 createRoot(document.getElementById('root')!).render(
