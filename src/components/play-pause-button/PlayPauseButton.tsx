@@ -13,7 +13,7 @@ const PlayPauseButton: React.FC<PlayPauseProps> = ({ streamUrl }) => {
   const dispatch = useDispatch();
   const isPlaying = useSelector((state: RootState) => state.playPause.isPlaying);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const togglePlayPause = () => {
     if (audioRef.current) {
@@ -64,7 +64,7 @@ const PlayPauseButton: React.FC<PlayPauseProps> = ({ streamUrl }) => {
         {isLoading ? (
           <div className={styles.loader}><Loader/></div> // Прелоудер
         ) : (
-          <span>{isPlaying ? 'Pause' : 'Play'}</span> // Стандартная кнопка
+          <span>{isPlaying ? <img src="src/media/pause.png" alt="pause" /> : <img src="src/media/play.png" alt="pause" /> }</span> // Стандартная кнопка
         )}
       </button>
     </div>
