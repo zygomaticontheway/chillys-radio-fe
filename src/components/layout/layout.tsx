@@ -1,4 +1,4 @@
-// import StarWarsGallery from '../starWarsGallery/StarWarsGallery';
+
 import { Outlet, useLocation } from 'react-router-dom';
 import styles from './layout.module.css'
 import Header from '../header/Header';
@@ -6,7 +6,6 @@ import Footer from '../footer/Footer';
 import { useAppDispatch } from '../../redux/hooks';
 import { useEffect } from 'react';
 import { getUserWithToken } from '../../features/auth/authActions';
-import React from 'react';
 
 
 function Layout(){
