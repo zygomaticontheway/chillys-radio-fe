@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { getUserWithToken } from '../../features/auth/authActions';
 
 
-export default function Layout(){
+export function Layout(){
     const dispatch = useAppDispatch()
 
     useEffect(()=> {
