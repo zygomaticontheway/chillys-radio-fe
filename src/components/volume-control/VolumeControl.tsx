@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import './VolumeControl.css'; // CSS для стилей
+import './volumeControl.css'; // CSS для стилей
 
 interface VolumeControlProps {
   onVolumeChange: (volume: number) => void; // Функция для изменения громкости

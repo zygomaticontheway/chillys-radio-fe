@@ -5,8 +5,9 @@ import App from "./App"
 import { store } from "../src/redux/store"
 import "./index.css"
 import { HashRouter, Route, Routes } from "react-router-dom"
-import Layout from "../src/components/layout/layout"
 import StationContainer from "../src/components/stations-contatiner/StationsContainer"
+import Layout from "../src/components/layout/Layout"
+
 
 const container = document.getElementById("root")
 
@@ -19,8 +20,8 @@ if (container) {
       <Provider store={store}>
         <HashRouter>
           <Routes>
-            <Route path="/" element={<Layout/>}>
-              <Route path="/" element={<StationContainer stations={[]} isLoading={false} error={""}/>}/>
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<StationContainer />} />
             </Route>
           </Routes>
         </HashRouter>

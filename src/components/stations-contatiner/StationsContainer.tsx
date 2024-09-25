@@ -37,7 +37,7 @@ const StationContainer: React.FC = () => {
   }
 
   if (isLoading) return <div className="get-stations-loader"><Loader/></div>;
-  if (error) return <div className="error">Error: Can't get stations from database{error}</div>;
+  if (error) return <div className="error">Error: {error}</div>;
 
   return (
     <div className="station-list-container">
