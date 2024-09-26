@@ -1,6 +1,12 @@
-.robotForm{
-    display: flex;
+.loginForm{
+    background-color: #1e1f20;
+    display:flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.robotForm{
+    display:flex;
     flex-direction: column;
     align-items: center;
     width: 70%;

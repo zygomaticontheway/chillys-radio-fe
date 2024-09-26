@@ -33,7 +33,7 @@ export default function Login() {
     })
 
     return (
-        <div>
+        <div className={styles.loginForm}>
             <form onSubmit={formik.handleSubmit} className={styles.robotForm}>
                 <label>Login 🏵</label>
                 <input value={formik.values.username} name='username' onChange={formik.handleChange} type="text" placeholder='username' />
