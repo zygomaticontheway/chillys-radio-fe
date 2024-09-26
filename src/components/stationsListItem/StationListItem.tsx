@@ -1,17 +1,14 @@
-import React from "react"
 import { IStation } from "../../types/interfaces"
 
 interface StationListItemProps {
   station: IStation
-  onClick: (station: IStation) => void
 }
 
-const StationListItem: React.FC<StationListItemProps> = ({
-  station,
-  onClick,
-}) => {
+const StationListItem: React.FC<StationListItemProps> = ({station}) => {
+
   return (
-    <div className="station-item" onClick={() => onClick(station)}>
+    <div className="station-item">
+
       <div className="station-item-content">
         <img
           src={station.favicon || "default-station-icon.png"}
@@ -25,10 +22,6 @@ const StationListItem: React.FC<StationListItemProps> = ({
           </p>
           <p className="station-tags">{station.tags}</p>
         </div>
-      </div>
-      <div className="station-meta">
-        <span className="station-bitrate">{station.bitrate} kbps</span>
-        <span className="station-votes">{station.votes} votes</span>
       </div>
     </div>
   )

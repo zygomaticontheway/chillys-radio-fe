@@ -8,6 +8,7 @@ import { RootState } from '../../redux/store';
 import { getStations } from "../../features/stations/stationsActions"
 import Loader from "../loader/Loader"
 import { useAppDispatch } from "../../redux/hooks"
+import { playAudio } from "../../features/play-pause-button/playPauseSlice"
 
 const StationContainer: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -33,7 +34,8 @@ const StationContainer: React.FC = () => {
 
   const handleStationClick = (station: IStation) => {
     dispatch(setActiveStation(station)) // Устанавливаем активную радиостанцию
-    navigate(`/station/${station.stationuuid}`) // Перенаправляем на страницу станции
+    dispatch(playAudio());
+    navigate(`/${station.stationuuid}`) // Перенаправляем на страницу станции
   }
 
   if (isLoading) return <div className="get-stations-loader"><Loader/></div>;
