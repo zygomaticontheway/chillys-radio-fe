@@ -25,7 +25,7 @@ import SearchFormHeader from './SearchFormHeader';
       return (
         <header className={styles.header}>
           <div className={styles.topLine}>
-            <Link to={homeLink.path} className={styles.logo}>{homeLink.label}</Link>
+            <Link to={homeLink.path} ><img src="src/media/logo.png" alt={homeLink.label} className={styles.logo}/></Link>
             <div className={styles.activeStation}>
               <ActivePlayedHeader />
             </div>
