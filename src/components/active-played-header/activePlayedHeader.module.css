@@ -23,6 +23,7 @@
   background: none;
 }
 .volumeButton {
+    margin-top: 9px;
 }
 .stationName {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
