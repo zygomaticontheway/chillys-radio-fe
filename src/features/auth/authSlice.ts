@@ -14,13 +14,10 @@ interface IUserState {
 //начальное значение для user
 const initialUser: IUserData = {
   id: 0,
-  username: "",
+  name: "",
   email: "",
-  firstName: "",
-  lastName: "",
-  gender: "",
-  image: "",
-  token: "",
+  password: "",
+  accessToken: "",
   refreshToken: "",
 };
 

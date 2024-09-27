@@ -1,11 +1,8 @@
 export interface IUserData {
   id: number;
-  username: string;
+  name: string;
   email: string;
-  firstName: string;
-  lastName: string;
-  gender: string;
-  image: string;
-  token: string;
+  password: string;
+  accessToken: string;
   refreshToken: string;
 }

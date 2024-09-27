@@ -13,13 +13,13 @@ export const loginUser = createAsyncThunk(
       //поскольку post запрос, мы можем передать данные не в строке, а в отдельной переменной
       // в данном случае в data лежат данные из формы, мы их передаем в API
       const response: AxiosResponse<IUserData> = await axios.post(
-        "https://dummyjson.com/auth/login",
+        "http://localhost:8080/api/auth/login",
         data
       );
       
       //сохраняем токен во внутр хранилище в браузере local storage
       // сохраненные в нем данные из него не будут стираться при перезагрузке страницы
-      localStorage.setItem('user-token', response.data.token)
+      localStorage.setItem('user-token', response.data.accessToken)
       return response.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
@@ -32,7 +32,7 @@ export const getUserWithToken = createAsyncThunk(
   async (token: string, thunkAPI) => {
     try {
       const response: AxiosResponse<IUserData> = await axios.get(
-        "https://dummyjson.com/auth/me",
+        "http://localhost:8080/api/auth/my-profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,

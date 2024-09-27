@@ -18,8 +18,8 @@ export default function Login() {
 
     const formik = useFormik({
         initialValues: {
-            username: 'emilys',
-            password: 'emilyspass'
+            username: '',
+            password: ''
         } as ILoginFormValues,
         onSubmit: (values: ILoginFormValues, { resetForm }) => {
 
@@ -35,7 +35,7 @@ export default function Login() {
     return (
         <div className={styles.loginForm}>
             <form onSubmit={formik.handleSubmit} className={styles.robotForm}>
-                <label>Login 🏵</label>
+                <label>Login</label>
                 <input value={formik.values.username} name='username' onChange={formik.handleChange} type="text" placeholder='username' />
                 <input value={formik.values.password} name='password' onChange={formik.handleChange} type="text" placeholder='password' />
                 <button type="submit">send form</button>
