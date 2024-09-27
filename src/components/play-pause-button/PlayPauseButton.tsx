@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { playAudio, pauseAudio } from '../../features/play-pause-button/playPauseSlice';
 import { RootState } from '../../redux/store'
-import styles from './playPauseButton.module.css' 
-import Loader from '../loader/Loader';
+import styles from './playPauseButton.module.css'
 
 interface PlayPauseProps {
   streamUrl: string;
@@ -26,7 +25,7 @@ const PlayPauseButton: React.FC<PlayPauseProps> = ({ streamUrl }) => {
       }
     }
   };
-  
+
   useEffect(() => {
     const audio = audioRef.current;
 
@@ -44,7 +43,7 @@ const PlayPauseButton: React.FC<PlayPauseProps> = ({ streamUrl }) => {
       };
     }
   }, []);
-  
+
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -56,17 +55,13 @@ const PlayPauseButton: React.FC<PlayPauseProps> = ({ streamUrl }) => {
   }, [isPlaying]);
 
   return (
-    <div>
+    <div className={styles.playPauseContainer} onClick={togglePlayPause}>
       <audio ref={audioRef} src={streamUrl} />
-
-      {/* Если аудио загружается, показываем прелоудер, иначе — кнопку */}
-      <button onClick={togglePlayPause} disabled={isLoading}>
         {isLoading ? (
-          <div className={styles.loader}><Loader/></div> // Прелоудер
+          <div className={styles.loader}/>
         ) : (
-          <span>{isPlaying ? <img src="src/media/pause.png" alt="pause" /> : <img src="src/media/play.png" alt="pause" /> }</span> // Стандартная кнопка
+          <div className={`${styles.button} ${isPlaying ? styles.pause : styles.play}`}/>
         )}
-      </button>
     </div>
   );
 };
