@@ -4,6 +4,7 @@ import authSlice from "../features/auth/authSlice"
 import playPauseSlice from "../features/play-pause-button/playPauseSlice"
 import setPlayingStationSlice from "../features/stations/setPlayingStationSlice"
 import getFavoritesSlice from "../features/favorites/getFavoritesSlice"
+import setFavoritesSlice from "../features/favorites/setFavoritesSlice"
 
 
 
@@ -13,7 +14,9 @@ export const store = configureStore({
     user: authSlice.reducer,
     playPause: playPauseSlice.reducer,
     playingStation: setPlayingStationSlice.reducer,
-    favorites: getFavoritesSlice.reducer
+    favorites: getFavoritesSlice.reducer,
+    setFavorite: setFavoritesSlice.reducer
+
   },
 })
 
