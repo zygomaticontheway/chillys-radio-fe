@@ -1,0 +1,67 @@
+.volumeControl {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border:none;
+}
+
+.volumeIcon {
+  border:none;
+}
+
+.volumeSlider {
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  top: 100%; /* slider direction */
+  width: 8px;
+  height: 100px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+.volumeControl:hover .volumeSlider {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 8px;
+  background: #4caf4f38;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  transform: rotate(270deg); /* Повернем ползунок на 270 градусов */
+  transform-origin: center center;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}

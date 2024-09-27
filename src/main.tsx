@@ -5,10 +5,8 @@ import Homepage from "./components/homepage/Homepage";
 import RickAstley from "./components/rickAstley/RickAstley";
 import { store } from "./redux/store";
 import { Layout } from "./components/layout/layout";
-import StationPage from "./components/station-page/StationPage";
 import StationPageItem from "./components/stations-page/StationPageItem";
 import Login from "./components/login/Login";
-
 
 createRoot(document.getElementById('root')!).render(
 
