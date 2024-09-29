@@ -5,7 +5,7 @@ import styles from './login.module.css'
 import { useFormik } from "formik";
 
 export interface ILoginFormValues {
-    username: string,
+    name: string,
     password: string
 }
 
@@ -18,7 +18,7 @@ export default function Login() {
 
     const formik = useFormik({
         initialValues: {
-            username: '',
+            name: '',
             password: ''
         } as ILoginFormValues,
         onSubmit: (values: ILoginFormValues, { resetForm }) => {
@@ -36,11 +36,11 @@ export default function Login() {
         <div className={styles.loginForm}>
             <form onSubmit={formik.handleSubmit} className={styles.robotForm}>
                 <label>Login</label>
-                <input value={formik.values.username} name='username' onChange={formik.handleChange} type="text" placeholder='username' />
+                <input value={formik.values.name} name='name' onChange={formik.handleChange} type="text" placeholder='login' />
                 <input value={formik.values.password} name='password' onChange={formik.handleChange} type="text" placeholder='password' />
                 <button type="submit">send form</button>
             </form>
-            <span className={styles.formErrors}>{formik.errors.username}</span>
+            <span className={styles.formErrors}>{formik.errors.name}</span>
             <span className={styles.formErrors}>{formik.errors.password}</span>
 
         </div>
