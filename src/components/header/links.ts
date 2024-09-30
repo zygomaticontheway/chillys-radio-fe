@@ -38,5 +38,5 @@ export const userLinks: Link[] = [
 
 export const homeLink: Link = {
   path: '/',
-  label: 'Homepage'
+  label: ''
 };
