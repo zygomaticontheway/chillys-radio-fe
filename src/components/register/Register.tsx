@@ -24,7 +24,8 @@ export default function Register() {
             password: ''
         } as IRegisterFormValues,
         onSubmit: (values: IRegisterFormValues, { resetForm }) => {
-
+            console.log(values);
+        
             //в values лежат данные из формы
             dispatch(loginUser(values))
             .then(() => {

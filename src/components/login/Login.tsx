@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../redux/hooks';
 import styles from './login.module.css'
 import { useFormik } from "formik";
 
+
 export interface ILoginFormValues {
     name: string,
     password: string
@@ -19,11 +20,11 @@ export default function Login() {
     const formik = useFormik({
         initialValues: {
             name: '',
-            email: '',
-            password: ''
+            password: '',
         } as ILoginFormValues,
         onSubmit: (values: ILoginFormValues, { resetForm }) => {
-
+            // console.log(values);
+            
             //в values лежат данные из формы
             dispatch(loginUser(values))
             .then(() => {
