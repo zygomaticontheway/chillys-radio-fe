@@ -6,7 +6,7 @@ import setPlayingStationSlice from "../features/stations/setPlayingStationSlice"
 import userPasswordSlice from "../features/userPassword/userPasswordSlice"
 
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     stations: stationsSlice.reducer,
     user: authSlice.reducer,
@@ -24,5 +24,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >
-export default store;
+
 
