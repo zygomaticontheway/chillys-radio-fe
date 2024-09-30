@@ -1,15 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../features/auth/authActions';
 import { useAppDispatch } from '../../redux/hooks';
-import styles from './login.module.css'
+import styles from '../login/login.module.css'
 import { useFormik } from "formik";
 
-export interface ILoginFormValues {
+export interface IRegisterFormValues {
     name: string,
+    email: string,
     password: string
 }
 
-export default function Login() {
+export default function Register() {
 
     const dispatch = useAppDispatch()
 
@@ -21,8 +22,8 @@ export default function Login() {
             name: '',
             email: '',
             password: ''
-        } as ILoginFormValues,
-        onSubmit: (values: ILoginFormValues, { resetForm }) => {
+        } as IRegisterFormValues,
+        onSubmit: (values: IRegisterFormValues, { resetForm }) => {
 
             //в values лежат данные из формы
             dispatch(loginUser(values))
@@ -36,10 +37,11 @@ export default function Login() {
     return (
         <div className={styles.loginForm}>
             <form onSubmit={formik.handleSubmit} className={styles.robotForm}>
-                <label>Login</label>
+                <label>Registration</label>
                 <input value={formik.values.name} name='name' onChange={formik.handleChange} type="text" placeholder='login' />
+                <input value={formik.values.email} name='email' onChange={formik.handleChange} type="email" placeholder='email' />
                 <input value={formik.values.password} name='password' onChange={formik.handleChange} type="password" placeholder='password' />
-                <button type="submit">send form</button>
+                <button type="submit">register</button>
             </form>
             <span className={styles.formErrors}>{formik.errors.name}</span>
             <span className={styles.formErrors}>{formik.errors.password}</span>
