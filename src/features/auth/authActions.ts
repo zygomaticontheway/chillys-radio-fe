@@ -15,7 +15,7 @@ export const loginUser = createAsyncThunk(
       //поскольку post запрос, мы можем передать данные не в строке, а в отдельной переменной
       // в данном случае в data лежат данные из формы, мы их передаем в API
       const response: AxiosResponse<IUserData> = await axios.post(
-        "http://localhost:5173/api/auth/login",
+        "/api/auth/login",
         data,
         );
       
@@ -37,7 +37,7 @@ export const getUserWithToken = createAsyncThunk(
   async (accessToken: string, thunkAPI) => {
     try {
       const response: AxiosResponse<IUserData> = await axios.get(
-        "http://localhost:5173/api/users/my-profile",
+        "/api/users/my-profile",
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

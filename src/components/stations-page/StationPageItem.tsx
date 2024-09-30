@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import { IStation } from "../../types/interfaces"
 import styles from "./stationsPageItem.module.css"
 import { useEffect, useState } from "react";
+import FavoriteHeart from "../favorites/FavoriteHeart";
 
-const initialStation:IStation ={
+const initialStation: IStation = {
     stationuuid: "",
     name: "",
     url_resolved: "",
@@ -16,7 +17,7 @@ const initialStation:IStation ={
 
 }
 
-export default function StationPageItem () {
+export default function StationPageItem() {
     const { id } = useParams();
 
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function StationPageItem () {
     }, [id])
 
     const [station, setStation] = useState<IStation>(initialStation)
-    
+
 
     return (
         <>
@@ -36,6 +37,9 @@ export default function StationPageItem () {
                     alt={station.name}
                     className="station-icon"
                 />
+                <div className={styles.favoriteHeartContainer}>
+                    <FavoriteHeart station={station} />
+                </div>
                 <div className="station-info">
                     <h4 className="station-name">{station.name}</h4>
                     <p className="station-details">

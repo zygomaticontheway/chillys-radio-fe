@@ -2,7 +2,7 @@ import { RootState } from "../../redux/store";
 import { IStation } from "../../types/interfaces";
 import styles from "./favorites.module.css"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setFavoriteStation } from "../../features/favorites/favoritesAction";
+import { getFavorites, setFavoriteStation } from "../../features/favorites/favoritesAction";
 
 interface IFavoriteHeartProps {
     station: IStation;
@@ -12,11 +12,13 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     const dispatch = useAppDispatch();
     const favorites = useAppSelector((state: RootState) => state.favorites.favorites);
-    const isFavorite = favorites.some((fav) => fav.stationuuid === stationuuid);
-    const stationuuid = station.stationuuid;
+    const isFavorite = Array.isArray(favorites) && favorites.some((fav) => fav.stationuuid === station.stationuuid);
+    console.log(`------???==== isFavorite: ${isFavorite}`);
+    
 
     const handleFavoriteToggle = () => {
-        dispatch(setFavoriteStation(stationuuid))
+        dispatch(setFavoriteStation(station.stationuuid))
+        dispatch(getFavorites())
     }
 
     return (

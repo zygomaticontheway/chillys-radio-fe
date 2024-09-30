@@ -7,7 +7,7 @@ export const getFavorites = createAsyncThunk(
   try {
     const response = await axios.get(`/api/users/my-favorites`, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("user-token")}`,
       },
     })
     return response.data
@@ -24,12 +24,11 @@ export const setFavoriteStation = createAsyncThunk(
     try {
       const response = await axios.post(
         "/api/users/my-favorites",
-        {
           stationuuid,
-        },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("user-token")}`,
+            "Content-Type": "text/plain",
           },
         },
       )
