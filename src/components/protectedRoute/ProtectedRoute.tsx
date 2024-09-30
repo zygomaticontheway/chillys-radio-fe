@@ -25,7 +25,7 @@ export default function ProtectedRoute({ outlet }: IProps) {
     //         <Navigate to='../login' />
     //     )
     // }
-    if (user.username) {
+    if (user.name) {
         return outlet;
     } else {
         return (
