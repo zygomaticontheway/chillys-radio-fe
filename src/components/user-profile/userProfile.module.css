@@ -1,16 +1,13 @@
- /* Основной контейнер профиля */
-
 .profileContainer {
     width: 40%;
-    max-width: 1200px;
-    margin: 100px auto;
+    max-width: 800px;
+    margin: 100px auto; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    background-color: #e0e0e0;
 }
-
 
 .profileContainer h2 {
     margin: 0 0 25px;
@@ -19,36 +16,37 @@
     font-weight: bold;
 }
 
-/* Поля профиля */
 .profileField {
     margin-bottom: 15px;
+    display: flex; 
+    align-items: center; 
 }
 
 .profileField label {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-right: 10px; 
     color: #555;
+    white-space: nowrap; 
 }
 
-.profileField input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+.profileField .profileValue {
+    color: #333; 
 }
 
-/* Кнопки */
 button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  margin: 5px;
+  padding: 10px 20px; 
+  width: 150px; 
+  height: 40px;
+  background-color: rgb(183, 183, 255);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
 }
 
 button:hover {
-   background-color:  #007bff;
+    background-color: rgb(223, 223, 252);
 }
 
 button:disabled {
@@ -56,12 +54,10 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Кнопка логаута с отступом */
 .logoutButton {
     margin-bottom: 50px;
 }
 
-/* Модальное окно */
 .modal {
     position: fixed;
     top: 0;
@@ -82,30 +78,25 @@ button:disabled {
     width: 400px;
 }
 
-/* Группы формы */
 .formGroup {
     margin-bottom: 15px;
 }
 
-/* Кнопка отправки и отмены в модальном окне */
 .modalContent button {
     padding: 10px 15px;
     border-radius: 4px;
 }
 
-/* Детали профиля */
 .userDetails {
     margin-bottom: 20px;
 }
 
-/* Размещение кнопок в столбик */
 .actions {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: flex; 
+    justify-content: flex-start; 
+    gap: 15px; 
 }
 
-/* Отступ между кнопкой логаута и избранными станциями */
 .favoriteStations {
     margin-top: 50px;
 }
