@@ -9,7 +9,7 @@ export const loginUser = createAsyncThunk(
   "loginUser",
   //вместо data придут данные из формы, когда мы их получение вызовем через dispatch
   async (data: ILoginFormValues, thunkAPI) => {
-    console.log("data:", data);
+    // console.log("data:", data);
 
     try {
       //поскольку post запрос, мы можем передать данные не в строке, а в отдельной переменной
@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk(
       // сохраненные в нем данные из него не будут стираться при перезагрузке страницы
       localStorage.setItem('user-token', response.data.accessToken)
       
-      console.log("data:", response.data);
+      // console.log("data:", response.data);
 
       return response.data;
     } catch (error: any) {
