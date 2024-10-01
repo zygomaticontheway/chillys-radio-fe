@@ -15,7 +15,7 @@ const initialState: IFavoritesState = {
 }
 
 export const favoritesSlice = createSlice({
-  name: "favorites",
+  name: "favoritesSlice",
   initialState,
   reducers: {
     // cleanFavorites: state => {
@@ -45,11 +45,9 @@ export const favoritesSlice = createSlice({
       })
       .addCase(setFavoriteStation.rejected, (state, action) => {
         state.isLoading = false
-        state.favorites = []
         state.error = action.payload as string
       })
   },
 })
 
 // export const { cleanFavorites } = favoritesSlice.actions
-export const {} = favoritesSlice.actions

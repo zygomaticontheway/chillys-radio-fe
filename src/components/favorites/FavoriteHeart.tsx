@@ -13,27 +13,24 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     const dispatch = useAppDispatch();
     const favorites = useAppSelector((state: RootState) => state.favorites.favorites);
-    const isFavorite = () => {
-        favorites.includes(station) ? true : false
-    }
-    // favorites.some((fav) => fav.stationuuid === station.stationuuid);
-    // console.log(`------???==== isFavorite: ${isFavorite}`);
 
-  const [isFavoriteHeart, setIsFavoriteHeart] = useState<boolean[]>(isFavorite);
+    const isFavorite: boolean = favorites.some(fav => fav.stationuuid === station.stationuuid);
 
-  // Запрашиваем станции при монтировании компонента
-  useEffect(() => {
-    dispatch(getStations());
-  }, [dispatch]);
+    const [isFavoriteHeart, setIsFavoriteHeart] = useState<boolean>();
 
-  // Обновляем фильтрованные станции при изменении списка станций
-  useEffect(() => {
-    setFilteredStations(stations);
-  }, [stations]);
+    // Запрашиваем favorites при монтировании компонента
+    useEffect(() => {
+        dispatch(getFavorites());
+    }, [dispatch]);
+
+    // Обновляем фильтрованные станции при изменении списка станций
+    useEffect(() => {
+        setIsFavoriteHeart(isFavorite);
+    }, [favorites, station.stationuuid]);
 
     const handleFavoriteToggle = () => {
         dispatch(setFavoriteStation(station.stationuuid))
-        dispatch(getFavorites())
+        // dispatch(getFavorites())
     }
 
     return (
