@@ -12,7 +12,7 @@ interface IMyButtonProps {
 
 export default function MyButton({ type = 'button', onClick, name = 'default_text', className }: IMyButtonProps) {
   
-  console.log(styles);
+  // console.log(styles);
 
   return (
     <button 

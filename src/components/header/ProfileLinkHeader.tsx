@@ -11,7 +11,10 @@ const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogou
   if (user?.name) {
     return (
       <div className={styles.rightAligned}>
-        <span>{user.name}</span>
+        <Link to ={"/my-profile"} className={styles.navLink}>
+        {user.name}
+        </Link>
+
         <Link onClick={handleLogout} to='/login' className={styles.navLink}>Logout</Link>
       </div>
     );
@@ -20,7 +23,11 @@ const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogou
       <div className={styles.rightAligned}>
         <Link to="/login" className={`${styles.navLink} ${styles.profileLink}`}>
           <span className={styles.iconProfile}></span>
-          Login/Register
+          Login
+        </Link>
+        <Link to="/register" className={`${styles.navLink} ${styles.profileLink}`}>
+          <span className={styles.iconProfile}></span>
+          Register
         </Link>
       </div>
     );
