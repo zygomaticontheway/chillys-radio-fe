@@ -3,4 +3,7 @@
 }
 .favoriteHeartContainer{
     position: relative;
+    background-color: transparent;
+    background: none;
+    border: 0;
 }

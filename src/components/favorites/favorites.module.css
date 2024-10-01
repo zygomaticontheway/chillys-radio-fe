@@ -1,8 +1,10 @@
 .buttonStyle{
-    background: 'none';
-    border: 'none';
-    cursor: 'pointer';
+    background-color: transparent;
+    background: none;
+    border: 0;
+    cursor: pointer;
     padding: 0;
+
 }
 
 .fullHeart{
