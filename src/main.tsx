@@ -6,6 +6,9 @@ import RickAstley from "./components/rickAstley/RickAstley";
 import { store } from "./redux/store";
 import { Layout } from "./components/layout/layout";
 import StationPageItem from "./components/stations-page/StationPageItem";
+import Login from "./components/login/Login";
+import UserProfile from "./components/user-profile/UserProfile";
+
 
 createRoot(document.getElementById('root')!).render(
 
@@ -14,7 +17,8 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path='/' element={<Layout />} >
           <Route path='/' element={<Homepage />} />
-           <Route path='/user-profile' element={<UserProfile />} /> 
+          <Route path='/login' element={<Login />} />
+          <Route path='/user-profile' element={<UserProfile />} /> 
           <Route path='/:id' element={<StationPageItem />} />
           <Route path='*' element={<div className='lesson-container'><h1>ERROR 404 ☠️</h1> <RickAstley /></div>} />
         </Route>

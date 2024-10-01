@@ -1,7 +1,9 @@
  /* Основной контейнер профиля */
- .profileContainer {
-    max-width: 800px;
-    margin: 100px auto; /* Увеличен отступ сверху */
+
+.profileContainer {
+    width: 40%;
+    max-width: 1200px;
+    margin: 100px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -10,10 +12,11 @@
 }
 
 
-/* Заголовок профиля */
-.profileContainer h1 {
-    text-align: center;
+.profileContainer h2 {
+    margin: 0 0 25px;
     color: #333;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* Поля профиля */
@@ -23,7 +26,7 @@
 
 .profileField label {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: #555;
 }
 
@@ -42,7 +45,6 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-    /* background-color: rgba(0, 255, 0, 0.78)*/
 }
 
 button:hover {
