@@ -4,6 +4,7 @@ import styles from "./favorites.module.css"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getFavorites, setFavoriteStation } from "../../features/favorites/favoritesAction";
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 interface IFavoriteHeartProps {
     station: IStation;
@@ -13,6 +14,8 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     const dispatch = useAppDispatch();
     const favorites = useAppSelector((state: RootState) => state.favorites.favorites);
+    const token = localStorage.getItem("user-token");
+    const navigate = useNavigate()
 
     const isFavorite: boolean = favorites.some(fav => fav.stationuuid === station.stationuuid);
 
@@ -29,8 +32,9 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
     }, [favorites, station.stationuuid]);
 
     const handleFavoriteToggle = () => {
-        dispatch(setFavoriteStation(station.stationuuid))
-        // dispatch(getFavorites())
+        token ? 
+            dispatch(setFavoriteStation(station.stationuuid)) :
+            navigate("/login");
     }
 
     return (
