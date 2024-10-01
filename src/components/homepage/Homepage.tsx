@@ -7,6 +7,7 @@ export default function Homepage() {
             <img src="src/media/banner2.jpg" alt="The Chillys Radio" />
             <div className={styles.stationContainer}>
                 <StationContainer />
+                
             </div>
         </div>
     )

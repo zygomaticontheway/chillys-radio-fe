@@ -23,13 +23,13 @@ const PasswordChangeForm: React.FC<PasswordChangeFormProps> = ({ userId, isAdmin
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const correctOldPassword = "userOldPassword";
+        const correctOldPassword = "qwerty";
         if(oldPassword !== correctOldPassword) {
             setLocalError('Incorrect old password');
             return;
         }
         if(newPassword !== confirmPassword) {
-            setLocalError('The new password doesnt match');
+            setLocalError("The new password doesn't match");
                 return;
     }
 
@@ -39,7 +39,7 @@ const PasswordChangeForm: React.FC<PasswordChangeFormProps> = ({ userId, isAdmin
 
 useEffect(() => {
     if(success) {
-        alert(' Password successfully changed');
+       // alert(' Password successfully changed');
         setOldPassword("");
         setNewPassword("");
         setConfirmPassword("");
@@ -60,11 +60,11 @@ return (
                 <input type="password" value={oldPassword} onChange={(e)=> setOldPassword(e.target.value)} required className="form-input" />
             </div>
             <div className="form-group">
-                <label>Old Password</label>
+                <label>New Password</label>
                 <input type="password" value={newPassword} onChange={(e)=> setNewPassword(e.target.value)} required className="form-input" />
             </div>
             <div className="form-group">
-                <label>Old Password</label>
+                <label>Confirm Password</label>
                 <input type="password" value={confirmPassword} onChange={(e)=> setConfirmPassword(e.target.value)} required className="form-input" />
             </div>
             <button type="submit" disabled={isLoading} className="submit-button">
