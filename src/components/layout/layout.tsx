@@ -22,7 +22,7 @@ export function Layout(){
     console.log(location.pathname);
     
     return(
-        <div className={styles.page}>
+        <div className={styles.layout}>
             <Header/>
             <main className={styles.main}>
                 <Outlet/>
