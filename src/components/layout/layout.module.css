@@ -1,35 +1,37 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
 .layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .header {
-    background-color: #1e1f20;
-    padding: 2px;
-    color: white;
-    margin: 0px;
-    padding: 0px;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  header > a {
-    color: white;
-    margin-right: 20px;
-    text-decoration: none;
+.header {
+  background-color: #1e1f20;
+  padding: 2px;
+  color: white;
+  margin: 0px;
+  padding: 0px;
 }
-.header > a:hover{
-    color: white;
-    margin-right: 20px;
-    text-decoration: underline;
+
+header > a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
 }
-  
+.header > a:hover {
+  color: white;
+  margin-right: 20px;
+  text-decoration: underline;
+}
+
 .main {
-  margin-top: 20px;
+  position: relative;
+  top: 95px;
+  margin-top: 95px;
   margin-bottom: 20px;
   flex: 1; /* чтобы main занимал все свободное пространство, если контента мало */
   display: flex;
@@ -41,15 +43,15 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
-  
-  .footer {
-    background-color: #282c34;
-    padding: 10px;
-    color: white;
-    text-align: center;
-  }
 
-  .active {
-    text-decoration: underline;
-    font-weight: 600;
+.footer {
+  background-color: #282c34;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+
+.active {
+  text-decoration: underline;
+  font-weight: 600;
 }

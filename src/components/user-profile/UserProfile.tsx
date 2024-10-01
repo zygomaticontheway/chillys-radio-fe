@@ -44,8 +44,8 @@ const UserProfile: React.FC = () => {
       </div>
 
       <div className={styles.actions}>
-        <MyButton name="Change Password" onClick={() => console.log('Change Password')} />
-        <MyButton name="Logout" onClick={() => console.log('Logout')} className={styles.logoutButton} />
+        <MyButton name="Change Password" onClick={() => console.log('Change Password')} className={styles.button} />
+        <MyButton name="Logout" onClick={() => console.log('Logout')} className={`${styles.button} ${styles.logoutButton}`} />
       </div>
 
       <div className={styles.favoriteStations}>
