@@ -28,7 +28,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logoutUser: (state) => {
-      state.user = initialUser; // Очищаем данные пользователя
+      state.user = initialUser; 
     },
   },
   extraReducers: (builder) => {

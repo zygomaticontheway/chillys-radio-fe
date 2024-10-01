@@ -4,7 +4,7 @@ import styles from './header.module.css';
 
 interface ProfileLinkHeaderProps {
   user: { name: string } | null;
-  handleLogout: () => void; // Передаем функцию для логаута
+  handleLogout: () => void; 
 }
 
 const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogout }) => {

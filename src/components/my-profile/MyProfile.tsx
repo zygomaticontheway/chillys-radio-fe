@@ -6,11 +6,11 @@ import MyButton from '../myButton/MyButton';
 import styles from './myProfile.module.css';
 import { getUserWithToken } from '../../features/auth/authActions';
 import { logoutUser } from '../../features/auth/authSlice';
-import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 const MyProfile: React.FC = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate(); // Инициализируем useNavigate
+  const navigate = useNavigate(); 
   const { user, isLoading } = useAppSelector(state => state.user);
   const { favoriteStations } = useAppSelector(state => state.stations);
 
@@ -22,10 +22,8 @@ const MyProfile: React.FC = () => {
   }, [dispatch]);
 
   const handleLogout = () => {
-    // Удаляем токен из localStorage и обновляем состояние
     localStorage.removeItem('user-token');
     dispatch(logoutUser());
-    // Перенаправляем на главную страницу
     navigate('/');
   };
 
