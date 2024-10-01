@@ -4,11 +4,13 @@ import { IStation } from "../../types/interfaces"
 interface StationFiltersProps {
   stations: IStation[]
   onFilterChange: (filteredStations: IStation[]) => void
+  resetPage: () => void
 }
 
 const StationFilters: React.FC<StationFiltersProps> = ({
   stations,
   onFilterChange,
+  resetPage,
 }) => {
   const [searchTerm, setSearchTerm] = useState("")
   const [tagFilter, setTagFilter] = useState("")
@@ -29,6 +31,12 @@ const StationFilters: React.FC<StationFiltersProps> = ({
   )
 
   const applyFilters = () => {
+    if (!searchTerm && !tagFilter && !countryFilter && !languageFilter) {
+      onFilterChange(stations)
+      resetPage()
+      return
+    }
+
     const filteredStations = stations.filter(
       station =>
         station.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -40,6 +48,7 @@ const StationFilters: React.FC<StationFiltersProps> = ({
           station.language.toLowerCase() === languageFilter.toLowerCase()),
     )
     onFilterChange(filteredStations)
+    resetPage()
   }
 
   const handleInputChange =
