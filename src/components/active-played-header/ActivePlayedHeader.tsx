@@ -27,37 +27,3 @@ const ActivePlayedHeader = () => {
     )
 }
 export default ActivePlayedHeader;
-
-/*
-для выбора станции чтобы передать ее в плеер в списке станций необходимо прописать:
-
- interface StationListProps {
-  stations: Station[];
-}
-
-const StationList: React.FC<StationListProps> = ({ stations }) => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const handleStationClick = (station: Station) => {
-    dispatch(setActiveStation(station));  // Устанавливаем активную радиостанцию
-    history.push(`/station/${station.stationuuid}`);  // Перенаправляем на страницу станции
-  };
-
-  return (
-    <div className="station-list">
-      {stations.map((station) => (
-        <div key={station.id} className="station-item" onClick={() => handleStationClick(station)}>
-          <img src={station.favicon} alt={station.name} className="station-icon" />
-          <h4>{station.name}</h4>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default StationList;
-
--------
-При выборе станции её данные сохраняются в localStorage, чтобы при следующей загрузке страницы активная станция оставалась.
-*/

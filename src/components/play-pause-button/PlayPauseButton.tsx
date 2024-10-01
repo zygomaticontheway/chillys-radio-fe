@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { playAudio, pauseAudio } from '../../features/play-pause-button/playPauseSlice';
 import { RootState } from '../../redux/store'
 import styles from './playPauseButton.module.css'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 interface PlayPauseProps {
   streamUrl: string;
 }
 
 const PlayPauseButton: React.FC<PlayPauseProps> = ({ streamUrl }) => {
-  const dispatch = useDispatch();
-  const isPlaying = useSelector((state: RootState) => state.playPause.isPlaying);
+  const dispatch = useAppDispatch();
+  const isPlaying = useAppSelector((state: RootState) => state.playPause.isPlaying);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
