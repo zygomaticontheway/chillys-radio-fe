@@ -1,14 +1,16 @@
-
 import React, { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import Loader from '../loader/Loader';
 import FavoriteStations from './FavoriteStations';
 import MyButton from '../myButton/MyButton';
-import styles from './userProfile.module.css';
-import { getUserWithToken } from '../../features/auth/authActions'; 
+import styles from './myProfile.module.css';
+import { getUserWithToken } from '../../features/auth/authActions';
+import { logoutUser } from '../../features/auth/authSlice';
+import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 
-const UserProfile: React.FC = () => {
+const MyProfile: React.FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate(); // Инициализируем useNavigate
   const { user, isLoading } = useAppSelector(state => state.user);
   const { favoriteStations } = useAppSelector(state => state.stations);
 
@@ -19,6 +21,14 @@ const UserProfile: React.FC = () => {
     }
   }, [dispatch]);
 
+  const handleLogout = () => {
+    // Удаляем токен из localStorage и обновляем состояние
+    localStorage.removeItem('user-token');
+    dispatch(logoutUser());
+    // Перенаправляем на главную страницу
+    navigate('/');
+  };
+
   if (isLoading) return <Loader />;
 
   if (!user) {
@@ -27,7 +37,7 @@ const UserProfile: React.FC = () => {
 
   return (
     <div className={styles.profileContainer}>
-      <h2>Profile</h2>
+      <h2>My profile</h2>
       <div className={styles.userDetails}>
         <div className={styles.profileField}>
           <label>Username:</label>
@@ -45,7 +55,7 @@ const UserProfile: React.FC = () => {
 
       <div className={styles.actions}>
         <MyButton name="Change Password" onClick={() => console.log('Change Password')} className={styles.button} />
-        <MyButton name="Logout" onClick={() => console.log('Logout')} className={`${styles.button} ${styles.logoutButton}`} />
+        <MyButton name="Logout" onClick={handleLogout} className={`${styles.button} ${styles.logoutButton}`} />
       </div>
 
       <div className={styles.favoriteStations}>
@@ -56,4 +66,6 @@ const UserProfile: React.FC = () => {
   );
 };
 
-export default UserProfile;
+export default MyProfile;
+
+

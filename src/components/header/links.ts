@@ -24,8 +24,8 @@ export const headerLinks: Link[] = [
     label: 'Tags'
   },
   {
-    path: '/user-profile',  
-    label: 'User Profile'
+    path: '/my-profile',  
+    label: 'My Profile'
   }
 
 ];

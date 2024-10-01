@@ -1,17 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-//импортируем типизацию ответа user(пользовательских данных)
 import { IUserData } from "./types/authType";
 import { getUserWithToken, loginUser } from "./authActions";
 
-//типизация state
 interface IUserState {
   user: IUserData;
   isLoading: boolean;
   error: string;
 }
 
-//начальное значение для user
 const initialUser: IUserData = {
   id: 0,
   name: "",
@@ -21,7 +17,6 @@ const initialUser: IUserData = {
   refreshToken: "",
 };
 
-//создаем state и передаем нач значение user
 const initialState: IUserState = {
   user: initialUser,
   isLoading: false,
@@ -29,19 +24,13 @@ const initialState: IUserState = {
 };
 
 const authSlice = createSlice({
-  //указываем имя
   name: "authSlice",
-
-  //передаем начальный state
   initialState,
   reducers: {
-    //создаем синхронный action для очистки state
     logoutUser: (state) => {
-      state.user = initialUser;
+      state.user = initialUser; // Очищаем данные пользователя
     },
   },
-
-  //логика работы с асинх запр
   extraReducers: (builder) => {
     builder
       .addCase(loginUser.pending, (state) => {
@@ -67,5 +56,6 @@ const authSlice = createSlice({
 });
 
 export default authSlice;
-//экспортируем синхронные actions из slice
 export const { logoutUser } = authSlice.actions;
+
+
