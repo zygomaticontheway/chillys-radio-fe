@@ -4,7 +4,7 @@ import styles from "./favorites.module.css"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getFavorites, setFavoriteStation } from "../../features/favorites/favoritesAction";
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface IFavoriteHeartProps {
     station: IStation;
