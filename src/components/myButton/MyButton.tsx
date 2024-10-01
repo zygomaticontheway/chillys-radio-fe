@@ -11,7 +11,7 @@ interface IMyButtonProps {
 
 export default function MyButton({ type='button', onClick, name='default_text' }:IMyButtonProps) {
   
-  console.log(styles);
+  // console.log(styles);
 
   return (
     <button type={type} onClick={onClick} className={styles.myButton}> {/* вызов стилей через класс модуля стилей<---/>*/}
