@@ -7,14 +7,18 @@ interface IMyButtonProps {
   name?: string, //необязательный ибо есть значение по умолчанию
   type?: 'button' | 'submit' | 'reset', //ограниченный набор значений
   onClick?: () => void //необязательный ибо onClick может быть обернута, но это функция по этому параметр описывается как функция (не обязательно стрелочная)
+  className?: string;
 }
 
-export default function MyButton({ type='button', onClick, name='default_text' }:IMyButtonProps) {
+export default function MyButton({ type = 'button', onClick, name = 'default_text', className }: IMyButtonProps) {
   
   // console.log(styles);
 
   return (
-    <button type={type} onClick={onClick} className={styles.myButton}> {/* вызов стилей через класс модуля стилей<---/>*/}
+    <button 
+    type={type} 
+    onClick={onClick} 
+    className={`${styles.myButton} ${className || ''}`}> {/* объединяем стили модуля с кастомным классом */}
       {name}
     </button>
   );

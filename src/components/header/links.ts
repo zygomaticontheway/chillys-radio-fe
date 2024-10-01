@@ -22,7 +22,12 @@ export const headerLinks: Link[] = [
   {
     path: '/tags',
     label: 'Tags'
+  },
+  {
+    path: '/user-profile',  
+    label: 'User Profile'
   }
+
 ];
 
 export const userLinks: Link[] = [

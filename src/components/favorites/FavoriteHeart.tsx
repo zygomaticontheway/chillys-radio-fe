@@ -3,6 +3,7 @@ import { IStation } from "../../types/interfaces";
 import styles from "./favorites.module.css"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getFavorites, setFavoriteStation } from "../../features/favorites/favoritesAction";
+import { useEffect, useState } from "react"
 
 interface IFavoriteHeartProps {
     station: IStation;
@@ -12,9 +13,23 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     const dispatch = useAppDispatch();
     const favorites = useAppSelector((state: RootState) => state.favorites.favorites);
-    const isFavorite = Array.isArray(favorites) && favorites.some((fav) => fav.stationuuid === station.stationuuid);
-    console.log(`------???==== isFavorite: ${isFavorite}`);
-    
+    const isFavorite = () => {
+        favorites.includes(station) ? true : false
+    }
+    // favorites.some((fav) => fav.stationuuid === station.stationuuid);
+    // console.log(`------???==== isFavorite: ${isFavorite}`);
+
+  const [isFavoriteHeart, setIsFavoriteHeart] = useState<boolean[]>(isFavorite);
+
+  // Запрашиваем станции при монтировании компонента
+  useEffect(() => {
+    dispatch(getStations());
+  }, [dispatch]);
+
+  // Обновляем фильтрованные станции при изменении списка станций
+  useEffect(() => {
+    setFilteredStations(stations);
+  }, [stations]);
 
     const handleFavoriteToggle = () => {
         dispatch(setFavoriteStation(station.stationuuid))
@@ -23,7 +38,7 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     return (
         <button onClick={handleFavoriteToggle} className={styles.buttonStyle} aria-label="Toggle Favorite">
-            {isFavorite ? (
+            {isFavoriteHeart ? (
                 <svg width="24" height="24" fill="red" viewBox="0 0 24 24">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
