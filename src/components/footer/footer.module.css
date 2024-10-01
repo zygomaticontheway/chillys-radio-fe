@@ -1,10 +1,11 @@
 .footer {
-    background-color: #1e2127;
-    color: #ffffff;
-    padding: 5px;
-    text-align: center;
-    font-size: 12px;
-  }
+  background-color: #1e2127;
+  color: #ffffff;
+  padding: 5px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 50px; 
+}
   
   .footerList {
     list-style-type: none;
@@ -28,5 +29,5 @@
     text-decoration: underline;
     color: #00ff00;
     border-bottom-color: #00ff00;
-    
   }
+  

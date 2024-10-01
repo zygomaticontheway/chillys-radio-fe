@@ -39,6 +39,9 @@
 }
 
 .rightAligned {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-left: auto;
 }
 
@@ -63,6 +66,7 @@
   padding: 5px 2.5rem;
   font-size: 15px;
   margin: 0px;
+  margin-bottom: 50px;
   padding-top: 0px;
   position: fixed;
   top: 0;
