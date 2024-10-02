@@ -47,43 +47,40 @@ const stationsSlice = createSlice({
     },
   },
 
-  //логика асинхронных действий
-  //обрабатываем 3 состояния promise
-  extraReducers: builder => {
-    builder
-      //действия когда данные еще не пришли
-      .addCase(getStations.pending, state => {
-        state.isLoading = true //включаем loader
-      })
-      //действия когда данные пришли с успехом
-      .addCase(getStations.fulfilled, (state, action) => {
-        state.isLoading = false //включаем loader
-        state.stations = action.payload // payload - добавляем данные в state при успехе
-      })
-      //действия когда данные пришли с ошибкой
-      .addCase(getStations.rejected, (state, action) => {
-        state.isLoading = false
-        state.stations = [] //чистим ошибочные данные
-        state.error = action.payload as string //кладем ошибку в данные
-      })
-      .addCase(searchStations.pending, state => {
-        state.isLoading = true
-        state.error = ""
-      })
-      .addCase(
-        searchStations.fulfilled,
-        (state, action: PayloadAction<IStation[]>) => {
-          state.isLoading = false
-          state.stations = action.payload
-        },
-      )
-      .addCase(searchStations.rejected, (state, action) => {
-        state.isLoading = false
-        state.stations = []
-        state.error = action.payload as string
-      })
-  },
-})
+
+    //логика асинхронных действий
+    //обрабатываем 3 состояния promise
+    extraReducers: (builder) => {
+        builder
+            .addCase(getStations.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getStations.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.stations = action.payload;
+            })
+            .addCase(getStations.rejected, (state, action) => {
+                state.isLoading = false;
+                state.stations = [];
+                state.error = action.payload as string;
+            })
+            .addCase(searchStations.pending, (state) => {
+                state.isLoading = true;
+                state.error = '';
+              })
+              .addCase(searchStations.fulfilled, (state, action: PayloadAction<IStation[]>) => {
+                state.isLoading = false;
+                state.stations = action.payload;
+              })
+              .addCase(searchStations.rejected, (state, action) => {
+                state.isLoading = false;
+                state.stations = [];
+                state.error = action.payload as string;
+              });
+        
+    },
+});
+
 
 export default stationsSlice
 export const { cleanStations } = stationsSlice.actions
