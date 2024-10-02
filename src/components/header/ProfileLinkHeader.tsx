@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './header.module.css';
 
 interface ProfileLinkHeaderProps {
   user: { name: string } | null;
-  handleLogout: () => void; 
+  handleLogout: () => void;
 }
 
 const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogout }) => {
+  useEffect(() => {})
   if (user?.name) {
     return (
       <div className={styles.rightAligned}>
-        <Link to="/my-profile" className={styles.navLink}>
-          {user.name}
+        <Link to ={"/my-profile"} className={styles.navLink}>
+        {user.name}
         </Link>
-        <Link onClick={handleLogout} to='/login' className={styles.navLink}>Logout</Link>
+        <Link onClick={handleLogout} to='/' className={styles.navLink}>Logout</Link>
       </div>
     );
   } else {
@@ -34,4 +35,3 @@ const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogou
 };
 
 export default ProfileLinkHeader;
-
