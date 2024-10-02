@@ -5,6 +5,7 @@ import { changePassword } from "../../features/userPassword/userPasswordAction"
 import { resetPasswordState } from "../../features/userPassword/userPasswordSlice"
 import "./changePasswordForm.module.css"
 
+
 interface PasswordChangeFormProps {
   userId: number
   isAdmin: boolean
@@ -27,17 +28,21 @@ const PasswordChangeForm: React.FC<PasswordChangeFormProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const correctOldPassword = "qwerty"
-    if (oldPassword !== correctOldPassword) {
-      setLocalError("Incorrect old password")
-      return
-    }
+    // const correctOldPassword = "qwerty"
+    // if (oldPassword !== correctOldPassword) {
+    //   setLocalError("Incorrect old password")
+    //   return
+    // }
+
     if (newPassword !== confirmPassword) {
       setLocalError("The new password doesn't match")
       return
     }
+    
+      dispatch(changePassword({ userId, oldPassword, newPassword }))
+    
 
-    dispatch(changePassword({ userId, newPassword }))
+
   }
 
   useEffect(() => {
