@@ -14,7 +14,7 @@ const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogou
         <Link to ={"/my-profile"} className={styles.navLink}>
         {user.name}
         </Link>
-        <Link onClick={handleLogout} to='/login' className={styles.navLink}>Logout</Link>
+        <Link onClick={handleLogout} to='/' className={styles.navLink}>Logout</Link>
       </div>
     );
   } else {
