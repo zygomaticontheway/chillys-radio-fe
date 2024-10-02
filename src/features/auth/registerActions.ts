@@ -1,24 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
-import { IUserData } from "./types/authType";
 import { IRegisterFormValues } from "../../components/register/Register";
-
-axios.defaults.headers.common['Accept'] = 'application/json';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export const registerUser = createAsyncThunk(
   "registerUser",
-    async (data: IRegisterFormValues, thunkAPI) => {
-       try {
-           const response: AxiosResponse<IUserData> = await axios.post(
-        "/api/auth/register",
-        data,
-        );
-     
-     return response.data;
+  async (data: IRegisterFormValues, thunkAPI) => {
+    try {
+      const response = await axios.post("/api/auth/register", data);
+      return response.data;
     } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.message);
+      // Возвращаем ошибку через rejectWithValue, чтобы она обрабатывалась в Redux
+      return thunkAPI.rejectWithValue(error.response?.data?.message || "Registration failed");
     }
   }
 );
