@@ -1,0 +1,16 @@
+.favoriteStationsList {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.favoriteStationItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; 
+}
+
+.favoriteStationIcon {
+    width: 60px; 
+    height: 60px; 
+    margin-right: 10px; 
+}
