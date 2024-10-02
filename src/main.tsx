@@ -7,8 +7,8 @@ import { store } from "./redux/store";
 import { Layout } from "./components/layout/layout";
 import StationPageItem from "./components/stations-page/StationPageItem";
 import Login from "./components/login/Login";
-import UserProfile from "./components/user-profile/UserProfile";
 import Register from "./components/register/Register";
+import MyProfile from "./components/my-profile/MyProfile";
 
 
 createRoot(document.getElementById('root')!).render(
@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/' element={<Layout />} >
           <Route path='/' element={<Homepage />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/user-profile' element={<UserProfile />} /> 
+          <Route path='/my-profile' element={<MyProfile />} /> 
           <Route path='/register' element={<Register />} />
           <Route path='/:id' element={<StationPageItem />} />
           <Route path='*' element={<div className='lesson-container'><h1>ERROR 404 ☠️</h1> <RickAstley /></div>} />

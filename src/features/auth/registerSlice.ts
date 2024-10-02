@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUserData } from "./types/authType";
-import { getUserWithToken, loginUser } from "./authActions";
+import { registerUser } from "./registerActions";
 
 interface IUserState {
   user: IUserData;
@@ -23,8 +23,8 @@ const initialState: IUserState = {
   error: "",
 };
 
-const authSlice = createSlice({
-  name: "authSlice",
+const registerSlice = createSlice({
+  name: "registerSlice",
   initialState,
   reducers: {
     logoutUser: (state) => {
@@ -33,29 +33,23 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginUser.pending, (state) => {
+      .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(loginUser.fulfilled, (state, action) => {
+      .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
       })
-      .addCase(loginUser.rejected, (state, action) => {
+      .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
         state.user = initialUser;
         state.error = action.payload as string;
       })
-      .addCase(getUserWithToken.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload;
-      })
-      .addCase(getUserWithToken.pending, (state) => {
-        state.isLoading = true;
-      });
+      
   },
 });
 
-export default authSlice;
-export const { logoutUser } = authSlice.actions;
+export default registerSlice;
+export const { logoutUser } = registerSlice.actions;
 
 
