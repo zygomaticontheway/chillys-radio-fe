@@ -45,13 +45,7 @@ const registerSlice = createSlice({
         state.user = initialUser;
         state.error = action.payload as string;
       })
-      // .addCase(getUserWithToken.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.user = action.payload;
-      // })
-      // .addCase(getUserWithToken.pending, (state) => {
-      //   state.isLoading = true;
-      // });
+      
   },
 });
 
