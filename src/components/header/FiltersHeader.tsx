@@ -44,7 +44,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
         return countries ? (
           Object.entries(countries)
             .sort((a, b) => (b[1] as number) - (a[1] as number))
-            .slice(0, 50)
+            .slice(0, 49)
             .map(([country, count]) => (
               <Link key={country} to={`/country/${country.toLowerCase()}`}>
                 {country} ({count})
@@ -57,7 +57,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
         return languages ? (
           Object.entries(languages)
             .sort((a, b) => (b[1] as number) - (a[1] as number))
-            .slice(0, 50)
+            .slice(0, 49)
             .map(([language, count]) => (
               <Link key={language} to={`/language/${language.toLowerCase()}`}>
                 {language} ({count})
@@ -70,7 +70,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
         return tags ? (
           Object.entries(tags)
             .sort((a, b) => (b[1] as number) - (a[1] as number))
-            .slice(10, 51)
+            .slice(0, 49)
             .map(([tag, count]) => (
               <Link key={tag} to={`/tag/${tag.toLowerCase()}`}>
                 {tag} ({count})
