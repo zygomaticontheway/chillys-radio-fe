@@ -150,7 +150,10 @@ const MyProfile: React.FC = () => {
         <MyButton name="Logout" onClick={handleLogout} className={`${styles.button} ${styles.logoutButton}`} />
       </div>
 
-      <div className={styles.favoriteStations}>Favorite Stations will be here</div>
+      
+      <div className={styles.favoriteStations}>
+      <h3>Your Favorite Stations</h3>
+      </div>
     </div>
   );
 };
