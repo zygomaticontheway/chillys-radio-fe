@@ -1,13 +1,14 @@
 
-import StationContainer from "../stations-contatiner/StationsContainer";
+
 import styles from "./homepage.module.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import StationContainer from "../stations-contatiner/StationsContainer";
 
 export default function Homepage() {
 
     const [amount, setAmount] = useState<number>()
-    const [error, setError] = useState<any>("") 
+    // const [error, setError] = useState<any>("") 
 
     useEffect(() => {
         fetchStationsAmount();
@@ -19,7 +20,7 @@ export default function Homepage() {
             console.log(`Fetch amount: ${result.data}` );
             setAmount(result.data)
         } catch (error) {
-            setError(error)
+            // setError(error)
         }
     }
 
