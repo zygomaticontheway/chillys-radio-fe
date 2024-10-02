@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../features/auth/authActions';
 import { useAppDispatch } from '../../redux/hooks';
 import styles from '../login/login.module.css'
 import { useFormik } from "formik";
+import { registerUser } from '../../features/auth/registerActions';
 
 export interface IRegisterFormValues {
     name: string,
@@ -26,8 +26,8 @@ export default function Register() {
         onSubmit: (values: IRegisterFormValues, { resetForm }) => {
             console.log(values);
         
-            //в values лежат данные из формы
-            dispatch(loginUser(values))
+          //  в values лежат данные из формы
+            dispatch(registerUser(values))
             .then(() => {
                 navigate('/')
               resetForm();
