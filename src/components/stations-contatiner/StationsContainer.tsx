@@ -61,7 +61,7 @@ const StationContainer: React.FC = () => {
   if (error) return <div className="error">Ошибка: {error}</div>
 
   // Вычисляем текущие станции для отображения на странице
-  const paginatedStations = filteredStations
+  // const paginatedStations = filteredStations
 
   return (
     <div className={styles.stationListContainer}>
