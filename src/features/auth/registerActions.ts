@@ -1,15 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
-import { ILoginFormValues } from "../../components/login/Login";
+
 import { IUserData } from "./types/authType";
+import { IRegisterFormValues } from "../../components/register/Register";
 
 axios.defaults.headers.common['Accept'] = 'application/json';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export const registerUser = createAsyncThunk(
   "registerUser",
   //вместо data придут данные из формы, когда мы их получение вызовем через dispatch
-  async (data: ILoginFormValues, thunkAPI) => {
-    // console.log("data:", data);
+  async (data: IRegisterFormValues, thunkAPI) => {
+    console.log("form data:", data);
 
     try {
       //поскольку post запрос, мы можем передать данные не в строке, а в отдельной переменной
@@ -23,7 +25,7 @@ export const registerUser = createAsyncThunk(
       // сохраненные в нем данные из него не будут стираться при перезагрузке страницы
       // localStorage.setItem('user-token', response.data.accessToken)
       
-      console.log("data:", response.data);
+      console.log("response data:", response.data);
 
       return response.data;
     } catch (error: any) {
