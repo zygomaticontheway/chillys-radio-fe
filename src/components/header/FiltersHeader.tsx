@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import styles from './header.module.css';
-import { countries, languages, tags } from '../data/filterData';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { getHeaderCountries, getHeaderLanguages, getHeaderTags } from '../../features/tags/headerTagsAction';
 
 interface FiltersHeaderProps {
   headerLinks: Array<{ path: string; label: string }>;
 }
 
-const FiltersHeader: React.FC<FiltersHeaderProps>
- = ({ headerLinks }) => {
+const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const dispatch = useAppDispatch();
+  const { tags } = useAppSelector(state => state.tags);
+  const { countries } = useAppSelector(state => state.countries);
+  const { languages } = useAppSelector(state => state.languages);
+
+  useEffect(() => {
+    dispatch(getHeaderTags());
+    dispatch(getHeaderCountries());
+    dispatch(getHeaderLanguages());
+  }, [dispatch]);
 
   const handleMouseEnter = (label: string) => {
     setActiveFilter(label);
@@ -29,17 +41,44 @@ const FiltersHeader: React.FC<FiltersHeaderProps>
           </>
         );
       case 'Country':
-        return countries.map(country => (
-          <Link key={country} to={`/country/${country.toLowerCase()}`}>{country}</Link>
-        ));
+        return countries ? (
+          Object.entries(countries)
+            .sort((a, b) => (b[1] as number) - (a[1] as number))
+            .slice(0, 50)
+            .map(([country, count]) => (
+              <Link key={country} to={`/country/${country.toLowerCase()}`}>
+                {country} ({count})
+              </Link>
+            ))
+        ) : (
+          <p>Loading countries...</p>
+        );
       case 'Language':
-        return languages.map(language => (
-          <Link key={language} to={`/language/${language.toLowerCase()}`}>{language}</Link>
-        ));
+        return languages ? (
+          Object.entries(languages)
+            .sort((a, b) => (b[1] as number) - (a[1] as number))
+            .slice(0, 50)
+            .map(([language, count]) => (
+              <Link key={language} to={`/language/${language.toLowerCase()}`}>
+                {language} ({count})
+              </Link>
+            ))
+        ) : (
+          <p>Loading languages...</p>
+        );
       case 'Tags':
-        return tags.map(tag => (
-          <Link key={tag} to={`/tag/${tag.toLowerCase()}`}>{tag}</Link>
-        ));
+        return tags ? (
+          Object.entries(tags)
+            .sort((a, b) => (b[1] as number) - (a[1] as number))
+            .slice(10, 51)
+            .map(([tag, count]) => (
+              <Link key={tag} to={`/tag/${tag.toLowerCase()}`}>
+                {tag} ({count})
+              </Link>
+            ))
+        ) : (
+          <p>Loading tags...</p>
+        );
       default:
         return null;
     }
