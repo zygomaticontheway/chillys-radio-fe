@@ -32,8 +32,8 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const getUserWithToken = createAsyncThunk(               //!!! использовать для получения логина и емейла юзера в профиле
-  "getUserWithToken",                                           // IUserData из authType 
+export const getUserWithToken = createAsyncThunk(               
+  "getUserWithToken",                                           
   async (accessToken: string, thunkAPI) => {
     try {
       const response: AxiosResponse<IUserData> = await axios.get(
