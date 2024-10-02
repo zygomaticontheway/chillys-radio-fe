@@ -51,20 +51,17 @@ const stationsSlice = createSlice({
     //обрабатываем 3 состояния promise
     extraReducers: (builder) => {
         builder
-            //действия когда данные еще не пришли
             .addCase(getStations.pending, (state) => {
-                state.isLoading = true; //включаем loader
+                state.isLoading = true;
             })
-            //действия когда данные пришли с успехом
             .addCase(getStations.fulfilled, (state, action) => {
-                state.isLoading = false //включаем loader
-                state.stations = action.payload; // payload - добавляем данные в state при успехе
+                state.isLoading = false;
+                state.stations = action.payload;
             })
-            //действия когда данные пришли с ошибкой
             .addCase(getStations.rejected, (state, action) => {
-                state.isLoading = false
-                state.stations = [] //чистим ошибочные данные
-                state.error = action.payload as string //кладем ошибку в данные
+                state.isLoading = false;
+                state.stations = [];
+                state.error = action.payload as string;
             })
             .addCase(searchStations.pending, (state) => {
                 state.isLoading = true;
