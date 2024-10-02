@@ -1,16 +1,23 @@
-.favoriteStationsList {
-    list-style-type: none; 
+.favoriteStationsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 20px; 
     padding: 0; 
 }
 
 .favoriteStationItem {
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 15px; 
+    text-decoration: none; 
 }
 
 .favoriteStationIcon {
-    width: 60px; 
-    height: 60px; 
-    margin-right: 10px; 
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
 }
+
+
+

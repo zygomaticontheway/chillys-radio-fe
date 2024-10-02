@@ -59,12 +59,11 @@ const MyProfile: React.FC = () => {
             </div>
 
             <div className={styles.favoriteStations}>
-                <h3>Your Favorite Stations</h3>
-                <FavoriteStations stations={favoriteStations} /> 
-            </div>
+    <h3 className={styles.favoriteStationsTitle}>Your Favorite Stations</h3>
+    <FavoriteStations stations={favoriteStations} /> 
+</div>
         </div>
     );
 };
 
 export default MyProfile;
-
