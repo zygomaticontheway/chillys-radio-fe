@@ -97,18 +97,16 @@
 import React, { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import Loader from '../loader/Loader';
-import FavoriteStations from './FavoriteStations';
 import MyButton from '../myButton/MyButton';
 import styles from './myProfile.module.css';
 import { getUserWithToken } from '../../features/auth/authActions';
 import { logoutUser } from '../../features/auth/authSlice';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 const MyProfile: React.FC = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { user, isLoading } = useAppSelector(state => state.user);
-  const { favoriteStations } = useAppSelector(state => state.stations);
 
   useEffect(() => {
     const token = localStorage.getItem('user-token');
@@ -152,10 +150,7 @@ const MyProfile: React.FC = () => {
         <MyButton name="Logout" onClick={handleLogout} className={`${styles.button} ${styles.logoutButton}`} />
       </div>
 
-      <div className={styles.favoriteStations}>
-        <h3>Your Favorite Stations</h3>
-        <FavoriteStations stations={favoriteStations} />
-      </div>
+      <div className={styles.favoriteStations}>Favorite Stations will be here</div>
     </div>
   );
 };
