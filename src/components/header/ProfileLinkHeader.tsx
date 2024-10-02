@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './header.module.css';
 
@@ -8,11 +8,14 @@ interface ProfileLinkHeaderProps {
 }
 
 const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogout }) => {
+  useEffect(() => {})
   if (user?.name) {
     return (
       <div className={styles.rightAligned}>
-        <span>{user.name}</span>
-        <Link onClick={handleLogout} to='/login' className={styles.navLink}>Logout</Link>
+        <Link to ={"/my-profile"} className={styles.navLink}>
+        {user.name}
+        </Link>
+        <Link onClick={handleLogout} to='/' className={styles.navLink}>Logout</Link>
       </div>
     );
   } else {
@@ -20,7 +23,11 @@ const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogou
       <div className={styles.rightAligned}>
         <Link to="/login" className={`${styles.navLink} ${styles.profileLink}`}>
           <span className={styles.iconProfile}></span>
-          Login/Register
+          Login
+        </Link>
+        <Link to="/register" className={`${styles.navLink} ${styles.profileLink}`}>
+          <span className={styles.iconProfile}></span>
+          Register
         </Link>
       </div>
     );

@@ -1,6 +1,3 @@
-
-
-
 interface Link {
   path: string;
   label: string;
@@ -28,7 +25,11 @@ export const headerLinks: Link[] = [
 export const userLinks: Link[] = [
   {
     path: '/login',
-    label: 'Login/Register'
+    label: 'Login / '
+  },
+  {
+    path: '/register',
+    label: 'Register'
   },
   {
     path: '/logout',

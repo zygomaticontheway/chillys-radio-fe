@@ -1,55 +1,18 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .header {
-    background-color: #1e1f20;
-    padding: 2px;
-    color: white;
-    margin: 0px;
-    padding: 0px;
-  }
-
-  header > a {
-    color: white;
-    margin-right: 20px;
-    text-decoration: none;
-}
-.header > a:hover{
-    color: white;
-    margin-right: 20px;
-    text-decoration: underline;
-}
-  
-.main {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  flex: 1; /* чтобы main занимал все свободное пространство, если контента мало */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  margin: auto;
-  width: 100%;
-  /* border: 1px dashed grey; */
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: dimgray;
 }
-  
-  .footer {
-    background-color: #282c34;
-    padding: 10px;
-    color: white;
-    text-align: center;
-  }
 
-  .active {
-    text-decoration: underline;
-    font-weight: 600;
+.main {
+  flex: 1;
+  width: 80%;
 }

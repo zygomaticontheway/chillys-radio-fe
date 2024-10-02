@@ -22,6 +22,7 @@ export interface IStation {
 
 export interface IStationResponse {
     stations: IStation[];
+    // favoriteStations: IStation[];
     isLoading: boolean;
     error: string;
 }
@@ -54,3 +55,10 @@ export interface IUserData {
     streamUrl: string;
   }
 
+ export interface IFavoriteStations {
+    stations: IStation[]; 
+}
+
+export interface IHeaderTags {
+    [title: string]: number;
+}
