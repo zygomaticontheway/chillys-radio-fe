@@ -5,31 +5,16 @@ import { RootState } from '../../redux/store'; // Импортируйте ти�
 import styles from './header.module.css';
 
 interface ProfileLinkHeaderProps {
+  name: string | null;
   handleLogout: () => void;
 }
 
-const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ handleLogout }) => {
-  
-  // Получаем данные пользователя из Redux
-  const user = useSelector((state: RootState) => state.user.user);
-
-  useEffect(() => {
-    if (user?.name) {
-      console.log(`Пользователь авторизован: ${user.name}`);
-    } else {
-      console.log('Пользователь не авторизован');
-    }
-  }, [user]); // Следим за изменением user
-
-  // Возвращаем JSX из компонента
-  if (user?.name) {
+const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ name, handleLogout }) => {
+  if (name) {
     return (
       <div className={styles.rightAligned}>
-        <Link to="/my-profile" className={styles.navLink}>
-          {user.name}
-        </Link>
-        <Link onClick={handleLogout} to='/' className={styles.navLink}>
-          Logout
+        <Link to ={"/my-profile"} className={styles.navLink}>
+        {name}
         </Link>
       </div>
     );
