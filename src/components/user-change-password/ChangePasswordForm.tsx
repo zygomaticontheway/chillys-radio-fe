@@ -11,8 +11,7 @@ interface PasswordChangeFormProps {
   isAdmin: boolean
 }
 
-const PasswordChangeForm: React.FC<PasswordChangeFormProps> = ({
-  userId,
+const PasswordChangeForm: React.FC<PasswordChangeFormProps> = ({ userId,
   isAdmin,
 }) => {
   const [oldPassword, setOldPassword] = useState("")
