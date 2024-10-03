@@ -1,13 +1,15 @@
 
-import StationContainer from "../stations-contatiner/StationsContainer";
+
 import styles from "./homepage.module.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import StationsContainer from "../stations-container/StationsContainer";
+
 
 export default function Homepage() {
 
     const [amount, setAmount] = useState<number>()
-    const [error, setError] = useState<any>("") 
+    // const [error, setError] = useState<any>("") 
 
     useEffect(() => {
         fetchStationsAmount();
@@ -19,7 +21,7 @@ export default function Homepage() {
             console.log(`Fetch amount: ${result.data}` );
             setAmount(result.data)
         } catch (error) {
-            setError(error)
+            // setError(error)
         }
     }
 
@@ -29,8 +31,8 @@ export default function Homepage() {
                     <h1>The Chillys Radio</h1>
                     <h3>Listen to {amount} radio stations worldwide for free</h3>
                 </div>
-                <div className={styles.stationContainer}>
-                    <StationContainer />
+                <div className={styles.stationContainerWrapper}>
+                    <StationsContainer />
                 </div>
             </div>
         )

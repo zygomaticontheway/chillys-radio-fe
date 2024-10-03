@@ -30,28 +30,30 @@ export default function StationPageItem() {
 
 
     return (
-        <>
+        <div className={styles.stationPageItemWrapper}>
             <div className={styles.stationPageItem}>
-                <img
-                    src={station.favicon || "default-station-icon.png"}
-                    alt={station.name}
-                    className="station-icon"
-                />
-                <div className={styles.favoriteHeartContainer}>
-                    <FavoriteHeart station={station} />
+                <div className={styles.imgContainer}>
+                    <img
+                        src={station.favicon || "/media/TheCR_Banner1_res.jpg"}
+                        alt={station.name}
+                        className={styles.stationIcon}
+                    />
+                    <div className={styles.favoriteHeartContainer}>
+                        <FavoriteHeart station={station} />
+                    </div>
                 </div>
-                <div className="station-info">
-                    <h4 className="station-name">{station.name}</h4>
-                    <p className="station-details">
+                <div className={styles.stationInfo}>
+                    <h4 className={styles.stationName}>{station.name}</h4>
+                    <p className={styles.stationCountryLanguage}>
                         {station.country} | {station.language}
                     </p>
-                    <p className="station-tags">{station.tags}</p>
+                    <p className={styles.stationTags}>{station.tags}</p>
+                </div>
+                <div className={styles.stationRating}>
+                    <span className={styles.stationVotes}>{station.votes} votes</span> | 
+                    <span className={styles.stationClicks}>{station.clickcount} clicks</span>
                 </div>
             </div>
-            <div className="station-meta">
-                <span className="station-votes">{station.votes} votes</span>
-                <span className="station-votes">{station.clickcount} votes</span>
-            </div>
-        </>
+        </div>
     )
 }
