@@ -2,11 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { registerUser } from "./registerActions";
 
 interface IUserState {
-  error: string | null;
+  isLoading: boolean;
+  error: string;
 }
 
 const initialState: IUserState = {
-  error: null,
+  isLoading: false,
+  error: "",
 };
 
 const registerSlice = createSlice({
@@ -15,13 +17,17 @@ const registerSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.rejected, (state, action) => {
-        state.error = action.payload as string;
+      .addCase(registerUser.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(registerUser.fulfilled, (state) => {
-        state.error = null; // Сбрасываем ошибку при успешной регистрации
+        state.isLoading = false;
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
       });
   },
 });
 
-export default registerSlice.reducer;
+export default registerSlice;
