@@ -1,9 +1,65 @@
-.stationPageItem{
-    
+.stationPageItemWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 83vh;
+  
 }
-.favoriteHeartContainer{
-    position: relative;
-    background-color: transparent;
-    background: none;
-    border: 0;
+
+.stationPageItem {
+  background-color: white;
+  padding: 20px;
+  flex: 1;
+  
+}
+.imgContainer {
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1;
+  width: 200px;
+  padding: 0;
+  margin: 40px;
+  position: relative;
+
+}
+.stationIcon {
+  aspect-ratio: 1 / 1;
+  width: 200px;
+  object-fit: contain;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.favoriteHeartContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 30px;
+}
+
+.stationInfo {
+}
+
+.stationName {
+}
+
+.stationCountryLanguage {
+}
+
+.stationTags {
+}
+
+.stationRating {
+}
+
+.stationVotes {
+}
+
+.stationClicks {
 }

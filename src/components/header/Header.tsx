@@ -25,8 +25,8 @@ import SearchFormHeader from './SearchFormHeader';
       return (
         <header className={styles.header}>
           <div className={styles.topLine}>
-            <Link to={homeLink.path} ><img src="src/media/logo.png" alt={homeLink.label} className={styles.logo}/></Link>
-            <div className={styles.activeStation}>
+            <Link to={homeLink.path} ><img src="/public/media/logo.png" alt={homeLink.label} className={styles.logo} aria-label="Home"/></Link>
+            <div className={styles.activeStationWrapper}>
               <ActivePlayedHeader />
             </div>
             <ProfileLinkHeader user={user} handleLogout={handleLogout} />
