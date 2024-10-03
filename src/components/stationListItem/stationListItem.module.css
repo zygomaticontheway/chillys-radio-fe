@@ -1,30 +1,82 @@
-.favoriteHeartContainer {
-  position: relative;
-}
 .stationItem {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: first baseline;
   align-items: center;
-  padding: 10px;
+  align-content: center;
   box-sizing: border-box;
+}
+.imgContainer {
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-height: fit-content;
+  padding: 0;
+  margin: 0;
+  position: relative;
 }
 
 .stationIcon {
-  width: 70%;
-  height: 70%;
-  object-fit: cover;
-  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  object-fit: contain;
   margin-bottom: 10px;
+  border-radius: 8px;
+  display: inline-block;
 }
 
+.stationIcon:hover {
+  box-shadow: rgba(76, 175, 79, 0.7) 0px 0px 10px 0px;
+  transition: box-shadow 0.1s linear;
+  cursor: pointer;
+}
+.favoriteHeartContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: rgba(175, 76, 76, 0.3);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 30px;
+}
+
+.stationInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 10px;
+  white-space:inherit;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
 .stationName {
-  font-size: 14px;
-  text-align: center;
-  white-space: nowrap;
+  font-size: 13px;
+  text-align: start;
+  white-space: initial;
+  overflow: hidden;
+  text-overflow: unset;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.stationCountryLanguage {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.stationTags {
+  font-size: 12px;
+  color: rgb(75, 75, 75);
+  margin-top: 5px;
+  white-space: initial;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 100%;
 }
