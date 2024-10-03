@@ -13,7 +13,7 @@ import SearchFormHeader from './SearchFormHeader';
 
   
     export default function Header() {
-      const { user } = useAppSelector(state => state.user);
+      const username = useAppSelector(state => state.user.user.name);
       const dispatch = useAppDispatch();
     
       const handleLogout = () => {
@@ -29,7 +29,7 @@ import SearchFormHeader from './SearchFormHeader';
             <div className={styles.activeStationWrapper}>
               <ActivePlayedHeader />
             </div>
-            <ProfileLinkHeader user={user} handleLogout={handleLogout} />
+            <ProfileLinkHeader name={username} handleLogout={handleLogout} />
           </div>
     
           <div className={styles.separator}></div>

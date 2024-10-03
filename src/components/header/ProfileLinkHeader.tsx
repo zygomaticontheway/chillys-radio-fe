@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import styles from './header.module.css';
 
 interface ProfileLinkHeaderProps {
-  user: { name: string } | null;
+  name: string | null;
   handleLogout: () => void;
 }
 
-const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ user, handleLogout }) => {
+const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ name, handleLogout }) => {
   useEffect(() => {})
-  if (user?.name) {
+  if (name) {
     return (
       <div className={styles.rightAligned}>
         <Link to ={"/my-profile"} className={styles.navLink}>
-        {user.name}
+        {name}
         </Link>
         <Link onClick={handleLogout} to='/' className={styles.navLink}>Logout</Link>
       </div>
