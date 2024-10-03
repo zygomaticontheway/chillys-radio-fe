@@ -2,9 +2,7 @@
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
 import { headerLinks, homeLink } from './links';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { logoutUser } from '../../features/auth/authSlice';
-import { cleanStations } from '../../features/stations/stationsSlice';
+import { useAppSelector } from '../../redux/hooks';
 import ActivePlayedHeader from '../active-played-header/ActivePlayedHeader';
 import ProfileLinkHeader from './ProfileLinkHeader';
 import FiltersHeader from './FiltersHeader';
@@ -14,13 +12,6 @@ import SearchFormHeader from './SearchFormHeader';
   
     export default function Header() {
       const username = useAppSelector(state => state.user.user.name);
-      const dispatch = useAppDispatch();
-    
-      const handleLogout = () => {
-        localStorage.removeItem('user-token');
-        dispatch(logoutUser());
-        dispatch(cleanStations());
-      }
     
       return (
         <header className={styles.header}>
@@ -29,7 +20,7 @@ import SearchFormHeader from './SearchFormHeader';
             <div className={styles.activeStationWrapper}>
               <ActivePlayedHeader />
             </div>
-            <ProfileLinkHeader name={username} handleLogout={handleLogout} />
+            <ProfileLinkHeader name={username} />
           </div>
     
           <div className={styles.separator}></div>

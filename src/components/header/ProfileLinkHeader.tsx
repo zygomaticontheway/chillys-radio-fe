@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';  // Для получения состояния из Redux
-import { RootState } from '../../redux/store'; // Импортируйте тип состояния
 import styles from './header.module.css';
 
 interface ProfileLinkHeaderProps {
   name: string | null;
-  handleLogout: () => void;
 }
 
-const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ name, handleLogout }) => {
+const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ name }) => {
   if (name) {
     return (
       <div className={styles.rightAligned}>
