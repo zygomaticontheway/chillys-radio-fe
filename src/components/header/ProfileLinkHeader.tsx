@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';  // Для получения состояния из Redux
+import { RootState } from '../../redux/store'; // Импортируйте тип состояния
 import styles from './header.module.css';
 
 interface ProfileLinkHeaderProps {
@@ -13,7 +15,6 @@ const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ name, handleLogou
         <Link to ={"/my-profile"} className={styles.navLink}>
         {name}
         </Link>
-        <Link onClick={handleLogout} to='/' className={styles.navLink}>Logout</Link>
       </div>
     );
   } else {
