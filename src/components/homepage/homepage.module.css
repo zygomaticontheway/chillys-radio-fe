@@ -1,7 +1,29 @@
-.homepage{
+.homepage {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color:darkgray;
+  margin-top: -40px;
+}
+
+.banner{
+    width: 100%;
+    height: 346px;
+    background-image: url("src/media/banner4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
 }
 
-.stationContainer{
-    
+.banner h1{
+    margin-bottom: 30px;
 }
