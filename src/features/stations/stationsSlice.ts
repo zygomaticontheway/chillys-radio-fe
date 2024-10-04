@@ -29,8 +29,7 @@ export const searchStations = createAsyncThunk<
 const initialState: IStationResponse = {
   stations: [],
   isLoading: false,
-  error: "",
-  favoriteStations: [],
+  error: ""
 }
 
 //срез данных которые мы группируем по общей для них теме (products, user, ...)

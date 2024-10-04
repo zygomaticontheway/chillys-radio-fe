@@ -9,24 +9,23 @@ interface StationListItemProps {
 const StationListItem: React.FC<StationListItemProps> = ({ station }) => {
 
   return (
-    <div className="station-item">
-
-      <div className="station-item-content">
+    <div className={styles.stationItem}>
+      <div className={styles.imgContainer}>
         <img
-          src={station.favicon || "default-station-icon.png"}
+          src={station.favicon || "/media/TheCR_Banner1_res.jpg"}
           alt={station.name}
-          className="station-icon"
+          className={styles.stationIcon}
         />
         <div className={styles.favoriteHeartContainer}>
           <FavoriteHeart station={station} />
         </div>
-        <div className="station-info">
-          <h4 className="station-name">{station.name}</h4>
-          <p className="station-details">
-            {station.country} | {station.language}
-          </p>
-          <p className="station-tags">{station.tags}</p>
-        </div>
+      </div>
+      <div className={styles.stationInfo}>
+        <h4 className={styles.stationName}>{station.name}</h4>
+        <p className={styles.stationCountryLanguage}>
+          <span>{station.country}</span> | <span>{station.language}</span>
+        </p>
+        <p className={styles.stationTags}>{station.tags}</p>
       </div>
     </div>
   )

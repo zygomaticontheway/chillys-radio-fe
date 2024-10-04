@@ -179,3 +179,23 @@
 
 - **footer**
   ...
+
+
+## Default colors
+
+### green
+rgba(76, 175, 79, 1);
+
+### deep green (button)
+rgba(70, 149, 73, 1);
+
+### black (header)
+rgba(30, 31, 32, 1);
+
+### layout background
+! dark red: rgba(71, 34, 34, 1);
+dark green: rgba(32, 42, 31, 1);
+green: rgba(37, 71, 34, 1);
+
+### light gray
+rgba(238, 238, 238, 1);
