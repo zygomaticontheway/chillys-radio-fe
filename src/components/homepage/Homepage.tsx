@@ -7,7 +7,7 @@ export default function Homepage() {
         <div className={styles.homepage}>
             <img src="src/media/banner2.jpg" alt="The Chillys Radio" />
             <div>
-                <PasswordChangeForm userId={12} isAdmin={false} />
+                <PasswordChangeForm />
             </div>
             <div className={styles.stationContainer}>
                 <StationContainer />

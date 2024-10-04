@@ -1,32 +1,34 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { getIsAdminFromToken, getNameFromToken } from './tokenUtils';
 
 
 interface IChangePassword{
-    userId: number;
+    name?: string;
     oldPassword: string;
     newPassword: string;
+    isAdmin?: boolean;
 }
 
 export const changePassword = createAsyncThunk(
   'user/changePassword',
-  async ({ userId, oldPassword, newPassword }:IChangePassword, {rejectWithValue}) => {
-    try {
-      const token =localStorage.getItem('user-token');
-      if(!token) {
-        return rejectWithValue("You need to log in")
+  async ({ oldPassword, newPassword }:IChangePassword, {rejectWithValue}) => {
+    const name = getNameFromToken();
+    const isAdmin = getIsAdminFromToken();
+
+    if(!name){
+      return rejectWithValue('Failed to get the name from the token')
+    }
+    try{
+      const response = await axios.post(`/api/users/${name}/change-password`,{name,oldPassword,newPassword});
+      
+      if(response) {
+        return {response: true, isAdmin};
+      } else {
+        return rejectWithValue(' Error when changing password ');
       }
-      const response = await axios.post(`/api/users/${userId}/change-password`,{userId,oldPassword,newPassword},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-        }
-      );
-      return response.data;
-    } catch (error: any) {
-      return rejectWithValue(error.response ? error.response.data : error.message);
+    } catch (error) {
+      return rejectWithValue('Error during query execution');
     }
   }
 );

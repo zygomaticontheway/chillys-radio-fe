@@ -5,49 +5,40 @@ import { changePassword } from "../../features/userPassword/userPasswordAction"
 import { resetPasswordState } from "../../features/userPassword/userPasswordSlice"
 import "./changePasswordForm.module.css"
 
+// interface PasswordChangeFormProps {
+//   name: string
+//   isAdmin: boolean
+// }
 
-interface PasswordChangeFormProps {
-  userId: number
-  isAdmin: boolean
-}
-
-const PasswordChangeForm: React.FC<PasswordChangeFormProps> = ({
-  userId,
-  isAdmin,
-}) => {
+const PasswordChangeForm: React.FC = () => {
   const [oldPassword, setOldPassword] = useState("")
   const [newPassword, setNewPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [localError, setLocalError] = useState("")
 
   const dispatch = useDispatch<AppDispatch>()
-  const { isLoading, success, error } = useSelector(
+  const { isLoading, success, error, isAdmin } = useSelector(
     (state: RootState) => state.userPassword,
   )
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    // const correctOldPassword = "qwerty"
-    // if (oldPassword !== correctOldPassword) {
-    //   setLocalError("Incorrect old password")
-    //   return
-    // }
-
     if (newPassword !== confirmPassword) {
       setLocalError("The new password doesn't match")
       return
     }
-    
-      dispatch(changePassword({ userId, oldPassword, newPassword }))
-    
 
-
+    dispatch(changePassword({ oldPassword, newPassword }))
   }
+
+  // const handleReset = () => {
+  //   dispatch(resetPasswordState());
+  // }
 
   useEffect(() => {
     if (success) {
-      alert(' Password successfully changed');
+      alert(" Password successfully changed")
       setOldPassword("")
       setNewPassword("")
       setConfirmPassword("")
@@ -60,6 +51,9 @@ const PasswordChangeForm: React.FC<PasswordChangeFormProps> = ({
       <h2>Change Password</h2>
       {success && (
         <p className="success-msg"> Password successfully changed !</p>
+      )}
+      {isAdmin !== null && (
+        <p className="role-msg">Role is : {isAdmin ? "Admin" : "User"} </p>
       )}
       {error && <p className="error-msg"> Password not changed, error</p>}
       {localError && <p className="error-msg">{localError}</p>}
