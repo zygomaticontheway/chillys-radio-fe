@@ -12,7 +12,7 @@ import languageSlice from "../features/tags/languagesSlice"
 
 export const store = configureStore({
   reducer: {
-    stations: stationsSlice.reducer,
+    stationsResponse: stationsSlice.reducer,
     user: authSlice.reducer,
     playPause: playPauseSlice.reducer,
     playingStation: setPlayingStationSlice.reducer,

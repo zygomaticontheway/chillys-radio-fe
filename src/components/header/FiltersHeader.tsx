@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import styles from './header.module.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getHeaderCountries, getHeaderLanguages, getHeaderTags } from '../../features/tags/headerTagsAction';
+import { getTopClicksStations, getTopVotesStations, searchStations } from '../../features/stations/stationsActions';
 
 interface FiltersHeaderProps {
   headerLinks: Array<{ path: string; label: string }>;
@@ -16,6 +17,8 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
   const { tags } = useAppSelector(state => state.tags);
   const { countries } = useAppSelector(state => state.countries);
   const { languages } = useAppSelector(state => state.languages);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     dispatch(getHeaderTags());
@@ -36,8 +39,15 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
       case 'Top Stations':
         return (
           <>
-            <Link to="/top-stations/clicks">Top clicks</Link>
-            <Link to="/top-stations/votes">Top votes</Link>
+            <button onClick={() => {
+              dispatch(getTopClicksStations({page: 1, size: 20}));
+              navigate("/");
+            } 
+            } className={styles.headerFilterButton}>Top Clicks</button>
+            <button onClick={() => { dispatch(getTopVotesStations({page: 1, size: 20}))
+            navigate("/");
+          }
+          } className={styles.headerFilterButton}>Top Votes</button>
           </>
         );
       case 'Country':
@@ -45,10 +55,17 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
           Object.entries(countries)
             .sort((a, b) => (b[1] as number) - (a[1] as number))
             .slice(0, 49)
-            .map(([country, count]) => (
-              <Link key={country} to={`/country/${country.toLowerCase()}`}>
-                {country} ({count})
-              </Link>
+            .map(([country]) => (
+              <button key={country} onClick={() => {dispatch(searchStations({
+                page: 1, size: 20,
+                name: '',
+                tags: '',
+                country: country,
+                language: ''
+              }));
+              navigate("/");
+          }
+            } className={styles.headerFilterButton}>{country}</button>
             ))
         ) : (
           <p>Loading countries...</p>
@@ -58,10 +75,16 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
           Object.entries(languages)
             .sort((a, b) => (b[1] as number) - (a[1] as number))
             .slice(0, 49)
-            .map(([language, count]) => (
-              <Link key={language} to={`/language/${language.toLowerCase()}`}>
-                {language} ({count})
-              </Link>
+            .map(([language]) => (
+              <button key={language} onClick={() => {dispatch(searchStations({
+                page: 1, size: 20,
+                name: '',
+                tags: '',
+                country: '',
+                language: language
+              }));
+              navigate("/");
+            }} className={styles.headerFilterButton}>{language}</button>
             ))
         ) : (
           <p>Loading languages...</p>
@@ -71,10 +94,16 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
           Object.entries(tags)
             .sort((a, b) => (b[1] as number) - (a[1] as number))
             .slice(0, 49)
-            .map(([tag, count]) => (
-              <Link key={tag} to={`/tag/${tag.toLowerCase()}`}>
-                {tag} ({count})
-              </Link>
+            .map(([tag]) => (
+              <button key={tag} onClick={() => {dispatch(searchStations({
+                page: 1, size: 20,
+                name: '',
+                tags: tag,
+                country: '',
+                language: ''
+              }));
+              navigate("/");
+            }} className={styles.headerFilterButton}>{tag}</button>
             ))
         ) : (
           <p>Loading tags...</p>
