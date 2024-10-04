@@ -62,8 +62,16 @@
   text-decoration: none;
 }
 
+.navLink svg {
+  margin-right: 5px;
+}
+
 .navLink:hover {
   color: rgba(76, 175, 79, 1);
+}
+
+.navLink:hover svg{
+  fill: rgba(76, 175, 79, 1);
 }
 
 .rightAligned {
