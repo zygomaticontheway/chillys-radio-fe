@@ -13,10 +13,7 @@ const SearchFormHeader: React.FC = () => {
   useEffect(() => {
     if (debouncedSearchTerm) {
       dispatch(searchStations({
-        name: debouncedSearchTerm, page: 0, size: 20,
-        tags: '',
-        country: '',
-        language: ''
+        search: debouncedSearchTerm, page: 0, size: 20
       }));
     }
   }, [debouncedSearchTerm, dispatch]);

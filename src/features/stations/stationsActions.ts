@@ -61,3 +61,15 @@ export const getTopClicksStations = createAsyncThunk(
     }
   },
 )
+
+export const getAllStationsAmount = createAsyncThunk(
+  "getAllStationsAmount",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/stations/amount`)
+      return response.data
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  },
+)

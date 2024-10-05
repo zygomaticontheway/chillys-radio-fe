@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getHeaderCountries, getHeaderLanguages, getHeaderTags } from '../../features/tags/headerTagsAction';
-import { filteredStations, getTopClicksStations, getTopVotesStations, searchStations } from '../../features/stations/stationsActions';
+import { filteredStations, getTopClicksStations, getTopVotesStations } from '../../features/stations/stationsActions';
 
 interface FiltersHeaderProps {
   headerLinks: Array<{ path: string; label: string }>;

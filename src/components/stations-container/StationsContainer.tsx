@@ -58,7 +58,7 @@ const StationsContainer: React.FC = () => {
 
   return (
     <div className={styles.stationListContainerWrapper}>
-      <div className={styles.stationsFilterTitle}>Stations [Filter title] ([filtered stations amount]):</div>
+      <div className={styles.stationsFilterTitle}>Choose your radio station:</div>
       <div className={styles.stationListContainer}>
         {filteredStations.map(station => (
           <div

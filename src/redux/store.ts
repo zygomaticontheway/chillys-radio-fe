@@ -7,6 +7,7 @@ import { favoritesSlice } from "../features/favorites/favoritesSlice"
 import tagsSlice from "../features/tags/tagsSlice"
 import countriesSlice from "../features/tags/countriesSlice"
 import languageSlice from "../features/tags/languagesSlice"
+import getAllStationsAmountSlice from "../features/stations/getAllStationsAmountSlice"
 
 
 
@@ -19,7 +20,8 @@ export const store = configureStore({
     favorites: favoritesSlice.reducer,
     tags: tagsSlice.reducer,
     countries: countriesSlice.reducer,
-    languages: languageSlice.reducer
+    languages: languageSlice.reducer,
+    allStationsAmount: getAllStationsAmountSlice.reducer
   },
 })
 
