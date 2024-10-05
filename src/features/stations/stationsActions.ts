@@ -15,10 +15,23 @@ export const getStations = createAsyncThunk(
 
 export const searchStations = createAsyncThunk(
   "stations/search", 
+  async ({ search, page, size }: { search: string; page: number; size: number }, { rejectWithValue }) => {
+  try {
+    const response = await axios.get(
+      `/api/stations/search?search=${search}&page=${page}&size=${size}`,
+    )
+    return response.data
+  } catch (error) {
+    return rejectWithValue("An error occurred while searching stations")
+  }
+})
+
+export const filteredStations = createAsyncThunk(
+  "stations/filtered", 
   async ({ name, tags, country, language, page, size }: { name: string; tags: string; country: string; language: string; page: number; size: number }, { rejectWithValue }) => {
   try {
     const response = await axios.get(
-      `/api/stations/search?name=${name}&tags=${tags}&country=${country}&language=${language}&page=${page}&size=${size}`,
+      `/api/stations/filtered?name=${name}&tags=${tags}&country=${country}&language=${language}&page=${page}&size=${size}`,
     )
     return response.data
   } catch (error) {

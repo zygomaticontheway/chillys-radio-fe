@@ -3,7 +3,7 @@ import {
   IStationResponse,
   IStationResponseData,
 } from "../../types/interfaces"
-import { getStations, getTopClicksStations, getTopVotesStations, searchStations } from "./stationsActions"
+import { filteredStations, getStations, getTopClicksStations, getTopVotesStations, searchStations } from "./stationsActions"
 
 const initialStateIStationResponseData: IStationResponseData = {
   content: [],
@@ -53,6 +53,18 @@ const stationsSlice = createSlice({
         state.data = action.payload
       })
       .addCase(searchStations.rejected, (state, action) => {
+        state.isLoading = false
+        state.data = initialStateIStationResponseData
+        state.error = action.payload as string
+      })
+      .addCase(filteredStations.pending, state => {
+        state.isLoading = true
+      })
+      .addCase(filteredStations.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.data = action.payload
+      })
+      .addCase(filteredStations.rejected, (state, action) => {
         state.isLoading = false
         state.data = initialStateIStationResponseData
         state.error = action.payload as string

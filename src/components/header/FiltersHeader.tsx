@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getHeaderCountries, getHeaderLanguages, getHeaderTags } from '../../features/tags/headerTagsAction';
-import { getTopClicksStations, getTopVotesStations, searchStations } from '../../features/stations/stationsActions';
+import { filteredStations, getTopClicksStations, getTopVotesStations, searchStations } from '../../features/stations/stationsActions';
 
 interface FiltersHeaderProps {
   headerLinks: Array<{ path: string; label: string }>;
@@ -56,7 +56,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
             .sort((a, b) => (b[1] as number) - (a[1] as number))
             .slice(0, 49)
             .map(([country]) => (
-              <button key={country} onClick={() => {dispatch(searchStations({
+              <button key={country} onClick={() => {dispatch(filteredStations({
                 page: 1, size: 20,
                 name: '',
                 tags: '',
@@ -76,7 +76,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
             .sort((a, b) => (b[1] as number) - (a[1] as number))
             .slice(0, 49)
             .map(([language]) => (
-              <button key={language} onClick={() => {dispatch(searchStations({
+              <button key={language} onClick={() => {dispatch(filteredStations({
                 page: 1, size: 20,
                 name: '',
                 tags: '',
@@ -95,7 +95,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
             .sort((a, b) => (b[1] as number) - (a[1] as number))
             .slice(0, 49)
             .map(([tag]) => (
-              <button key={tag} onClick={() => {dispatch(searchStations({
+              <button key={tag} onClick={() => {dispatch(filteredStations({
                 page: 1, size: 20,
                 name: '',
                 tags: tag,
