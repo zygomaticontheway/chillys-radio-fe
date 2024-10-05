@@ -6,7 +6,7 @@ import { searchStations } from '../../features/stations/stationsActions';
 
 const SearchFormHeader: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 300);
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
   const dispatch = useAppDispatch();
   const { isLoading, error } = useAppSelector((state) => state.stationsResponse);
 
