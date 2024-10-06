@@ -1,8 +1,46 @@
+.header {
+  background-color: rgb(30, 31, 32);
+  color: white;
+  padding: 5px 2.5rem;
+  font-size: 15px;
+  margin: 0px;
+  padding-top: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: 100;
+  position: sticky;
+  z-index: 1000;
+}
+
+.topLine,
+.bottomLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  padding: 5px 0;
+}
+
+.logo {
+  height: 40px;
+  margin-top: 2px;
+}
+
+/* .activeStationWrapper{
+
+} */
+.separator {
+  height: 1px;
+  width: 100%;
+  background-color:  rgba(76, 175, 79, 1);;
+}
+
 .nav {
   display: flex;
   flex-direction: row;
   align-items: center;
- 
 }
 
 .navList {
@@ -20,22 +58,20 @@
 .navLink {
   display: inline-block;
   padding: 1px;
-  color: #ffffff;
+  color: white;
   text-decoration: none;
+}
 
+.navLink svg {
+  margin-right: 5px;
 }
 
 .navLink:hover {
-  color: #00ff00;
- 
+  color: rgba(76, 175, 79, 1);
 }
 
-.topLine,
-.bottomLine {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 44px;
+.navLink:hover svg{
+  fill: rgba(76, 175, 79, 1);
 }
 
 .rightAligned {
@@ -47,10 +83,10 @@
 
 .searchInput {
   background-color: transparent;
-  border: 1px solid #ffffff;
+  border: 1px solid white;
   border-radius: 20px;
-  color: #ffffff;
-  padding: 4px, 10px;
+  color: white;
+  padding: 10px;
   font-size: 12px;
   width: 200px;
   height: 22px;
@@ -60,39 +96,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.header {
-  background-color: #1e1f20;
-  color: white;
-  padding: 5px 2.5rem;
-  font-size: 15px;
-  margin: 0px;
-  margin-bottom: 50px;
-  padding-top: 0px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 100;
-}
-
-.separator {
-  height: 1px;
-  width: 100%;
-  background-color: #50cd32;
-}
-
-.topLine,
-.bottomLine {
-  padding: 5px 0;
-}
-
-.logo {
-  height: 40px;
-  margin-top: 2px;
-}
-
-
 .filterDropdown {
   position: absolute;
   top: 100%;
@@ -100,20 +103,17 @@
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  /* min-width: 150px; */
+  width: 150px;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .filterDropdown a {
+  display: block;
+  padding: 8px 12px;
   color: #333;
   text-decoration: none;
-  padding: 5px 0;
-}
-
-.filterDropdown a:hover {
-  color: #00ff00;
 }
