@@ -21,12 +21,11 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     const [isFavoriteHeart, setIsFavoriteHeart] = useState<boolean>();
 
-    // Запрашиваем favorites при монтировании компонента
+    //get favorites on component mounting
     useEffect(() => {
         dispatch(getFavorites());
     }, [dispatch]);
 
-    // Обновляем фильтрованные станции при изменении списка станций
     useEffect(() => {
         setIsFavoriteHeart(isFavorite);
     }, [favorites, station.stationuuid]);
