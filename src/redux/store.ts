@@ -12,12 +12,12 @@ export const store = configureStore({
     user: authSlice.reducer,
     playPause: playPauseSlice.reducer,
     playingStation: setPlayingStationSlice.reducer,
-    userPassword: userPasswordSlice.reducer
+    password: userPasswordSlice.reducer
   },
 })
 
-export type AppDispatch = typeof store.dispatch
-export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
