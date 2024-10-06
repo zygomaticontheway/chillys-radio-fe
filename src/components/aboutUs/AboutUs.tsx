@@ -16,23 +16,42 @@ const testers = [
   { name: "Anna Schaedlich", specialization: "QA Manual and Automation Tester", git: "", linkedin: "" }
   ];
 
-const AboutUs: React.FC = () => {
-  return (
-    <div className={styles.profileContainer}>
-      <h2>About Us:</h2>
-      {developers.map((developer, index) => (
-        <div key={index} className={styles.profileField}>
-          <label>{developer.name}</label>
-          <span className={styles.profileValue}>{developer.specialization}</span>
-          <div className={styles.links}>
-            <a href={developer.git} target="_blank" rel="noopener noreferrer">GitHub</a>
-            <span> | </span>
-            <a href={developer.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default AboutUs;
+  const AboutUs: React.FC = () => {
+    return (
+      <div className={styles.profileContainer}>
+        <h2>About Us</h2>
+  
+        <section className={styles.teamSection}>
+          <h3>Development Team</h3>
+          {developers.map((developer, index) => (
+            <div key={index} className={styles.profileField}>
+              <label className={styles.name}>{developer.name}</label>
+              <span className={styles.profileValue}>{developer.specialization}</span>
+              <div className={styles.links}>
+                <a href={developer.git} target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span> | </span>
+                <a href={developer.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </div>
+            </div>
+          ))}
+        </section>
+  
+        <section className={styles.teamSection}>
+          <h3>QA Team</h3>
+          {testers.map((tester, index) => (
+            <div key={index} className={styles.profileField}>
+              <label className={styles.name}>{tester.name}</label>
+              <span className={styles.profileValue}>{tester.specialization}</span>
+              <div className={styles.links}>
+                <a href={tester.git} target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span> | </span>
+                <a href={tester.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </div>
+            </div>
+          ))}
+        </section>
+      </div>
+    );
+  };
+  
+  export default AboutUs;
