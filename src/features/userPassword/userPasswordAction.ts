@@ -21,13 +21,15 @@ export const changePassword = createAsyncThunk(
             Authorization: `Bearer ${localStorage.getItem("user-token")}`,
             "Content-Type": "application/json",
           },
-        },
-      )
+        });
+      
       return response.data
     } catch (error: any) {
-      return rejectWithValue(
-        error.response ? error.response.data : error.message,
-      )
+      if(error.response && error.response.status === 400){
+        return rejectWithValue('There was an error');
+      }
+      return rejectWithValue('OldPassword is incorrect');
+      
     }
   },
 )

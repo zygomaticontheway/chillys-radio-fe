@@ -27,6 +27,8 @@ export const userPasswordSlice = createSlice({
     setNewPassword: (state, action) => {
       state.newPassword = action.payload;
     },
+  
+
     resetPasswordState: (state) => {
       state.oldPassword = '';
       state.newPassword = '';
@@ -35,10 +37,13 @@ export const userPasswordSlice = createSlice({
       state.error = null;
     },
   },
+  
   extraReducers: builder => {
     builder
       .addCase(changePassword.pending, (state) => {
         state.loading = true
+        state.error = null
+        state.success = false
       })
       .addCase(changePassword.fulfilled, (state) => {
         state.loading = false
