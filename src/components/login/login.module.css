@@ -6,7 +6,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #e0e0e0;
+    background-color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 100;
     
@@ -35,23 +35,26 @@
 }
 
 .robotForm button {
-  margin: 5px;
-  padding: 10px 20px;
-  background-color: rgb(183, 183, 255);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  padding: 10px;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(70, 149, 73);
+    border: none;
+    border-radius: 6px; 
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
 }
 /* стили сработают при наведении мышкой на кнопку */
 .robotForm button:hover {
-    background-color: rgb(223, 223, 252);
+  background-color: rgba(76, 175, 79, 1);
   }
   
   /* стили сработают при нажатии на кнопку */
   .robotForm button:active {
-    background-color: rgb(29, 29, 94);
-    color: white;
+    background-color: rgba(76, 175, 79, 1);
+    
   }
 
 
