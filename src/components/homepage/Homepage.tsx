@@ -1,13 +1,23 @@
-import StationContainer from "../stations-contatiner/StationsContainer";
+
+
 import styles from "./homepage.module.css"
+import StationsContainer from "../stations-container/StationsContainer";
+import { useAppSelector } from "../../redux/hooks";
+
 
 export default function Homepage() {
-    return (
-        <div className={styles.homepage}>
-            <img src="src/media/banner2.jpg" alt="The Chillys Radio" />
-            <div className={styles.stationContainer}>
-                <StationContainer />
+
+    const amount = useAppSelector((state) => state.allStationsAmount.amount);
+
+        return (
+            <div className={styles.homepage}>
+                <div className={styles.banner}>
+                    <h1>The Chillys Radio</h1>
+                    <h3>Listen to {amount} radio stations worldwide for free</h3>
+                </div>
+                <div className={styles.stationContainerWrapper}>
+                    <StationsContainer />
+                </div>
             </div>
-        </div>
-    )
+        )
 }

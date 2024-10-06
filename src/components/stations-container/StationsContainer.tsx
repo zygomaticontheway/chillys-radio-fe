@@ -1,37 +1,33 @@
 import React, { useState, useEffect } from "react"
 import { IStation } from "../../types/interfaces"
-import { useSelector } from "react-redux"
 import { setActiveStation } from "../../features/stations/setPlayingStationSlice"
 import { useNavigate } from "react-router-dom"
-import StationFilters from "./StationsFilters"
-import { RootState } from "../../redux/store"
 import { getStations } from "../../features/stations/stationsActions"
 import Loader from "../loader/Loader"
-import { useAppDispatch } from "../../redux/hooks"
+import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { playAudio } from "../../features/play-pause-button/playPauseSlice"
 import StationListItem from "../stationListItem/StationListItem"
 import styles from "./stationsContainer.module.css"
 
-const StationContainer: React.FC = () => {
+const StationsContainer: React.FC = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const [currentPage, setCurrentPage] = useState(1)
   const pageSize = 20
 
-  // Получаем данные из Redux
-  const stations = useSelector((state: RootState) => state.stations.stations)
-  const isLoading = useSelector((state: RootState) => state.stations.isLoading)
-  const error = useSelector((state: RootState) => state.stations.error)
-
-  // Локальный стейт для фильтрованных станций
+  const stations = useAppSelector(state => state.stationsResponse.data.content)
+  const isLoading = useAppSelector(state => state.stationsResponse.isLoading)
+  const error = useAppSelector(state => state.stationsResponse.error)
+  
+  // local state for filtered stations
   const [filteredStations, setFilteredStations] = useState<IStation[]>([])
 
-  // Запрашиваем станции при монтировании компонента или при изменении страницы
+  // fetching stations on the component mounting and page number changing
   useEffect(() => {
     dispatch(getStations({ page: currentPage, size: pageSize }))
   }, [dispatch, currentPage, pageSize])
 
-  // Обновляем фильтрованные станции при изменении списка станций
+  // Refreshing filtered stations on stations list change
   useEffect(() => {
     setFilteredStations(stations)
   }, [stations])
@@ -54,23 +50,16 @@ const StationContainer: React.FC = () => {
 
   if (isLoading)
     return (
-      <div className="get-stations-loader">
+      <div className={styles.getStationsLoader}>
         <Loader />
       </div>
     )
-  if (error) return <div className="error">Ошибка: {error}</div>
-
-  // Вычисляем текущие станции для отображения на странице
-  const paginatedStations = filteredStations
+  if (error) return <div className={styles.error}>Error: {error}</div>
 
   return (
-    <div className={styles.stationListContainer}>
-      <StationFilters
-        stations={stations}
-        onFilterChange={setFilteredStations}
-        resetPage={() => setCurrentPage(1)}
-      />
-      <div className={styles.stationList}>
+    <div className={styles.stationListContainerWrapper}>
+      <div className={styles.stationsFilterTitle}>Choose your radio station:</div>
+      <div className={styles.stationListContainer}>
         {filteredStations.map(station => (
           <div
             key={station.stationuuid}
@@ -97,4 +86,4 @@ const StationContainer: React.FC = () => {
   )
 }
 
-export default StationContainer
+export default StationsContainer

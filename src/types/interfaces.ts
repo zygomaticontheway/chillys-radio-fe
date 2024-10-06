@@ -19,12 +19,39 @@ export interface IStation {
     lastcheckok?: number;
     clickcount: number;
 }
+export interface IStationResponseData{
+    content: IStation [];
+    // pageable: {
+    //     pageNumber: boolean,
+    //     pageSize: number,
+    //     sort: {
+    //         empty: boolean,
+    //         sorted: boolean,
+    //         unsorted: boolean
+    //     },
+    //     offset: boolean,
+    //     paged: boolean,
+    //     unpaged: boolean
+    // },
+    last: boolean,
+    totalPages: number,
+    totalElements: number,
+    size: number,
+    number: number,
+    // sort: {
+    //     empty: boolean,
+    //     sorted: boolean,
+    //     unsorted: boolean
+    // },
+    numberOfElements: number,
+    first: boolean,
+    empty: boolean
+}
 
 export interface IStationResponse {
-    stations: IStation[];
-    // favoriteStations: IStation[];
+    data: IStationResponseData;
     isLoading: boolean;
-    error: string;
+    error: string | null;
 }
 
 export interface ITokenResponse {
@@ -42,10 +69,6 @@ export interface IUserData {
     id: number;
     username: string;
     email: string;
-    firstName: string;
-    lastName: string;
-    gender: string;
-    image: string;
     token: string;
     refreshToken: string;
   }
