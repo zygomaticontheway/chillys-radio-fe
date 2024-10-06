@@ -1,0 +1,23 @@
+.favoriteStationsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 20px; 
+    padding: 0; 
+}
+
+.favoriteStationItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; 
+}
+
+.favoriteStationIcon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+

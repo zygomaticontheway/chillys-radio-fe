@@ -7,13 +7,14 @@ import { favoritesSlice } from "../features/favorites/favoritesSlice"
 import tagsSlice from "../features/tags/tagsSlice"
 import countriesSlice from "../features/tags/countriesSlice"
 import languageSlice from "../features/tags/languagesSlice"
+import getAllStationsAmountSlice from "../features/stations/getAllStationsAmountSlice"
 import userPasswordSlice from "../features/userPassword/userPasswordSlice"
 
 
 
 export const store = configureStore({
   reducer: {
-    stations: stationsSlice.reducer,
+    stationsResponse: stationsSlice.reducer,
     user: authSlice.reducer,
     playPause: playPauseSlice.reducer,
     playingStation: setPlayingStationSlice.reducer,
@@ -21,6 +22,7 @@ export const store = configureStore({
     tags: tagsSlice.reducer,
     countries: countriesSlice.reducer,
     languages: languageSlice.reducer,
+    allStationsAmount: getAllStationsAmountSlice.reducer,
     password: userPasswordSlice.reducer
   },
 })

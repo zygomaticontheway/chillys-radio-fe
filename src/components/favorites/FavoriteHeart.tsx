@@ -1,9 +1,9 @@
 import { RootState } from "../../redux/store";
 import { IStation } from "../../types/interfaces";
-import styles from "./favorites.module.css"
+import styles from "./favorites.module.css";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getFavorites, setFavoriteStation } from "../../features/favorites/favoritesAction";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface IFavoriteHeartProps {
@@ -21,12 +21,11 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     const [isFavoriteHeart, setIsFavoriteHeart] = useState<boolean>();
 
-    // Запрашиваем favorites при монтировании компонента
+    //get favorites on component mounting
     useEffect(() => {
         dispatch(getFavorites());
     }, [dispatch]);
 
-    // Обновляем фильтрованные станции при изменении списка станций
     useEffect(() => {
         setIsFavoriteHeart(isFavorite);
     }, [favorites, station.stationuuid]);
