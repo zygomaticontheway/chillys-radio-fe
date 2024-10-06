@@ -1,24 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { IStation } from '../../types/interfaces';
-import { IFavoriteStations } from '../../types/interfaces';
+import styles from './favoriteStations.module.css';
 
-const FavoriteStations: React.FC<IFavoriteStations> = ({ stations = [] }) => {
+interface FavoriteStationsProps {
+  stations: IStation[];
+}
+
+const FavoriteStations: React.FC<FavoriteStationsProps> = ({ stations }) => {
   return (
-    <div>
-      {stations.length === 0 ? (
-        <div>No favorite stations available.</div>
-      ) : (
-        stations.map((station: IStation) => (
-          <div key={station.stationuuid}>
-            <img src={station.favicon} alt={station.name} />
-            <h4>{station.name}</h4>
-          </div>
-        ))
-      )}
-    </div>
+      <div className={styles.favoriteStationsGrid}>
+          {stations.map((station) => (
+              <Link to={`/${station.stationuuid}`} key={station.stationuuid} className={styles.favoriteStationItem}>
+                  <img src={station.favicon} alt={`${station.name} icon`} className={styles.favoriteStationIcon} />
+              </Link>
+          ))}
+      </div>
   );
 };
 
 export default FavoriteStations;
-
-
