@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { useDebounce } from 'use-debounce';
-import { searchStations } from '../../features/stations/stationsSlice';
 import styles from './header.module.css';
+import { searchStations } from '../../features/stations/stationsActions';
 
 const SearchFormHeader: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 300);
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
   const dispatch = useAppDispatch();
-  const { isLoading, error } = useAppSelector((state) => state.stations);
+  const { isLoading, error } = useAppSelector((state) => state.stationsResponse);
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      dispatch(searchStations({ name: debouncedSearchTerm, page: 0, size: 20 }));
+      dispatch(searchStations({
+        search: debouncedSearchTerm, page: 0, size: 20
+      }));
     }
   }, [debouncedSearchTerm, dispatch]);
 
