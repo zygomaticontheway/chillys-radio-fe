@@ -9,6 +9,7 @@ import StationPageItem from "./components/stations-page/StationPageItem";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import MyProfile from "./components/my-profile/MyProfile";
+import AboutUs from "./components/aboutUs/AboutUs";
 
 
 createRoot(document.getElementById('root')!).render(
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/register' element={<Register />} />
           <Route path='/:id' element={<StationPageItem />} />
           <Route path='*' element={<div className='lesson-container'><h1>ERROR 404 ☠️</h1> <RickAstley /></div>} />
+          <Route path='/about' element={<AboutUs />} />
         </Route>
       </Routes>
     </HashRouter>
