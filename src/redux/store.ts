@@ -7,6 +7,7 @@ import { favoritesSlice } from "../features/favorites/favoritesSlice"
 import tagsSlice from "../features/tags/tagsSlice"
 import countriesSlice from "../features/tags/countriesSlice"
 import languageSlice from "../features/tags/languagesSlice"
+import userPasswordSlice from "../features/userPassword/userPasswordSlice"
 
 
 
@@ -19,15 +20,18 @@ export const store = configureStore({
     favorites: favoritesSlice.reducer,
     tags: tagsSlice.reducer,
     countries: countriesSlice.reducer,
-    languages: languageSlice.reducer
+    languages: languageSlice.reducer,
+    password: userPasswordSlice.reducer
   },
 })
 
-export type AppDispatch = typeof store.dispatch
-export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
   unknown,
   Action<string>
 >
+
+
