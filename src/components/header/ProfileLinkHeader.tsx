@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './header.module.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getUserWithToken } from '../../features/auth/authActions';
 
 
