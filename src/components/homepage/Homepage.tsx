@@ -17,7 +17,6 @@ export default function Homepage() {
                 </div>
                 <div className={styles.stationContainerWrapper}>
                     <StationsContainer />
-                    
                 </div>
             </div>
         )
