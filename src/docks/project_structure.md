@@ -184,7 +184,7 @@
 ## Default colors
 
 ### green
-rgba(76, 175, 79, 1);
+left: 55%;
 
 ### deep green (button)
 rgba(70, 149, 73, 1);
