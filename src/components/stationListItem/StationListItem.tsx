@@ -23,7 +23,7 @@ const StationListItem: React.FC<StationListItemProps> = ({ station }) => {
       <div className={styles.stationInfo}>
         <h4 className={styles.stationName}>{station.name}</h4>
         <p className={styles.stationCountryLanguage}>
-          <span>{station.country}</span> | <span>{station.language}</span>
+          <span>{station.country}</span>  <span className={styles.stationLanguage}>{station.language}</span>
         </p>
         <p className={styles.stationTags}>{station.tags}</p>
       </div>
