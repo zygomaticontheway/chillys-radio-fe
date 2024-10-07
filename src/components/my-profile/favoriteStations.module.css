@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
     gap: 20px; 
-    padding: 0; 
+    padding: 0;
+    cursor: pointer; 
 }
 
 .favoriteStationItem {
@@ -12,12 +13,18 @@
     align-items: center;
     text-decoration: none; 
 }
+.favoriteStationIcon:hover {
+    box-shadow: rgba(76, 175, 79, 0.7) 0px 0px 20px 0px;
+    transition: box-shadow 0.1s linear;
+    cursor: pointer;
+  }
 
 .favoriteStationIcon {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .favoriteIconContainer {

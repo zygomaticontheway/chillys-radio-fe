@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import Loader from '../loader/Loader';
 import MyButton from '../myButton/MyButton';
-import { getFavorites } from '../../features/favorites/favoritesAction'; 
+import { getFavorites } from '../../features/favorites/favoritesAction';
 import { getUserWithToken } from '../../features/auth/authActions';
 import { logoutUser } from '../../features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
@@ -13,13 +13,12 @@ const MyProfile: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const { user, isLoading } = useAppSelector(state => state.user);
-    const favoriteStations = useAppSelector(state => state.favorites.favorites); 
 
     useEffect(() => {
         const token = localStorage.getItem('user-token');
         if (token) {
             dispatch(getUserWithToken(token));
-            dispatch(getFavorites()); 
+            dispatch(getFavorites());
         }
     }, [dispatch]);
 
