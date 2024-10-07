@@ -1,23 +1,23 @@
 export interface IStation {
-    id?: number;
-    stationuuid: string;
-    name: string;
-    url?: string;
-    url_resolved: string;
-    homepage?: string;
-    favicon: string;
-    tags: string;
-    country: string;
-    countrycode?: string;
-    state?: string;
-    language: string;
-    languagecodes?: string;
-    votes: number;
-    lastchangetime?: string;
-    codec?: string;
-    bitrate?: number;
-    lastcheckok?: number;
-    clickcount: number;
+  id?: number
+  stationuuid: string
+  name: string
+  url?: string
+  url_resolved: string
+  homepage?: string
+  favicon: string
+  tags: string
+  country: string
+  countrycode?: string
+  state?: string
+  language: string
+  languagecodes?: string
+  votes: number
+  lastchangetime?: string
+  codec?: string
+  bitrate?: number
+  lastcheckok?: number
+  clickcount: number
 }
 export interface IStationResponseData{
     content: IStation [];
@@ -55,14 +55,14 @@ export interface IStationResponse {
 }
 
 export interface ITokenResponse {
-    accessToken: string;
-    refreshToken: string;
+  accessToken: string
+  refreshToken: string
 }
 
 export interface IDataResponse {
-    ok: boolean;
-    message: string;
-    modifiedItems: string;
+  ok: boolean
+  message: string
+  modifiedItems: string
 }
 
 export interface IUserData {
