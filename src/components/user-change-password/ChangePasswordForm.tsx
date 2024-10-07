@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setNewPassword, setOldPassword,} from "../../features/userPassword/userPasswordSlice"
-import "./changePasswordForm.module.css"
 import { changePassword } from "../../features/userPassword/userPasswordAction"
 import React from "react"
 import { AppDispatch, RootState } from "../../redux/store"
