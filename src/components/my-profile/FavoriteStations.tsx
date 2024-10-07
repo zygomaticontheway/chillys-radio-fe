@@ -11,7 +11,11 @@ const FavoriteStations: React.FC = () => {
         <div className={styles.favoriteStationsGrid}>
             {favoriteStations.map((station: IStation) => (
                 <div key={station.stationuuid} className={styles.favoriteStationItem}>
-                    <img src={station.favicon} alt={`${station.name} icon`} className={styles.favoriteStationIcon} />
+                    <img 
+                        src={station.favicon || "/media/TheCR_Banner1_res.jpg"}  
+                        alt={`${station.name} icon`} 
+                        className={styles.favoriteStationIcon} 
+                    />
                     <div className={styles.favoriteIconContainer}>
                         <div className={styles.heartBackground} />
                         <FavoriteHeart station={station} /> 
@@ -23,3 +27,5 @@ const FavoriteStations: React.FC = () => {
 };
 
 export default FavoriteStations;
+
+
