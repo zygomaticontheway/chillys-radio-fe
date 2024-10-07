@@ -6,6 +6,7 @@
 }
 
 .favoriteStationItem {
+    position: relative; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,5 +20,26 @@
     border-radius: 8px;
 }
 
+.favoriteIconContainer {
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
 
+.heartBackground {
+    position: absolute; 
+    width: 30px; 
+    height: 30px; 
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 50%; 
+    z-index: 0; 
+}
+
+.favoriteHeart {
+    position: relative; 
+    z-index: 1; 
+}
 

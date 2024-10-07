@@ -37,7 +37,7 @@ const MyProfile: React.FC = () => {
 
     return (
         <div className={styles.profileContainer}>
-            <h2>My profile</h2>
+            <h2>My Profile</h2>
             <div className={styles.userDetails}>
                 <div className={styles.profileField}>
                     <label>Username:</label>
@@ -59,9 +59,9 @@ const MyProfile: React.FC = () => {
             </div>
 
             <div className={styles.favoriteStations}>
-    <h3 className={styles.favoriteStationsTitle}>Your Favorite Stations</h3>
-    <FavoriteStations stations={favoriteStations} /> 
-</div>
+                <h3 className={styles.favoriteStationsTitle}>Your Favorite Stations</h3>
+                <FavoriteStations />
+            </div>
         </div>
     );
 };
