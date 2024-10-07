@@ -1,29 +1,20 @@
 
 
 import styles from "./homepage.module.css"
-import { useEffect, useState } from "react";
-import axios from "axios";
 import StationsContainer from "../stations-container/StationsContainer";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useEffect } from "react";
+import { getAllStationsAmount } from "../../features/stations/stationsActions";
 
 
 export default function Homepage() {
 
-    const [amount, setAmount] = useState<number>()
-    // const [error, setError] = useState<any>("") 
+    const amount = useAppSelector((state) => state.allStationsAmount.amount);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        fetchStationsAmount();
-    }, [])
-
-    const fetchStationsAmount = async () => {
-        try {
-            const result = await axios.get("/api/stations/amount")
-            console.log(`Fetch amount: ${result.data}` );
-            setAmount(result.data)
-        } catch (error) {
-            // setError(error)
-        }
-    }
+        dispatch(getAllStationsAmount())
+      }, [])
 
         return (
             <div className={styles.homepage}>

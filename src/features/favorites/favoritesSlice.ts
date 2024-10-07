@@ -3,9 +3,9 @@ import { IStation } from "../../types/interfaces"
 import { getFavorites, setFavoriteStation } from "./favoritesAction"
 
 interface IFavoritesState {
-  favorites: IStation[]
-  isLoading: boolean
-  error: string | null
+  favorites: IStation[];
+  isLoading: boolean;
+  error: string | null;
 }
 
 const initialState: IFavoritesState = {

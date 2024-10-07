@@ -1,51 +1,74 @@
 export interface IStation {
-    id?: number;
-    stationuuid: string;
-    name: string;
-    url?: string;
-    url_resolved: string;
-    homepage?: string;
-    favicon: string;
-    tags: string;
-    country: string;
-    countrycode?: string;
-    state?: string;
-    language: string;
-    languagecodes?: string;
-    votes: number;
-    lastchangetime?: string;
-    codec?: string;
-    bitrate?: number;
-    lastcheckok?: number;
-    clickcount: number;
+  id?: number
+  stationuuid: string
+  name: string
+  url?: string
+  url_resolved: string
+  homepage?: string
+  favicon: string
+  tags: string
+  country: string
+  countrycode?: string
+  state?: string
+  language: string
+  languagecodes?: string
+  votes: number
+  lastchangetime?: string
+  codec?: string
+  bitrate?: number
+  lastcheckok?: number
+  clickcount: number
+}
+export interface IStationResponseData{
+    content: IStation [];
+    // pageable: {
+    //     pageNumber: boolean,
+    //     pageSize: number,
+    //     sort: {
+    //         empty: boolean,
+    //         sorted: boolean,
+    //         unsorted: boolean
+    //     },
+    //     offset: boolean,
+    //     paged: boolean,
+    //     unpaged: boolean
+    // },
+    last: boolean,
+    totalPages: number,
+    totalElements: number,
+    size: number,
+    number: number,
+    // sort: {
+    //     empty: boolean,
+    //     sorted: boolean,
+    //     unsorted: boolean
+    // },
+    numberOfElements: number,
+    first: boolean,
+    empty: boolean
 }
 
 export interface IStationResponse {
-    stations: IStation[];
-    // favoriteStations: IStation[];
+    data: IStationResponseData;
     isLoading: boolean;
-    error: string;
+    error: string | null;
 }
 
 export interface ITokenResponse {
-    accessToken: string;
-    refreshToken: string;
+  accessToken: string
+  refreshToken: string
 }
 
 export interface IDataResponse {
-    ok: boolean;
-    message: string;
-    modifiedItems: string;
+  ok: boolean
+  message: string
+  modifiedItems: string
 }
 
 export interface IUserData {
     id: number;
     username: string;
     email: string;
-    // firstName: string;
-    // lastName: string;
-    // gender: string;
-    // image: string;
     token: string;
     refreshToken: string;
   }

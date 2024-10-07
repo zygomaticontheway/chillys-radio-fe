@@ -29,7 +29,7 @@ export const getHeaderCountries = createAsyncThunk(
     'getHeaderLanguages',
     async (_, thunkAPI) => {
       try {
-        const response = await axios.get('/api/stations/countries');
+        const response = await axios.get('/api/stations/languages');
         return response.data;
       } catch (error: any) {
         return thunkAPI.rejectWithValue(error.message);

@@ -1,20 +1,21 @@
-.buttonStyle{
-    background-color: transparent;
-    background: none;
-    border: 0;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
+.buttonStyle {
+  background-color: transparent;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  
+}
+.buttonStyle .svgFull,
+.buttonStyle .svgEmpty {
+  opacity: 0.75;
 }
 
-.fullHeart{
-
-}
-
-.emptyHeart{
-
+.buttonStyle:hover .svgFull,
+.buttonStyle:hover .svgEmpty {
+  opacity: 1;
 }

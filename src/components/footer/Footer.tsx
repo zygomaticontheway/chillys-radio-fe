@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <Link to="/about" className={styles.footerLink}>About Us</Link>
           </li>
           <li className={styles.footerItem}>
-            <Link to="/contacts" className={styles.footerLink}>Contacts</Link>
+            <Link to="/" className={styles.footerLink}>Contacts</Link>
           </li>
         </ul>
       </nav>

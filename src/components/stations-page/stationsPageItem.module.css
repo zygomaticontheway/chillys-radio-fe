@@ -2,31 +2,43 @@
   display: flex;
   flex-direction: column;
   min-height: 83vh;
-  
+  background-color: #f7f7f7;
+  padding: 20px;
 }
 
 .stationPageItem {
   background-color: white;
   padding: 20px;
   flex: 1;
-  
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .imgContainer {
   box-sizing: border-box;
   aspect-ratio: 1 / 1;
   width: 200px;
   padding: 0;
-  margin: 40px;
+  margin: 0;
   position: relative;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .stationIcon {
   aspect-ratio: 1 / 1;
   width: 200px;
+  max-width: 200px;
   object-fit: contain;
   margin-bottom: 40px;
   border-radius: 8px;
   display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 .favoriteHeartContainer {
@@ -37,29 +49,50 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   aspect-ratio: 1 / 1;
   width: 30px;
 }
 
 .stationInfo {
+  width: 100%;
+  text-align: center;
+  padding: 10px 20px;
 }
 
 .stationName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .stationCountryLanguage {
+  font-size: 1rem;
+  color: #777;
 }
 
 .stationTags {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 5px;
 }
 
 .stationRating {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
 }
 
 .stationVotes {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
 }
 
 .stationClicks {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
 }
