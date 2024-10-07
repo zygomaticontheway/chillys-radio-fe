@@ -23,7 +23,9 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     //get favorites on component mounting
     useEffect(() => {
-        dispatch(getFavorites());
+        if(token){
+            dispatch(getFavorites());
+        }
     }, [dispatch]);
 
     useEffect(() => {
