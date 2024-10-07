@@ -2,16 +2,12 @@
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
 import { headerLinks, homeLink } from './links';
-import { useAppSelector } from '../../redux/hooks';
 import ActivePlayedHeader from '../active-played-header/ActivePlayedHeader';
 import ProfileLinkHeader from './ProfileLinkHeader';
 import FiltersHeader from './FiltersHeader';
 import SearchFormHeader from './SearchFormHeader';
 
-
-  
     export default function Header() {
-      const username = useAppSelector(state => state.user.user.name);
     
       return (
         <header className={styles.header}>
@@ -20,7 +16,7 @@ import SearchFormHeader from './SearchFormHeader';
             <div className={styles.activeStationWrapper}>
               <ActivePlayedHeader />
             </div>
-            <ProfileLinkHeader name={username} />
+            <ProfileLinkHeader />
           </div>
     
           <div className={styles.separator}></div>

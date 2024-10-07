@@ -72,6 +72,9 @@
   font-size: 12px;
   margin-top: 5px;
 }
+.stationLanguage{
+  color: rgb(75, 75, 75);
+}
 
 .stationTags {
   font-size: 12px;

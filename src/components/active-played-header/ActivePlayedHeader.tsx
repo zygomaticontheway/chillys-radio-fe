@@ -19,7 +19,7 @@ const ActivePlayedHeader = () => {
 
     return (
         <div className={styles.activePlayedHeader}>
-            <img src={activeStation.favicon  || "src/media/TheCR_Banner1_res.jpg"} alt={activeStation.name} className={styles.stationIcon} />
+            <img src={activeStation.favicon  || "/media/TheCR_Banner1_res.jpg"} alt={activeStation.name} className={styles.stationIcon} />
             <div className={styles.playPauseButton}><PlayPauseButton streamUrl={activeStation.url_resolved} /></div>
             <div className={styles.volumeButton}><VolumeControl onVolumeChange={handleVolumeChange} /></div>
             <h3 className={styles.stationName}>{activeStation.name}</h3>

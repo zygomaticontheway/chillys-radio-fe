@@ -2,12 +2,19 @@
 
 import styles from "./homepage.module.css"
 import StationsContainer from "../stations-container/StationsContainer";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useEffect } from "react";
+import { getAllStationsAmount } from "../../features/stations/stationsActions";
 
 
 export default function Homepage() {
 
     const amount = useAppSelector((state) => state.allStationsAmount.amount);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getAllStationsAmount())
+      }, [])
 
         return (
             <div className={styles.homepage}>
