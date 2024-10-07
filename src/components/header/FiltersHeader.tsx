@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getHeaderCountries, getHeaderLanguages, getHeaderTags } from '../../features/tags/headerTagsAction';
-import { filteredStations, getTopClicksStations, getTopVotesStations } from '../../features/stations/stationsActions';
+import { filteredStations, getStations, getTopClicksStations, getTopVotesStations } from '../../features/stations/stationsActions';
 
 interface FiltersHeaderProps {
   headerLinks: Array<{ path: string; label: string }>;
@@ -32,6 +32,11 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
 
   const handleMouseLeave = () => {
     setActiveFilter(null);
+  };
+
+  const handleAllStationsClick = () => {
+    dispatch(getStations({ page: 1, size: 50 }));
+    navigate('/');
   };
 
   const renderFilterContent = (label: string) => {
@@ -117,15 +122,21 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
     <nav className={styles.nav}>
       <ul className={styles.navList}>
         {headerLinks.map((link) => (
-          <li 
-            key={link.path} 
+          <li
+            key={link.path}
             className={styles.navItem}
-            onMouseEnter={() => handleMouseEnter(link.label)}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={link.label !== 'All Stations' ? () => handleMouseEnter(link.label) : undefined}
+            onMouseLeave={link.label !== 'All Stations' ? handleMouseLeave : undefined}
           >
-            <Link to={link.path} className={styles.navLink}>
-              {link.label}
-            </Link>
+            {link.label === 'All Stations' ? (
+              <Link to="/" onClick={handleAllStationsClick} className={styles.navLink}>
+                {link.label}
+              </Link>
+            ) : (
+              <Link to={link.path} className={styles.navLink}>
+                {link.label}
+              </Link>
+            )}
             {activeFilter === link.label && (
               <div className={styles.filterDropdown}>
                 {renderFilterContent(link.label)}
