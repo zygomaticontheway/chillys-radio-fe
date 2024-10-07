@@ -2,15 +2,21 @@
   display: flex;
   flex-direction: column;
   min-height: 83vh;
-  
+  background-color: #f7f7f7; /* Светлый фон */
+  padding: 20px;
 }
 
 .stationPageItem {
   background-color: white;
   padding: 20px;
   flex: 1;
-  
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Добавление тени для визуальной глубины */
+  border-radius: 8px; /* Закругление углов */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .imgContainer {
   box-sizing: border-box;
   aspect-ratio: 1 / 1;
@@ -18,8 +24,8 @@
   padding: 0;
   margin: 40px;
   position: relative;
-
 }
+
 .stationIcon {
   aspect-ratio: 1 / 1;
   width: 200px;
@@ -27,6 +33,14 @@
   margin-bottom: 40px;
   border-radius: 8px;
   display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5); /* Легкий фон для иконки */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  transition: box-shadow 0.3s ease; /* Плавный переход для тени при наведении */
+}
+
+.stationIcon:hover {
+  box-shadow: rgba(76, 175, 79, 0.7) 0px 0px 20px 0px; /* Тень при наведении */
+  cursor: pointer;
 }
 
 .favoriteHeartContainer {
@@ -37,29 +51,41 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.8); /* Более яркий фон для сердца */
   border-radius: 50%;
   aspect-ratio: 1 / 1;
   width: 30px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Добавить легкую тень */
 }
 
 .stationInfo {
+  width: 100%;
+  text-align: center;
+  padding: 10px 20px;
 }
 
 .stationName {
+  font-size: 1.5rem; /* Увеличенный размер шрифта для названия */
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Темный цвет текста */
 }
 
 .stationCountryLanguage {
+  font-size: 1rem; /* Размер шрифта чуть меньше */
+  color: #777; /* Слегка приглушенный цвет текста */
 }
 
 .stationTags {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 5px;
 }
 
-.stationRating {
-}
-
-.stationVotes {
-}
-
+.stationRating,
+.stationVotes,
 .stationClicks {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
 }
