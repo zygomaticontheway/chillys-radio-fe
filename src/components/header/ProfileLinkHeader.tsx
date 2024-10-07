@@ -20,7 +20,11 @@ const ProfileLinkHeader: React.FC<ProfileLinkHeaderProps> = ({ name }) => {
       <div className={styles.rightAligned}>
         <Link to="/login" className={`${styles.navLink} ${styles.profileLink}`}>
           <span className={styles.iconProfile}></span>
-          Login/Register
+          Login/
+        </Link>
+        <Link to="/register" className={`${styles.navLink} ${styles.profileLink}`}>
+          <span className={styles.iconProfile}></span>
+          Register
         </Link>
       </div>
     );
