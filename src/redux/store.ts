@@ -4,13 +4,9 @@ import authSlice from "../features/auth/authSlice"
 import playPauseSlice from "../features/play-pause-button/playPauseSlice"
 import setPlayingStationSlice from "../features/stations/setPlayingStationSlice"
 import { favoritesSlice } from "../features/favorites/favoritesSlice"
-import tagsSlice from "../features/tags/tagsSlice"
-import countriesSlice from "../features/tags/countriesSlice"
-import languageSlice from "../features/tags/languagesSlice"
 import getAllStationsAmountSlice from "../features/stations/getAllStationsAmountSlice"
 import userPasswordSlice from "../features/userPassword/userPasswordSlice"
-
-
+import stationsInfoSlice from "../features/stationsInfo/stationsInfoSlice"
 
 export const store = configureStore({
   reducer: {
@@ -19,21 +15,17 @@ export const store = configureStore({
     playPause: playPauseSlice.reducer,
     playingStation: setPlayingStationSlice.reducer,
     favorites: favoritesSlice.reducer,
-    tags: tagsSlice.reducer,
-    countries: countriesSlice.reducer,
-    languages: languageSlice.reducer,
+    stationsInfo: stationsInfoSlice.reducer,
     allStationsAmount: getAllStationsAmountSlice.reducer,
-    password: userPasswordSlice.reducer
+    password: userPasswordSlice.reducer,
   },
 })
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
   unknown,
   Action<string>
 >
-
-

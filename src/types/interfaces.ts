@@ -82,6 +82,9 @@ export interface IUserData {
     stations: IStation[]; 
 }
 
-export interface IHeaderTags {
-    [title: string]: number;
+export interface IStationInfo {
+    id: number;
+    title: string;
+    amount: number;
+    type: string;
 }
