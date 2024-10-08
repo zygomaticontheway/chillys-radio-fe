@@ -24,7 +24,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
     dispatch(getHeaderTags());
     dispatch(getHeaderCountries());
     dispatch(getHeaderLanguages());
-  }, [dispatch]);
+  }, []);
 
   const handleMouseEnter = (label: string) => {
     setActiveFilter(label);
