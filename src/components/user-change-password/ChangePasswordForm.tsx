@@ -52,7 +52,7 @@ const PasswordChangeForm  = () => {
       </form>
       {loading && <p>changing password...</p> }
       {error && <p style={{color: 'red'}}>{error}</p> }
-      {success && <p>Password changed successfully</p> }
+      {success && <p>Password successfully changed</p> }
     </div> 
   );
 
