@@ -7,40 +7,78 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { playAudio } from "../../features/play-pause-button/playPauseSlice"
 import StationListItem from "../stationListItem/StationListItem"
 import styles from "./stationsContainer.module.css"
-import { filteredStations, getStations, searchStations } from "../../features/stations/stationsActions"
+import { filteredStations, getStations, getTopClicksStations, getTopVotesStations, searchStations } from "../../features/stations/stationsActions"
+import { resetFilters, setCurrentPage } from "../../features/filter/filtersSlice"
 
 const StationsContainer: React.FC = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [currentPage, setCurrentPage] = useState<number>(Number(searchParams.get("page")) || 1);
-  const pageSize = useAppSelector(state => state.filter.pageSize);
-
-  // const [filters, setFilters] = useState({
-  //   name: searchParams.get("name") || "",
-  //   country: searchParams.get("country") || "",
-  //   language: searchParams.get("language") || "",
-  //   tags: searchParams.get("tag") || "",
-  //   search: searchParams.get("search") || ""
-  // });
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const [currentLocalPage, setCurrentLocalPage] = useState<number>(Number(searchParams.get("page")) || 1);
 
   const stations = useAppSelector(state => state.stationsResponse.data.content)
   const isLoading = useAppSelector(state => state.stationsResponse.isLoading)
   const error = useAppSelector(state => state.stationsResponse.error)
   const filter = useAppSelector(state => state.filter)
+  const itemsAmount = useAppSelector(state => state.stationsResponse.data.totalElements)
+  const isFirst = useAppSelector(state => state.stationsResponse.data.first)
+  const isLast = useAppSelector(state => state.stationsResponse.data.last)
 
   useEffect(() => {
-    dispatch(getStations({ page: currentPage, size: pageSize }));
-  }, [dispatch, currentPage]);
+    switch (filter.filterType) {
+      case 'top clicks':
+        dispatch(getTopClicksStations({ page: filter.currentPage, size: filter.pageSize }));
+        break;
+      case 'top votes':
+        dispatch(getTopVotesStations({ page: filter.currentPage, size: filter.pageSize }));
+        break;
+      case 'search':
+        dispatch(searchStations({ search: filter.filterValue, page: filter.currentPage, size: filter.pageSize }));
+        break;
+      case 'country':
+        dispatch(filteredStations({
+          name: '',
+          country: filter.filterValue,
+          language: '',
+          tags: '',
+          page: filter.currentPage,
+          size: filter.pageSize
+        }));
+        break;
+      case 'language':
+        dispatch(filteredStations({
+          name: '',
+          country: '',
+          language: filter.filterValue,
+          tags: '',
+          page: filter.currentPage,
+          size: filter.pageSize
+        }))
+        break;
+      case 'tag':
+        dispatch(filteredStations({
+          name: '',
+          country: '',
+          language: '',
+          tags: filter.filterValue,
+          page: filter.currentPage,
+          size: filter.pageSize
+        }))
+        break;
+      case '':
+        dispatch(getStations({ page: filter.currentPage, size: filter.pageSize }))
+        break;
+    }
+  }, [dispatch, filter]);
 
   const handleNextPage = () => {
-    setSearchParams({ page: String(currentPage + 1) });
+    const nextPage = filter.currentPage + 1;
+    dispatch(setCurrentPage(nextPage));
   };
 
   const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setSearchParams({ page: String(currentPage - 1) });
-    }
+    const nextPage = filter.currentPage - 1;
+    dispatch(setCurrentPage(nextPage));
   };
 
   // // Фетчинг данных при изменении страницы или фильтров
@@ -100,7 +138,8 @@ const StationsContainer: React.FC = () => {
 
   return (
     <div className={styles.stationListContainerWrapper}>
-      <div className={styles.stationsFilterTitle}>{filter.filterTitle === "" ? "Choose your radio station:" : `Stations with ${filter.filterTitle}:`}</div>
+      <div className={styles.stationsFilterTitle}>
+        {filter.filterType === "" ? "Choose your radio station:" : `Stations with ${filter.filterType} ${filter.filterValue} (${itemsAmount}):`}</div>
       <div className={styles.stationListContainer}>
         {stations.map(station => (
           <div
@@ -115,14 +154,14 @@ const StationsContainer: React.FC = () => {
       <div className={styles.pagination}>
         <button
           onClick={handlePreviousPage}
-          disabled={currentPage === 1}
+          disabled={isFirst}
         >
           Back
         </button>
-        <span>Page {currentPage}</span>
+        <span>Page {filter.currentPage + 1}</span>
         <button
           onClick={handleNextPage}
-          disabled={stations.length < pageSize}
+          disabled={isLast}
         >
           Next
         </button>
