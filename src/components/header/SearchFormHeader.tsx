@@ -4,12 +4,14 @@ import { useDebounce } from 'use-debounce';
 import styles from './header.module.css';
 import { searchStations } from '../../features/stations/stationsActions';
 import { useNavigate } from 'react-router-dom';
+import { setFilter } from '../../features/filter/filtersSlice';
+
 
 const SearchFormHeader: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setLocalSearchTerm] = useState('');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
   const dispatch = useAppDispatch();
-  const { isLoading, error } = useAppSelector((state) => state.stationsResponse);
+  const { isLoading, error } = useAppSelector(state => state.stationsResponse);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,8 +23,11 @@ const SearchFormHeader: React.FC = () => {
   }, [debouncedSearchTerm, dispatch]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    setLocalSearchTerm(e.target.value);
+    dispatch(setFilter({filterType: "search", filterValue: e.target.value, currentPage: 1, pageSize: 20}))
     navigate('/');
+    console.log(searchTerm);
+    
   };
 
   return (

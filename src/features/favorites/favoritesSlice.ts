@@ -18,9 +18,9 @@ export const favoritesSlice = createSlice({
   name: "favoritesSlice",
   initialState,
   reducers: {
-    // cleanFavorites: state => {
-    //   state.favorites = []
-    // },
+    cleanFavorites: state => {
+      state.favorites = []
+    },
   },
   extraReducers: builder => {
     builder
@@ -50,4 +50,4 @@ export const favoritesSlice = createSlice({
   },
 })
 
-// export const { cleanFavorites } = favoritesSlice.actions
+export const { cleanFavorites } = favoritesSlice.actions

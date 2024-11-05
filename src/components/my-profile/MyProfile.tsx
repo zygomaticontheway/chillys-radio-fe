@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './myProfile.module.css';
 import FavoriteStations from './FavoriteStations';
 import PasswordChangeForm from '../user-change-password/ChangePasswordForm';
+import { cleanFavorites } from '../../features/favorites/favoritesSlice';
 
 const MyProfile: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -31,6 +32,7 @@ const MyProfile: React.FC = () => {
     const handleLogout = () => {
         localStorage.removeItem('user-token');
         dispatch(logoutUser());
+        dispatch(cleanFavorites());
         navigate('/');
     };
 

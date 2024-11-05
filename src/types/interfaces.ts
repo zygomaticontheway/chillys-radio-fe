@@ -19,39 +19,39 @@ export interface IStation {
   lastcheckok?: number
   clickcount: number
 }
-export interface IStationResponseData{
-    content: IStation [];
-    // pageable: {
-    //     pageNumber: boolean,
-    //     pageSize: number,
-    //     sort: {
-    //         empty: boolean,
-    //         sorted: boolean,
-    //         unsorted: boolean
-    //     },
-    //     offset: boolean,
-    //     paged: boolean,
-    //     unpaged: boolean
-    // },
-    last: boolean,
-    totalPages: number,
-    totalElements: number,
-    size: number,
-    number: number,
-    // sort: {
-    //     empty: boolean,
-    //     sorted: boolean,
-    //     unsorted: boolean
-    // },
-    numberOfElements: number,
-    first: boolean,
-    empty: boolean
+export interface IStationResponseData {
+  content: IStation[]
+  // pageable: {
+  //     pageNumber: boolean,
+  //     pageSize: number,
+  //     sort: {
+  //         empty: boolean,
+  //         sorted: boolean,
+  //         unsorted: boolean
+  //     },
+  //     offset: boolean,
+  //     paged: boolean,
+  //     unpaged: boolean
+  // },
+  last: boolean
+  totalPages: number
+  totalElements: number
+  size: number
+  number: number
+  // sort: {
+  //     empty: boolean,
+  //     sorted: boolean,
+  //     unsorted: boolean
+  // },
+  numberOfElements: number
+  first: boolean
+  empty: boolean
 }
 
 export interface IStationResponse {
-    data: IStationResponseData;
-    isLoading: boolean;
-    error: string | null;
+  data: IStationResponseData
+  isLoading: boolean
+  error: string | null
 }
 
 export interface ITokenResponse {
@@ -66,25 +66,32 @@ export interface IDataResponse {
 }
 
 export interface IUserData {
-    id: number;
-    username: string;
-    email: string;
-    token: string;
-    refreshToken: string;
-  }
-
-  export interface IAudioPlayerState {
-    isPlaying: boolean;
-    streamUrl: string;
-  }
-
- export interface IFavoriteStations {
-    stations: IStation[]; 
+  id: number
+  username: string
+  email: string
+  token: string
+  refreshToken: string
 }
 
-export interface IStationInfo {
-    id: number;
-    title: string;
-    amount: number;
-    type: string;
+export interface IAudioPlayerState {
+  isPlaying: boolean
+  streamUrl: string
+}
+
+export interface IFavoriteStations {
+  stations: IStation[]
+}
+
+export interface IStationsInfo {
+  id: number
+  title: string
+  amount: number
+  type: string
+}
+
+export interface IFilterState {
+  filterType: string
+  filterValue: string
+  currentPage: number
+  pageSize: number
 }

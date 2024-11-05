@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IStationInfo } from "../../types/interfaces"
+import { IStationsInfo } from "../../types/interfaces"
 import { getStationsInfo } from "./stationsInfoAction"
 
 interface IStationsInfoState {
-  stationsInfo: IStationInfo[]
+  stationsInfo: IStationsInfo[]
   isLoading: boolean
   error: string | null
 }
@@ -36,4 +36,3 @@ export const stationsInfoSlice = createSlice({
 })
 
 export default stationsInfoSlice
-// export const {} = countriesSlice.actions

@@ -7,6 +7,8 @@ import { favoritesSlice } from "../features/favorites/favoritesSlice"
 import getAllStationsAmountSlice from "../features/stations/getAllStationsAmountSlice"
 import userPasswordSlice from "../features/userPassword/userPasswordSlice"
 import stationsInfoSlice from "../features/stationsInfo/stationsInfoSlice"
+import filtersSlice from "../features/filter/filtersSlice"
+
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +20,7 @@ export const store = configureStore({
     stationsInfo: stationsInfoSlice.reducer,
     allStationsAmount: getAllStationsAmountSlice.reducer,
     password: userPasswordSlice.reducer,
+    filter: filtersSlice.reducer,
   },
 })
 
