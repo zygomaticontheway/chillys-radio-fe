@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { IStation } from "../../types/interfaces"
 import { setActiveStation } from "../../features/stations/setPlayingStationSlice"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import Loader from "../loader/Loader"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { playAudio } from "../../features/play-pause-button/playPauseSlice"
 import StationListItem from "../stationListItem/StationListItem"
 import styles from "./stationsContainer.module.css"
 import { filteredStations, getStations, getTopClicksStations, getTopVotesStations, searchStations } from "../../features/stations/stationsActions"
-import { resetFilters, setCurrentPage } from "../../features/filter/filtersSlice"
+import { setCurrentPage } from "../../features/filter/filtersSlice"
 
 const StationsContainer: React.FC = () => {
   const dispatch = useAppDispatch()
