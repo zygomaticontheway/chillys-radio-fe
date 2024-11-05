@@ -1,24 +1,24 @@
 
 import { useNavigate, useSearchParams } from "react-router-dom"
 import styles from "./paginationControls.module.css"
-import { useAppDispatch, useAppSelector } from "../../redux/hooks"
-import { setCurrentPage } from "../../features/filter/filtersSlice"
+import { useAppSelector } from "../../redux/hooks"
+
 
 const PaginationControls = () => {
     const navigate = useNavigate();
     const searchParams = useSearchParams();
-    const dispatch = useAppDispatch();
+    // const dispatch = useAppDispatch();
     const page = searchParams[0].get('page') ?? '1';
     const size = searchParams[0].get('size') ?? '20';
     const isFirst = useAppSelector(state => state.stationsResponse.data.first);
     const isLast = useAppSelector(state => state.stationsResponse.data.last);
-    const currentPage = useAppSelector(state => state.stationsResponse.data.number);
-    const totalPages = useAppSelector(state => state.stationsResponse.data.totalPages);
+    // const currentPage = useAppSelector(state => state.stationsResponse.data.number);
+    // const totalPages = useAppSelector(state => state.stationsResponse.data.totalPages);
 
     
-    const handleCurrentPage = () => {
-        dispatch(setCurrentPage(Number(page)))
-    }
+    // const handleCurrentPage = () => {
+    //     dispatch(setCurrentPage(Number(page)))
+    // }
 
 
     return (
