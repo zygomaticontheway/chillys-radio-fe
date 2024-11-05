@@ -4,7 +4,8 @@ import { useDebounce } from 'use-debounce';
 import styles from './header.module.css';
 import { searchStations } from '../../features/stations/stationsActions';
 import { useNavigate } from 'react-router-dom';
-import { setSearchTerm } from '../../features/filter/filtersSlice';
+import { setFilter } from '../../features/filter/filtersSlice';
+
 
 const SearchFormHeader: React.FC = () => {
   const [searchTerm, setLocalSearchTerm] = useState('');
@@ -23,7 +24,7 @@ const SearchFormHeader: React.FC = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocalSearchTerm(e.target.value);
-    setSearchTerm(e.target.value)
+    dispatch(setFilter({filterType: "search", filterValue: e.target.value, currentPage: 1, pageSize: 20}))
     navigate('/');
     console.log(searchTerm);
     
