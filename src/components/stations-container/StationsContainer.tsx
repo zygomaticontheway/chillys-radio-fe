@@ -1,51 +1,93 @@
 import React, { useState, useEffect } from "react"
 import { IStation } from "../../types/interfaces"
 import { setActiveStation } from "../../features/stations/setPlayingStationSlice"
-import { useNavigate } from "react-router-dom"
-import { getStations } from "../../features/stations/stationsActions"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import Loader from "../loader/Loader"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { playAudio } from "../../features/play-pause-button/playPauseSlice"
 import StationListItem from "../stationListItem/StationListItem"
 import styles from "./stationsContainer.module.css"
+import { filteredStations, getStations, searchStations } from "../../features/stations/stationsActions"
 
 const StationsContainer: React.FC = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [currentPage, setCurrentPage] = useState(1)
-  const pageSize = 20
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [currentPage, setCurrentPage] = useState<number>(Number(searchParams.get("page")) || 1);
+  const pageSize = useAppSelector(state => state.filter.pageSize);
+
+  // const [filters, setFilters] = useState({
+  //   name: searchParams.get("name") || "",
+  //   country: searchParams.get("country") || "",
+  //   language: searchParams.get("language") || "",
+  //   tags: searchParams.get("tag") || "",
+  //   search: searchParams.get("search") || ""
+  // });
 
   const stations = useAppSelector(state => state.stationsResponse.data.content)
   const isLoading = useAppSelector(state => state.stationsResponse.isLoading)
   const error = useAppSelector(state => state.stationsResponse.error)
-  
-  // local state for filtered stations
-  const [filteredStations, setFilteredStations] = useState<IStation[]>([])
+  const filter = useAppSelector(state => state.filter)
 
-  // fetching stations on the component mounting and page number changing
   useEffect(() => {
-    dispatch(getStations({ page: currentPage, size: pageSize }))
-  }, [dispatch, currentPage, pageSize])
+    dispatch(getStations({ page: currentPage, size: pageSize }));
+  }, [dispatch, currentPage]);
 
-  // Refreshing filtered stations on stations list change
-  useEffect(() => {
-    setFilteredStations(stations)
-  }, [stations])
+  const handleNextPage = () => {
+    setSearchParams({ page: String(currentPage + 1) });
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setSearchParams({ page: String(currentPage - 1) });
+    }
+  };
+
+  // // Фетчинг данных при изменении страницы или фильтров
+  // useEffect(() => {
+  //   if (filters.search) {
+  //     dispatch(searchStations({ search: filters.search, page: currentPage, size: pageSize }));
+  //     return
+  //   } if (filters.name || filters.country || filters.language || filters.tags) {
+  //     dispatch(filteredStations({ ...filters, page: currentPage, size: pageSize }));
+  //   } else {
+  //     dispatch(getStations({ page: currentPage, size: pageSize }));
+  //   }
+  // }, [dispatch, currentPage, filters]);
+
+  // // Обновляем currentPage, если он изменился в query params
+  // useEffect(() => {
+  //   const pageFromUrl = Number(searchParams.get("page"));
+  //   if (pageFromUrl && pageFromUrl !== currentPage) {
+  //     setCurrentPage(pageFromUrl);
+  //   }
+  // }, [searchParams, currentPage]);
+
+  // // Обновляем query params при смене фильтров
+  // const updateFilter = (key: string, value: string) => {
+  //   setFilters(prevFilters => ({ ...prevFilters, [key]: value }));
+  //   setSearchParams({ ...filters, [key]: value, page: "0" }); // Сбрасываем на первую страницу при изменении фильтров
+  //   setCurrentPage(1);
+  // };
+
+  // const handleNextPage = () => {
+  //   const nextPage = currentPage + 1;
+  //   setCurrentPage(nextPage);
+  //   setSearchParams({ ...filters, page: String(nextPage) });
+  // };
+
+  // const handlePreviousPage = () => {
+  //   if (currentPage > 1) {
+  //     const prevPage = currentPage - 1;
+  //     setCurrentPage(prevPage);
+  //     setSearchParams({ ...filters, page: String(prevPage) });
+  //   }
+  // };
 
   const handleStationClick = (station: IStation) => {
     dispatch(setActiveStation(station))
     dispatch(playAudio())
     navigate(`/${station.stationuuid}`)
-  }
-
-  const handleNextPage = () => {
-    setCurrentPage(prevPage => prevPage + 1)
-  }
-
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(prevPage => prevPage - 1)
-    }
   }
 
   if (isLoading)
@@ -58,9 +100,9 @@ const StationsContainer: React.FC = () => {
 
   return (
     <div className={styles.stationListContainerWrapper}>
-      <div className={styles.stationsFilterTitle}>Choose your radio station:</div>
+      <div className={styles.stationsFilterTitle}>{filter.filterTitle === "" ? "Choose your radio station:" : `Stations with ${filter.filterTitle}:`}</div>
       <div className={styles.stationListContainer}>
-        {filteredStations.map(station => (
+        {stations.map(station => (
           <div
             key={station.stationuuid}
             className={styles.stationItemWrapper}
@@ -71,13 +113,16 @@ const StationsContainer: React.FC = () => {
         ))}
       </div>
       <div className={styles.pagination}>
-        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+        <button
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
           Back
         </button>
         <span>Page {currentPage}</span>
         <button
           onClick={handleNextPage}
-          disabled={filteredStations.length < pageSize}
+          disabled={stations.length < pageSize}
         >
           Next
         </button>

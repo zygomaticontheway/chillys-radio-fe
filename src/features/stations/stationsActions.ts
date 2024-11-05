@@ -28,7 +28,7 @@ export const searchStations = createAsyncThunk(
 
 export const filteredStations = createAsyncThunk(
   "stations/filtered", 
-  async ({ name, tags, country, language, page, size }: { name: string; tags: string; country: string; language: string; page: number; size: number }, { rejectWithValue }) => {
+  async ({ name, country, language, tags, page, size }: { name: string; tags: string; country: string; language: string; page: number; size: number }, { rejectWithValue }) => {
   try {
     const response = await axios.get(
       `/api/stations/filtered?name=${name}&tags=${tags}&country=${country}&language=${language}&page=${page}&size=${size}`,
