@@ -28,7 +28,7 @@ const stationsSlice = createSlice({
   initialState,
   reducers: {
     cleanStations: state => {
-      state.data.content = []
+      state.data = initialStateIStationResponseData
     },
   },
   extraReducers: builder => {

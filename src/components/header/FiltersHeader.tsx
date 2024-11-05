@@ -1,45 +1,35 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getStationsInfo } from '../../features/stationsInfo/stationsInfoAction';
-import { filteredStations, getStations, getTopClicksStations, getTopVotesStations } from '../../features/stations/stationsActions';
+import { resetFilters, setFilter} from '../../features/filter/filtersSlice';
+import { headerLinks } from './links'
 
-interface FiltersHeaderProps {
-  headerLinks: Array<{ path: string; label: string }>;
-}
-
-const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
+const FiltersHeader: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
+  const [activeLocalFilter, setActiveLocalFilter] = useState<string | null>(null);
   const stationsInfo = useAppSelector(state => state.stationsInfo.stationsInfo);
-  
+
   useEffect(() => {
     dispatch(getStationsInfo());
   }, [dispatch]);
 
-  const filterStationsByType = (type: string) => {
+  const splitStationsInfoByType = (type: string) => {
     return stationsInfo
       .filter(stationInfo => stationInfo.type === type)
       .sort((a, b) => b.amount - a.amount)
       .slice(0, 49);
   };
 
-  const countries = useMemo(() => filterStationsByType("country"), [stationsInfo]);
-  const languages = useMemo(() => filterStationsByType("language"), [stationsInfo]);
-  const tags = useMemo(() => filterStationsByType("tag"), [stationsInfo]);
-
-  const handleMouseEnter = (label: string) => {
-    setActiveFilter(label);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveFilter(null);
-  };
+  const countries = useMemo(() => splitStationsInfoByType("country"), [stationsInfo]);
+  const languages = useMemo(() => splitStationsInfoByType("language"), [stationsInfo]);
+  const tags = useMemo(() => splitStationsInfoByType("tag"), [stationsInfo]);
 
   const handleAllStationsClick = () => {
-    dispatch(getStations({ page: 1, size: 50 }));
+    dispatch(resetFilters());
     navigate('/');
   };
 
@@ -49,31 +39,21 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
         return (
           <>
             <button onClick={() => {
-              dispatch(getTopClicksStations({ page: 1, size: 20 }));
-              navigate("/");
+              dispatch(setFilter({ filterType: "top clicks", filterValue: "", currentPage: 1, pageSize: 20 }));
             }} className={styles.headerFilterButton}>Top Clicks</button>
             <button onClick={() => {
-              dispatch(getTopVotesStations({ page: 1, size: 20 }));
-              navigate("/");
+              dispatch(setFilter({ filterType: "top votes", filterValue: "", currentPage: 1, pageSize: 20 }));
             }} className={styles.headerFilterButton}>Top Votes</button>
           </>
         );
       case 'Country':
         return countries.length > 0 ? (
           countries.map((stationInfo) => (
-            <button 
+            <button
               key={stationInfo.id}
               onClick={() => {
-                dispatch(filteredStations({
-                  page: 1, 
-                  size: 20,
-                  name: '',
-                  tags: '',
-                  country: stationInfo.title,  // Используем title как название страны
-                  language: ''
-                }));
-                navigate("/");
-              }} 
+                dispatch(setFilter({ filterType: stationInfo.type, filterValue: stationInfo.title, currentPage: 1, pageSize: 20 }));
+              }}
               className={styles.headerFilterButton}
             >
               {stationInfo.title}
@@ -83,18 +63,11 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
       case 'Language':
         return languages.length > 0 ? (
           languages.map((stationInfo) => (
-            <button 
+            <button
               key={stationInfo.id}
               onClick={() => {
-                dispatch(filteredStations({
-                  page: 1, size: 20,
-                  name: '',
-                  tags: '',
-                  country: '',
-                  language: stationInfo.title
-                }));
-                navigate("/");
-              }} 
+                dispatch(setFilter({ filterType: stationInfo.type, filterValue: stationInfo.title, currentPage: 1, pageSize: 20 }));
+              }}
               className={styles.headerFilterButton}
             >
               {stationInfo.title}
@@ -106,18 +79,11 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
       case 'Tags':
         return tags.length > 0 ? (
           tags.map((stationInfo) => (
-            <button 
+            <button
               key={stationInfo.id}
               onClick={() => {
-                dispatch(filteredStations({
-                  page: 1, size: 20,
-                  name: '',
-                  tags: stationInfo.title,
-                  country: '',
-                  language: ''
-                }));
-                navigate("/");
-              }} 
+                dispatch(setFilter({ filterType: stationInfo.type, filterValue: stationInfo.title, currentPage: 1, pageSize: 20 }));
+              }}
               className={styles.headerFilterButton}
             >
               {stationInfo.title}
@@ -138,8 +104,8 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
           <li
             key={link.path}
             className={styles.navItem}
-            onMouseEnter={link.label !== 'All Stations' ? () => handleMouseEnter(link.label) : undefined}
-            onMouseLeave={link.label !== 'All Stations' ? handleMouseLeave : undefined}
+            onMouseEnter={link.label !== 'All Stations' ? () => setActiveLocalFilter(link.label) : undefined}
+            onMouseLeave={link.label !== 'All Stations' ? () => setActiveLocalFilter(null) : undefined}
           >
             {link.label === 'All Stations' ? (
               <Link to="/" onClick={handleAllStationsClick} className={styles.navLink}>
@@ -150,7 +116,7 @@ const FiltersHeader: React.FC<FiltersHeaderProps> = ({ headerLinks }) => {
                 {link.label}
               </Link>
             )}
-            {activeFilter === link.label && (
+            {activeLocalFilter === link.label && (
               <div className={styles.filterDropdown}>
                 {renderFilterContent(link.label)}
               </div>

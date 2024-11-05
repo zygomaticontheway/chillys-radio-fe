@@ -18,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
     <HashRouter>
       <Routes>
         <Route path='/' element={<Layout />} >
+          <Route path='/?page&size' element={<Homepage />} />
           <Route path='/' element={<Homepage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/my-profile' element={<MyProfile />} /> 

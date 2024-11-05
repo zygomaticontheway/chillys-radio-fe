@@ -1,7 +1,7 @@
 
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
-import { headerLinks, homeLink } from './links';
+import { homeLink } from './links';
 import ActivePlayedHeader from '../active-played-header/ActivePlayedHeader';
 import ProfileLinkHeader from './ProfileLinkHeader';
 import FiltersHeader from './FiltersHeader';
@@ -12,7 +12,7 @@ import SearchFormHeader from './SearchFormHeader';
       return (
         <header className={styles.header}>
           <div className={styles.topLine}>
-            <Link to={homeLink.path} ><img src="/media/logo.png" alt={homeLink.label} className={styles.logo} aria-label="Home"/></Link>
+            <Link to={homeLink.path}><img src="/media/logo.png" alt={homeLink.label} className={styles.logo} aria-label="Home"/></Link>
             <div className={styles.activeStationWrapper}>
               <ActivePlayedHeader />
             </div>
@@ -22,7 +22,7 @@ import SearchFormHeader from './SearchFormHeader';
           <div className={styles.separator}></div>
     
           <div className={styles.bottomLine}>
-            <FiltersHeader headerLinks={headerLinks} />
+            <FiltersHeader/>
             <SearchFormHeader />
           </div>
         </header>
