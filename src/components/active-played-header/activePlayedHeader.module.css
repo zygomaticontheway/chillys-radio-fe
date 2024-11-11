@@ -15,7 +15,6 @@
   box-sizing: border-box;
   height: 42px;
   margin: 1px;
-
 }
 .playPauseButton {
   display: block;
@@ -23,8 +22,20 @@
   background: none;
 }
 .volumeButton {
-    margin-top: 9px;
+  margin-top: 9px;
 }
 .stationName {
-    font-weight: 100;
+  font-weight: 100;
+  max-width: 50vw;
+  max-height: 44px;
+  white-space: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+@media (max-width: 480px) {
+  .stationName{
+    font-size: 0.8rem;
+  }
 }

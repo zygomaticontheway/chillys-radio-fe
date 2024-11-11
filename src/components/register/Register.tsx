@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/hooks';
 import styles from '../login/login.module.css'
 import { useFormik } from "formik";
@@ -13,8 +13,6 @@ export interface IRegisterFormValues {
 export default function Register() {
 
     const dispatch = useAppDispatch()
-
-    //хук для перенаправления маршрутизации
     const navigate = useNavigate()
 
     const formik = useFormik({
@@ -25,13 +23,12 @@ export default function Register() {
         } as IRegisterFormValues,
         onSubmit: (values: IRegisterFormValues, { resetForm }) => {
             console.log(values);
-        
-          //  в values лежат данные из формы
+
             dispatch(registerUser(values))
-            .then(() => {
-                navigate('/')
-              resetForm();
-            })
+                .then(() => {
+                    navigate('/')
+                    resetForm();
+                })
         }
     })
 
@@ -44,6 +41,9 @@ export default function Register() {
                 <input value={formik.values.password} name='password' onChange={formik.handleChange} type="password" placeholder='password' />
                 <button type="submit">register</button>
             </form>
+            <Link to="/login" className={styles.loginLink}>
+                Have an account? Login
+            </Link>
             <span className={styles.formErrors}>{formik.errors.name}</span>
             <span className={styles.formErrors}>{formik.errors.password}</span>
 
