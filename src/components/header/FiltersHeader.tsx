@@ -40,9 +40,13 @@ const FiltersHeader: React.FC = () => {
           <>
             <button onClick={() => {
               dispatch(setFilter({ filterType: "top clicks", filterValue: "", currentPage: 1, pageSize: 20 }));
+              navigate("/");
+              setActiveLocalFilter(null)
             }} className={styles.headerFilterButton}>Top Clicks</button>
             <button onClick={() => {
               dispatch(setFilter({ filterType: "top votes", filterValue: "", currentPage: 1, pageSize: 20 }));
+              navigate("/");
+              setActiveLocalFilter(null)
             }} className={styles.headerFilterButton}>Top Votes</button>
           </>
         );
@@ -53,6 +57,8 @@ const FiltersHeader: React.FC = () => {
               key={stationInfo.id}
               onClick={() => {
                 dispatch(setFilter({ filterType: stationInfo.type, filterValue: stationInfo.title, currentPage: 1, pageSize: 20 }));
+                navigate("/");
+                setActiveLocalFilter(null)
               }}
               className={styles.headerFilterButton}
             >
@@ -67,6 +73,8 @@ const FiltersHeader: React.FC = () => {
               key={stationInfo.id}
               onClick={() => {
                 dispatch(setFilter({ filterType: stationInfo.type, filterValue: stationInfo.title, currentPage: 1, pageSize: 20 }));
+                navigate("/");
+                setActiveLocalFilter(null)
               }}
               className={styles.headerFilterButton}
             >
@@ -83,6 +91,8 @@ const FiltersHeader: React.FC = () => {
               key={stationInfo.id}
               onClick={() => {
                 dispatch(setFilter({ filterType: stationInfo.type, filterValue: stationInfo.title, currentPage: 1, pageSize: 20 }));
+                navigate("/");
+                setActiveLocalFilter(null)
               }}
               className={styles.headerFilterButton}
             >
