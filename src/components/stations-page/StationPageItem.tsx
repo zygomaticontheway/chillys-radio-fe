@@ -30,7 +30,7 @@ export default function StationPageItem() {
 
 
     return (
-        <div className={styles.stationPageItemWrapper}>
+        <div className={styles.stationPage}>
             <div className={styles.stationPageItem}>
                 <div className={styles.imgContainer}>
                     <img

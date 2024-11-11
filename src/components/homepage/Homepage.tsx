@@ -19,8 +19,8 @@ export default function Homepage() {
         return (
             <div className={styles.homepage}>
                 <div className={styles.banner}>
-                    <h1>The Chillys Radio</h1>
-                    <h3>Listen to {amount} radio stations worldwide for free</h3>
+                    <h1 className={styles.h1}>The Chillys Radio</h1>
+                    <h3 className={styles.h3}>Listen to {amount} radio stations worldwide for free</h3>
                 </div>
                 <div className={styles.stationContainerWrapper}>
                     <StationsContainer />
