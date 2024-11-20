@@ -35,7 +35,7 @@ const FiltersHeader: React.FC = () => {
 
   const renderFilterContent = (label: string) => {
     switch (label) {
-      case 'Top Stations':
+      case 'Top':
         return (
           <>
             <button onClick={() => {
@@ -114,10 +114,10 @@ const FiltersHeader: React.FC = () => {
           <li
             key={link.path}
             className={styles.navItem}
-            onMouseEnter={link.label !== 'All Stations' ? () => setActiveLocalFilter(link.label) : undefined}
-            onMouseLeave={link.label !== 'All Stations' ? () => setActiveLocalFilter(null) : undefined}
+            onMouseEnter={link.label !== 'All' ? () => setActiveLocalFilter(link.label) : undefined}
+            onMouseLeave={link.label !== 'All' ? () => setActiveLocalFilter(null) : undefined}
           >
-            {link.label === 'All Stations' ? (
+            {link.label === 'All' ? (
               <Link to="/" onClick={handleAllStationsClick} className={styles.navLink}>
                 {link.label}
               </Link>

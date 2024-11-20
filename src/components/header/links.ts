@@ -6,11 +6,11 @@ interface Link {
 export const headerLinks: Link[] = [
   {
     path: '/all-stations',
-    label: 'All Stations'
+    label: 'All'
   },
   {
     path: '/top-stations',
-    label: 'Top Stations'
+    label: 'Top'
   },
   {
     path: '/country',

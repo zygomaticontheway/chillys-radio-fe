@@ -20,7 +20,6 @@
   background-color: rgba(71, 34, 34, 1);
   width: 100%;
   min-height: 100vh;
-  /* flex: 1; */
 }
 
 .main {
@@ -28,5 +27,7 @@
   flex-grow: 1;
   padding-top: 88px;
   min-width: 100%;
-  
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

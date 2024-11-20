@@ -1,7 +1,8 @@
 .loginForm {
   width: 250px;
   margin: 100px;
-  height: auto;
+  height:max-content;
+  max-height: 300px;
   padding-top: 20px;
   padding-bottom: 20px;
   border: 1px solid #ccc;
@@ -10,6 +11,7 @@
   background-color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 100;
+
 }
 .robotForm {
   display: flex;
@@ -32,6 +34,7 @@
   margin-bottom: 10px;
   align-items: center;
   width: 75%;
+  padding-left: 3px;
 }
 
 .robotForm button {
@@ -57,7 +60,6 @@
 }
 
 .loginLink {
-
   text-align: center;
 }
 
@@ -66,7 +68,6 @@
 }
 
 @media (max-width: 1200px) {
-  
 }
 @media (max-width: 1000px) {
 }
