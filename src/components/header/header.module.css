@@ -40,7 +40,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  
 }
 
 .navList {
@@ -49,7 +48,6 @@
   margin: 0;
   display: flex;
   align-items: center;
-  
 }
 
 .navItem {
@@ -88,6 +86,8 @@
   display: flex;
   align-items: center;
   margin-left: auto;
+  width: auto;
+  max-width: min-content;
 }
 
 .filterDropdown {
@@ -121,6 +121,7 @@
   white-space: inherit;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 100;
 }
 .headerTopStationButton {
   width: 60px;
@@ -168,16 +169,17 @@
     height: 22px;
   }
   .searchInput {
-    max-width: 200px;
+    max-width: 150px;
     width: 20vw;
   }
   .navLink{
     font-size: 0.75rem;
   }
   .navItem{
-    margin-right: 0.3rem;
+    margin-right: 0.1rem;
   }
   .profileLink {
     font-size: 0;
   }
+  .rightAligned{}
 }

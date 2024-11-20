@@ -3,6 +3,7 @@
   flex-direction: column;
   box-sizing: border-box;
   background-color: rgba(238, 238, 238, 0.99);
+  width: 100%;
 }
 
 .banner{

@@ -42,7 +42,8 @@ export default function Register() {
                 <button type="submit">register</button>
             </form>
             <Link to="/login" className={styles.loginLink}>
-                Have an account? Login
+                <p>Have an account?</p>
+                <p>Login</p>
             </Link>
             <span className={styles.formErrors}>{formik.errors.name}</span>
             <span className={styles.formErrors}>{formik.errors.password}</span>
