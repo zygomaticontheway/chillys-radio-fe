@@ -3,8 +3,8 @@
   flex-direction: column;
   background-color: rgba(238, 238, 238, 0.99);
   padding: 20px;
-  min-height: calc(100vh - 150px);
-  /* height:calc(100vh-88px); */
+  /* height: calc(100vh - 150px); */
+  width: 100%;
 }
 
 .stationPageItem {
@@ -74,6 +74,10 @@
   font-size: 0.9rem;
   color: #999;
   margin-top: 5px;
+  min-width: 90%;
+  white-space: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stationRating {
