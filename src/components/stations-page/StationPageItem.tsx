@@ -51,7 +51,7 @@ export default function StationPageItem() {
                 </div>
                 <div className={styles.stationRating}>
                     <span className={styles.stationVotes}>{station.votes} votes</span> | 
-                    <span className={styles.stationClicks}>{station.clickcount} clicks</span>
+                    <span className={styles.stationClicks}> {station.clickcount} clicks</span>
                 </div>
             </div>
         </div>

@@ -3,8 +3,7 @@
   flex-direction: column;
   background-color: rgba(238, 238, 238, 0.99);
   padding: 20px;
-  min-height: calc(100vh - 150px);
-  /* height:calc(100vh-88px); */
+  height: calc(100vh - 150px);
 }
 
 .stationPageItem {
