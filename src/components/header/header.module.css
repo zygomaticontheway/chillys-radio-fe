@@ -17,13 +17,14 @@
   align-items: center;
   height: 44px;
   padding: 5px;
+  padding-left: 10px;
   max-width: 100%;
 }
 
 .logo {
   height: 36px;
   margin-top: 2px;
-  margin-right: 3px;
+  margin-right: 10px;
 }
 
 /* .activeStationWrapper{
