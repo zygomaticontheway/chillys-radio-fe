@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch } from '../../redux/hooks';
 import { useDebounce } from 'use-debounce';
 import styles from './header.module.css';
 import { searchStations } from '../../features/stations/stationsActions';
 import { useNavigate } from 'react-router-dom';
 import { setFilter } from '../../features/filter/filtersSlice';
-import Loader from '../loader/Loader';
 
 
 const SearchFormHeader: React.FC = () => {
   const [searchTerm, setLocalSearchTerm] = useState('');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
   const dispatch = useAppDispatch();
-  const { isLoading, error } = useAppSelector(state => state.stationsResponse);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,7 +36,6 @@ const SearchFormHeader: React.FC = () => {
         value={searchTerm}
         onChange={handleInputChange}
       />
-      {error && <span>Error: {error}</span>}
     </div>
   );
 };
