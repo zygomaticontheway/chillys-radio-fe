@@ -28,9 +28,10 @@
 .favoriteStationIcon {
   aspect-ratio: 1 / 1;
   width: 100%;
-  object-fit: cover;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  object-fit: contain;
 }
 
 .favoriteIconContainer {
