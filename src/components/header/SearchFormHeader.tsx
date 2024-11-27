@@ -5,6 +5,7 @@ import styles from './header.module.css';
 import { searchStations } from '../../features/stations/stationsActions';
 import { useNavigate } from 'react-router-dom';
 import { setFilter } from '../../features/filter/filtersSlice';
+import Loader from '../loader/Loader';
 
 
 const SearchFormHeader: React.FC = () => {
@@ -26,8 +27,6 @@ const SearchFormHeader: React.FC = () => {
     setLocalSearchTerm(e.target.value);
     dispatch(setFilter({filterType: "search", filterValue: e.target.value, currentPage: 1, pageSize: 20}))
     navigate('/');
-    console.log(searchTerm);
-    
   };
 
   return (
@@ -39,7 +38,6 @@ const SearchFormHeader: React.FC = () => {
         value={searchTerm}
         onChange={handleInputChange}
       />
-      {isLoading && <span>Loading...</span>}
       {error && <span>Error: {error}</span>}
     </div>
   );

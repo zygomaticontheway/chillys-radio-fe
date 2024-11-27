@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './aboutUs.module.css';
 
 const developers = [
-  { name: "Oleksii Ilchenko", specialization: "Fullstack Developer, teamlead", git: "https://github.com/zygomaticontheway/", linkedin: "https://www.linkedin.com/in/aleksey-ilchenko/" },
+  { name: "Oleksii Ilchenko", specialization: "Fullstack Developer, teamlead", git: "https://github.com/zygomaticontheway/", linkedin: "https://www.linkedin.com/in/ilchenko-o/" },
   { name: "Liubov Korchashkina", specialization: "Fullstack Developer", git: "https://github.com/FannyWolf", linkedin: "https://www.linkedin.com/in/lyubov-korchashkina/" },
   { name: "Valerii Kuchynskyi", specialization: "Fullstack Developer", git: "https://github.com/Valery2400", linkedin: "" },
   { name: "Vladyslav Velykyy", specialization: "Fullstack Developer", git: "https://github.com/VladVel24", linkedin: "" },

@@ -31,6 +31,7 @@ const FavoriteStations: React.FC = () => {
                         <div className={styles.heartBackground} />
                         <FavoriteHeart station={station} /> 
                     </div>
+                    <h4 className={styles.stationName}>{station.name}</h4>
                 </div>
             ))}
         </div>

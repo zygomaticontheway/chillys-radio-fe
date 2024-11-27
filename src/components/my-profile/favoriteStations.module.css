@@ -1,52 +1,59 @@
 .favoriteStationsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-    gap: 20px; 
-    padding: 0;
-    cursor: pointer; 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  padding: 0;
+  cursor: pointer;
+  align-items: start;
 }
 
 .favoriteStationItem {
-    position: relative; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none; 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  white-space: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .favoriteStationIcon:hover {
-    box-shadow: rgba(76, 175, 79, 0.7) 0px 0px 20px 0px;
-    transition: box-shadow 0.1s linear;
-    cursor: pointer;
-  }
+  box-shadow: rgba(76, 175, 79, 0.7) 0px 0px 20px 0px;
+  transition: box-shadow 0.1s linear;
+  cursor: pointer;
+}
+.favoriteStationItem h4 {
+}
 
 .favoriteStationIcon {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .favoriteIconContainer {
-    position: absolute; 
-    top: 10px; 
-    right: 10px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heartBackground {
-    position: absolute; 
-    width: 30px; 
-    height: 30px; 
-    background-color: rgba(255, 255, 255, 0.7); 
-    border-radius: 50%; 
-    z-index: 0; 
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .favoriteHeart {
-    position: relative; 
-    z-index: 1; 
+  position: relative;
+  z-index: 1;
 }
-
