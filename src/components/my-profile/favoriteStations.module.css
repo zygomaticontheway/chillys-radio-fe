@@ -24,8 +24,6 @@
   transition: box-shadow 0.1s linear;
   cursor: pointer;
 }
-.favoriteStationItem h4 {
-}
 
 .favoriteStationIcon {
   width: 100%;
