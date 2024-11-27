@@ -160,9 +160,9 @@
     margin-right: 0.8rem;
   }
   .searchInput {
-    max-width: 200px;
-    width: 20vw;
-    min-width: 80px;
+    /* max-width: 200px; */
+    width: 120px;
+    /* min-width: 80px; */
   }
 }
 @media (max-width: 480px) {
@@ -171,8 +171,8 @@
     height: 22px;
   }
   .searchInput {
-    max-width: 150px;
-    width: 20vw;
+    /* max-width: 150px; */
+    width: 30vw;
   }
   .navLink{
     font-size: 0.75rem;
@@ -182,8 +182,5 @@
   }
   .profileLink {
     font-size: 0;
-  }
-  .rightAligned{
-    
   }
 }
