@@ -47,7 +47,6 @@ export default function Register() {
             </Link>
             <span className={styles.formErrors}>{formik.errors.name}</span>
             <span className={styles.formErrors}>{formik.errors.password}</span>
-
         </div>
     )
 }
