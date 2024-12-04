@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 
 export default function RegisterConfirmation() {
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const confirmationCode = searchParams.get("id")
     const CONFIRMATION_URL = `https://urchin-app-jq2i7.ondigitalocean.app/api/auth/confirm/${confirmationCode}`
 
