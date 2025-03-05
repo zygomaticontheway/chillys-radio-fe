@@ -17,7 +17,7 @@
     "lint:fix": "eslint --fix .",
     "type-check": "tsc --noEmit",
     "deploy": "npm run build && gh-pages -d build",
-    "lazy": "git add . && git commit -m '' && git push"
+    "lazy": "git add . && git commit -m 'deploy-frontend.yml branch changed to release ' && git push"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",

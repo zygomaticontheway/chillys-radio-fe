@@ -1,0 +1,30 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy to server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.chillys_deploy }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > private_key && chmod 600 private_key
+          scp -i private_key -r dist/* deploy@57.129.44.101:/home/deploy/frontend/
