@@ -26,5 +26,5 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          echo "$SSH_PRIVATE_KEY" > private_key && chmod 600 private_key
-          scp -i private_key -r dist/* deploy@57.129.44.101:/home/deploy/frontend/
+          echo "$SSH_PRIVATE_KEY" > chillys_deploy && chmod 600 chillys_deploy
+          scp -i chillys_deploy -r dist/* deploy@57.129.44.101:/home/deploy/frontend/
