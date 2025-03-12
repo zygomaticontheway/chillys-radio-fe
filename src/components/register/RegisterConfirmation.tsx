@@ -8,7 +8,7 @@ export default function RegisterConfirmation() {
 
     const [searchParams] = useSearchParams();
     const confirmationCode = searchParams.get("id")
-    const CONFIRMATION_URL = `https://57.129.44.101/api/auth/confirm/${confirmationCode}`
+    const CONFIRMATION_URL = `/api/auth/confirm/${confirmationCode}`
 
     const [error, setError] = useState<any>('')
     const [user, setUser] = useState<any>('')
