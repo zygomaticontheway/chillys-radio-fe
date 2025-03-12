@@ -8,7 +8,7 @@ export default defineConfig({
     open: true,
     proxy: {
       "/api": {
-        target: "https://chillysradio.traefik.me",
+        target: "https://chillysradio.site",
         changeOrigin: true
       },
     },
