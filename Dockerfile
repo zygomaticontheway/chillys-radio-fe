@@ -2,7 +2,7 @@
 FROM node:18 AS build
 
 # Устанавливаем рабочую директорию
-WORKDIR /chillys-radio-fe
+WORKDIR /app
 
 # Копируем файлы проекта
 COPY package.json package-lock.json ./
@@ -18,7 +18,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Копируем собранные файлы в Nginx
-COPY --from=build /chillys-radio-fe/dist /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Копируем конфиг Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
