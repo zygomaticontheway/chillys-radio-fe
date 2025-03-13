@@ -8,7 +8,7 @@ export default function RegisterConfirmation() {
 
     const [searchParams] = useSearchParams();
     const confirmationCode = searchParams.get("id")
-    const CONFIRMATION_URL = `https://urchin-app-jq2i7.ondigitalocean.app/api/auth/confirm/${confirmationCode}`
+    const CONFIRMATION_URL = `/api/auth/confirm/${confirmationCode}`
 
     const [error, setError] = useState<any>('')
     const [user, setUser] = useState<any>('')
