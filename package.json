@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "18"
+    "node": "21"
   },
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,7 @@
     "lint:fix": "eslint --fix .",
     "type-check": "tsc --noEmit",
     "deploy": "npm run build && gh-pages -d build",
-    "lazy": "git add . && git commit -m 'dockerfile: WORKDIR /app (as it was before))  ' && git push"
+    "lazy": "git add . && git commit -m 'vite.config.ts: target, node update 21, google analytics scrypt in index.html' && git push"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
@@ -29,6 +29,7 @@
     "formik": "^2.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-ga4": "^2.1.0",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.26.2",
     "typescript": "^5.6.2",
