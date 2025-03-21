@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <p>&copy; 2024 The Chillys team</p>
+      <p>&copy; 2025 The Chillys team</p>
     </footer>
   );
 };
