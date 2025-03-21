@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "21"
+    "node": "18"
   },
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,7 @@
     "lint:fix": "eslint --fix .",
     "type-check": "tsc --noEmit",
     "deploy": "npm run build && gh-pages -d build",
-    "lazy": "git add . && git commit -m 'vite.config.ts: target, node update 21, google analytics scrypt in index.html' && git push"
+    "lazy": "git add . && git commit -m 'node 18 ' && git push"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
