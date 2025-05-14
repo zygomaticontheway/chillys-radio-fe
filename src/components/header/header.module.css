@@ -59,14 +59,14 @@
 }
 
 .navLink {
-  display: inline-block;
+  display: flex;
   padding: 1px;
   color: white;
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content:center;
+  align-items: center;
   align-content: flex-start;
   flex-wrap: nowrap;
   z-index: 500;
