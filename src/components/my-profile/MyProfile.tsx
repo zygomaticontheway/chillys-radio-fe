@@ -23,7 +23,7 @@ const MyProfile: React.FC = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('user-token');
-        if (token) {
+        if (token && token != null) {
             dispatch(getUserWithToken(token));
             dispatch(getFavorites());
         }

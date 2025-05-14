@@ -22,9 +22,14 @@ export default function Register() {
             password: ''
         } as IRegisterFormValues,
         onSubmit: (values: IRegisterFormValues, { resetForm }) => {
-            console.log(values);
+            const preparedValues = {
+                ...values,
+                name: values.name.trim().toLowerCase(),
+                email: values.email.trim().toLowerCase(),
+            }
+            console.log(preparedValues);
 
-            dispatch(registerUser(values))
+            dispatch(registerUser(preparedValues))
                 .then(() => {
                     navigate('/')
                     resetForm();
@@ -36,10 +41,10 @@ export default function Register() {
         <div className={styles.loginForm}>
             <form onSubmit={formik.handleSubmit} className={styles.robotForm}>
                 <label>Registration</label>
-                <input value={formik.values.name} name='name' onChange={formik.handleChange} type="text" placeholder='login' />
-                <input value={formik.values.email} name='email' onChange={formik.handleChange} type="email" placeholder='email' />
-                <input value={formik.values.password} name='password' onChange={formik.handleChange} type="password" placeholder='password' />
-                <button type="submit">register</button>
+                <input value={formik.values.name} name='name' onChange={formik.handleChange} type="text" placeholder='Your name' />
+                <input value={formik.values.email} name='email' onChange={formik.handleChange} type="email" placeholder='* yourmail@yourmail.site' />
+                <input value={formik.values.password} name='password' onChange={formik.handleChange} type="password" placeholder='* Password' />
+                <button type="submit">Register</button>
             </form>
             <Link to="/login" className={styles.loginLink}>
                 <p>Have an account?</p>
