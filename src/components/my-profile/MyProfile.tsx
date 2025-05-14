@@ -47,7 +47,7 @@ const MyProfile: React.FC = () => {
             <h2>My Profile</h2>
             <div className={styles.userDetails}>
                 <div className={styles.profileField}>
-                    <label>Username:</label>
+                    <label>Name:</label>
                     <div className={styles.profileValue}>
                         {user.name || ''}
                     </div>
