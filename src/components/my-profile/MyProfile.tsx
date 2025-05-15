@@ -23,7 +23,7 @@ const MyProfile: React.FC = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('user-token');
-        if (token) {
+        if (token && token != null) {
             dispatch(getUserWithToken(token));
             dispatch(getFavorites());
         }
@@ -47,7 +47,7 @@ const MyProfile: React.FC = () => {
             <h2>My Profile</h2>
             <div className={styles.userDetails}>
                 <div className={styles.profileField}>
-                    <label>Username:</label>
+                    <label>Name:</label>
                     <div className={styles.profileValue}>
                         {user.name || ''}
                     </div>
