@@ -17,7 +17,7 @@
     "lint:fix": "eslint --fix .",
     "type-check": "tsc --noEmit",
     "deploy": "npm run build && gh-pages -d build",
-    "lazy": "git add . && git commit -m 'registration form Name to bottom' && git push"
+    "lazy": "git add . && git commit -m 'align content at profile link' && git push"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
