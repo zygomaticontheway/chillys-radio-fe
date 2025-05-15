@@ -8,7 +8,8 @@ export default defineConfig({
     open: true,
     proxy: {
       "/api": {
-        target: "http://localhost:8080",
+        // target: "http://localhost:8080",
+        target: "https://chillysradio.site",
         changeOrigin: true
       },
     },

@@ -15,7 +15,7 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
     const dispatch = useAppDispatch();
     const favorites = useAppSelector((state: RootState) => state.favorites.favorites);
     const token = localStorage.getItem("user-token");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const isFavorite: boolean = favorites.some(fav => fav.stationuuid === station.stationuuid);
 
@@ -23,7 +23,7 @@ const FavoriteHeart: React.FC<IFavoriteHeartProps> = ({ station }) => {
 
     //get favorites on component mounting
     useEffect(() => {
-        if(token){
+        if(token && token != null){
             dispatch(getFavorites());
         }
     }, [dispatch]);
