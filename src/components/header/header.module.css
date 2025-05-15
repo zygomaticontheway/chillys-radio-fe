@@ -61,19 +61,26 @@
 .navLink {
   display: flex;
   padding: 1px;
+  height: 44px;
   color: white;
   text-decoration: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:center;
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
   align-content: flex-start;
-  flex-wrap: nowrap;
   z-index: 500;
+
+}
+
+.profileText{
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .navLink svg {
   margin-right: 5px;
+  width: 22px;
 }
 
 .navLink:hover {
@@ -181,7 +188,7 @@
   .navItem{
     margin-right: 0.5rem;
   }
-  .profileLink {
+  .profileText {
     font-size: 0;
   }
 }

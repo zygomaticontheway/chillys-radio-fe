@@ -41,9 +41,9 @@ export default function Register() {
         <div className={styles.loginForm}>
             <form onSubmit={formik.handleSubmit} className={styles.robotForm}>
                 <label>Registration</label>
-                <input value={formik.values.name} name='name' onChange={formik.handleChange} type="text" placeholder='Your name' />
-                <input value={formik.values.email} name='email' onChange={formik.handleChange} type="email" placeholder='* yourmail@yourmail.site' />
-                <input value={formik.values.password} name='password' onChange={formik.handleChange} type="password" placeholder='* Password' />
+                <input value={formik.values.email} name='email' onChange={formik.handleChange} type="email" placeholder='* email@yourmail.site' />
+                <input value={formik.values.password} name='password' onChange={formik.handleChange} type="password" placeholder='* password' />
+                <input value={formik.values.name} name='name' onChange={formik.handleChange} type="text" placeholder='Name (:if you want:)' />
                 <button type="submit">Register</button>
             </form>
             <Link to="/login" className={styles.loginLink}>
